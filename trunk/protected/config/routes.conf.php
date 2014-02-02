@@ -1,5 +1,19 @@
 <?php
- $route['*']['/'] = array('UserController', 'getLoginPage');
+
+//----------------My personal agenda routes--------------
+$route['*']['/simpletest'] = array('TestController', 'simpleTest');
+$route['*']['/'] = array('UserController', 'getLoginPage');
+$route['post']['/getsession'] = array('UserController', 'getSession');
+$route['post']['/adduser'] = array('UserController', 'adduser');
+
+
+
+//--------------------------------------------------------
+
+ 
+ 
+ 
+//----------------DooPHP routes--------------------------- 
 $route['*']['/error'] = array('ErrorController', 'index');
 
 
@@ -23,6 +37,6 @@ $route['*']['/gen_site'] = array('MainController', 'gen_site', 'authName'=>'DooP
 
 //generate Models automatically
 $route['*']['/gen_model'] = array('MainController', 'gen_model', 'authName'=>'DooPHP Admin', 'auth'=>$admin, 'authFail'=>'Unauthorized!');
-
+//-----------------------------------------------------------
 
 ?>
