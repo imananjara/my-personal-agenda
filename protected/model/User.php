@@ -9,7 +9,7 @@ class User extends UserBase{
 	 * @param $password
 	 * @return boolean
 	 */
-	public function _getSession($login, $password)
+	public static function _getSession($login, $password)
 	{
 		$isConnected = false;
 		$options = array(
@@ -42,7 +42,7 @@ class User extends UserBase{
 	 * @param $birthday
 	 * @param $email
 	 */
-	public function _addUser($login, $password, $firstname, $lastname, $birthday, $email)
+	public static function _addUser($login, $password, $firstname, $lastname, $birthday, $email)
 	{
 		//birthday to SQL mode
 		$date = explode('/', $birthday);
