@@ -2,7 +2,7 @@
 
 //----------------My personal agenda routes--------------
 $route['*']['/simpletest'] = array('TestController', 'simpleTest');
-$route['*']['/'] = array('UserController', 'getLoginPage');
+$route['*']['/'] = array('UserController', 'index');
 $route['post']['/getsession'] = array('UserController', 'getSession');
 $route['post']['/adduser'] = array('UserController', 'adduser');
 
