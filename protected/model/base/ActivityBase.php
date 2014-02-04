@@ -31,11 +31,6 @@ class ActivityBase extends DooModel{
     /**
      * @var date
      */
-    public $start_date;
-
-    /**
-     * @var date
-     */
     public $end_date;
 
     /**
@@ -45,7 +40,7 @@ class ActivityBase extends DooModel{
 
     public $_table = 'activity';
     public $_primarykey = 'activity_id';
-    public $_fields = array('activity_id','activity_type_id','user_id','title','description','start_date','end_date','commentary');
+    public $_fields = array('activity_id','activity_type_id','user_id','title','description','end_date','commentary');
 
     public function getVRules() {
         return array(
@@ -74,11 +69,6 @@ class ActivityBase extends DooModel{
 
                 'description' => array(
                         array( 'maxlength', 250 ),
-                        array( 'notnull' ),
-                ),
-
-                'start_date' => array(
-                        array( 'date' ),
                         array( 'notnull' ),
                 ),
 
