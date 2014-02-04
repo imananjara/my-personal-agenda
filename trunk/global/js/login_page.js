@@ -30,7 +30,7 @@ $( document ).ready(function() {
 			if(isConnected=="true")
 			{
 				//Refresh to access to the main page
-				location.reload();
+				location.href = baseurl;
 			}
 			
 			else

@@ -23,3 +23,8 @@ a:hover .paginate{
 .inactivePrev, .inactiveNext{
     color:#999;
 }
+
+.activity-section
+{
+background-color : white;
+}

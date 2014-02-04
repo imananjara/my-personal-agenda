@@ -6,16 +6,7 @@ Doo::loadController('BaseController');
  */
 
 class UserController extends BaseController{
-	
-	public function index() {
 		
-	if (isset($_SESSION["mpa_user_id"]) && isset($_SESSION["mpa_user_login"]))
-		$this->renderView('main');
-	else
-		$this->renderView('login');	
-		
-	}
-	
 	public function getLoginPage() {
 		
 		$this->renderView('login');
@@ -32,6 +23,13 @@ class UserController extends BaseController{
 			$isConnected = "false";
 		}
 		echo $isConnected;
+	}
+	
+	public function toLogout(){
+	
+		session_destroy();
+		return $this->_data['baseurl'] .'login';
+	
 	}
 	
 	public function adduser(){

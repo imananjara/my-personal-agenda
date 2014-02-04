@@ -1,14 +1,17 @@
 <?php
 
-//----------------My personal agenda routes--------------
+//----------------My personal agenda routes--------------------------
 $route['*']['/simpletest'] = array('TestController', 'simpleTest');
-$route['*']['/'] = array('UserController', 'index');
+$route['*']['/'] = array('MainPageController', 'getMainPage');
+
+$route['*']['/login'] = array('UserController', 'getLoginPage');
 $route['post']['/getsession'] = array('UserController', 'getSession');
 $route['post']['/adduser'] = array('UserController', 'adduser');
+$route['*']['/logout'] = array('UserController', 'toLogout');
 
 
 
-//--------------------------------------------------------
+//-------------------------------------------------------------------
 
  
  
@@ -17,7 +20,7 @@ $route['post']['/adduser'] = array('UserController', 'adduser');
 $route['*']['/error'] = array('ErrorController', 'index');
 
 
-//---------- Delete if not needed ------------
+//Delete if
 $admin = array('admin'=>'1234');
 
 //view the logs and profiles XML, filename = db.profile, log, trace.log, profile
