@@ -3,7 +3,7 @@ Doo::loadModel('User');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
 /**
- * User controller
+ * Main Page controller
  */
 
 class MainPageController extends BaseController{

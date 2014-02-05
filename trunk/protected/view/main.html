@@ -10,27 +10,41 @@
 	<!-- include 'menu_bar' -->
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="javascript:void(0)" class="btn btn-info pull-right">Ajouter une activite</a></div>
+			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="{{baseurl}}addactivity" class="btn btn-info pull-right">Ajouter une activite</a></div>
 			<hr>
 			<div class="well activity-section">
 				<a href="javascript:void(0)" class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></a>
 				<h4>Devoir de francais</h4>
 				<hr>
 				<p> Il s'agit d'un devoir sur les conjugaisons de verbe </p><br>
-				<div class="progress progress-striped">
+				<p>Temps restant :</p>
+				<div class="progress progress-striped active">
 				  <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
 				    <span class="sr-only">50% Complete</span>
+				  </div>
+				</div>
+				<p>Pourcentage accompli :</p>
+				<div class="progress progress-striped active">
+				  <div class="progress-bar progress-bar-danger"  role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+				    <span class="sr-only">20% Complete</span>
 				  </div>
 				</div>
 			</div>
 			<div class="well activity-section">
 				<a href="javascript:void(0)" class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></a>
-				<h4>Anglais</h4>
+				<h4>Maths</h4>
 				<hr>
 				<p>Cours sur les integrales a reviser</p><br>
-				<div class="progress progress-striped">
+				<p>Temps restant :</p>
+				<div class="progress progress-striped active">
 				  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
 				    <span class="sr-only">20% Complete</span>
+				  </div>
+				</div>
+				<p>Pourcentage accompli :</p>
+				<div class="progress progress-striped active">
+				  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+				    <span class="sr-only">80% Complete</span>
 				  </div>
 				</div>
 			</div>
@@ -39,10 +53,17 @@
 				<h4>Physique</h4>
 				<hr>
 				<p>Theorie d'Einstein a reviser</p><br>
-				<div class="progress progress-striped">
+				<p>Temps restant :</p>
+				<div class="progress progress-striped active">
 				  <div class="progress-bar progress-bar-danger"  role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
 				    <span class="sr-only">90% Complete</span>
 				 </div>
+				</div>
+				<p>Pourcentage accompli :</p>
+				<div class="progress progress-striped active">
+				  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+				    <span class="sr-only">80% Complete</span>
+				  </div>
 				</div>
 			</div>
 		</div>

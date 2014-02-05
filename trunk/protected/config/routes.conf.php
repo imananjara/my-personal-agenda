@@ -5,9 +5,15 @@ $route['*']['/simpletest'] = array('TestController', 'simpleTest');
 $route['*']['/'] = array('MainPageController', 'getMainPage');
 
 $route['*']['/login'] = array('UserController', 'getLoginPage');
+$route['*']['/logout'] = array('UserController', 'toLogout');
+
 $route['post']['/getsession'] = array('UserController', 'getSession');
 $route['post']['/adduser'] = array('UserController', 'adduser');
-$route['*']['/logout'] = array('UserController', 'toLogout');
+
+$route['get']['/addactivity'] = array('ActivityController', 'getActivityCreationPage');
+
+$route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
+
 
 
 
