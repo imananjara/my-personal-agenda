@@ -1,4 +1,5 @@
 <?php
+Doo::loadModel('Activity');
 Doo::loadModel('User');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
@@ -18,6 +19,11 @@ class MainPageController extends BaseController{
 		
 		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
 		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
+		
+		//get activities (for the user)
+		$this->_data["activities"] = Activity::_getActivities();
+		//echo $this->_data["activities"][0]["title"];
+		
 		$this->renderView('main');
 	}
 	
