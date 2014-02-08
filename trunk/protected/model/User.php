@@ -46,7 +46,7 @@ class User extends UserBase{
 	{
 		//birthday to SQL mode
 		$date = explode('/', $birthday);
-		$birthday = $date[2].'-'.$date[1].'-'.$date[0];
+		$birthday = $date[2].'-'.$date[0].'-'.$date[1];
 		
 		$user = new User();
 		$user->login = $login;
