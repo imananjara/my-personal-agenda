@@ -22,7 +22,6 @@ class MainPageController extends BaseController{
 		
 		//get activities (for the user)
 		$this->_data["activities"] = Activity::_getActivities();
-		//echo $this->_data["activities"][0]["title"];
 		
 		$this->renderView('main');
 	}

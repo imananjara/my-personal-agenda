@@ -7,7 +7,7 @@
 class TestController extends DooController{
 	
 	public function simpleTest(){
-		echo $_SESSION["test"];
+		echo var_dump($_SESSION["test"]);
 	}
 	
 }

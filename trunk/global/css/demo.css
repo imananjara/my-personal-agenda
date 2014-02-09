@@ -26,5 +26,15 @@ a:hover .paginate{
 
 .activity-section
 {
-background-color : white;
+	background-color : white;
+}
+
+textarea
+{
+   resize: none;
+}
+
+.activity-btn
+{
+	margin-left : 5px;
 }

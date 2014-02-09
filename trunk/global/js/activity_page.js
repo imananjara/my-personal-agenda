@@ -4,13 +4,13 @@ $( document ).ready(function() {
 	$('#notifications').hide();
 	
 	//Get app's base url
-	baseurl = $('#base-url').val();
+	var baseurl = $('#base-url').val();
 	
 	//Active datepicker
 	$(".datepicker").datepicker();
 	
 	//If the user click on submit button
-	$("#create-activity-btn").on("click", function(){
+	$("#save-activity-btn").on("click", function(){
 
 		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").val() == "")
 		{
