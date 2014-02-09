@@ -11,16 +11,16 @@ class ActivityTypeBase extends DooModel{
     /**
      * @var varchar Max length is 250.
      */
-    public $name;
+    public $activity_type_name;
 
     /**
      * @var text
      */
-    public $description;
+    public $activity_type_description;
 
     public $_table = 'activity_type';
     public $_primarykey = 'activity_type_id';
-    public $_fields = array('activity_type_id','name','description');
+    public $_fields = array('activity_type_id','activity_type_name','activity_type_description');
 
     public function getVRules() {
         return array(
@@ -30,12 +30,12 @@ class ActivityTypeBase extends DooModel{
                         array( 'optional' ),
                 ),
 
-                'name' => array(
+                'activity_type_name' => array(
                         array( 'maxlength', 250 ),
                         array( 'notnull' ),
                 ),
 
-                'description' => array(
+                'activity_type_description' => array(
                         array( 'notnull' ),
                 )
             );
