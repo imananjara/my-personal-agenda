@@ -8,23 +8,29 @@
 </head>
 <body>
 	<!-- include 'menu_bar' -->
+	<input type="hidden" id="base-url" value="{{baseurl}}">
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="{{baseurl}}addactivity" class="btn btn-info pull-right">Ajouter une activite</a></div>
+			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="{{baseurl}}activity" class="btn btn-info pull-right">Ajouter une activite</a></div>
 			<hr>
 			<!-- if {{isset(activities)}} -->
 			<!-- loop activities -->
 			<div class="well activity-section">
-				<a href="javascript:void(0)" class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></a>
-				<h4>{{activities' value.title}}</h4>
+				<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" data-toggle="confirmation" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
+				<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+				<h4>{{activities' value.title}} ({{activities' value.activity_type_name}})</h4>
 				<hr>
 				<p>{{activities' value.description}}</p><br>
-				<p>Il reste {{activities' value.nbDaysLeft}} jour(s) avant la fin de cet activite.</p><br>
-				<p>Pourcentage accompli :</p>
+				<!-- if {{activities' value.nbDaysLeft}} == 0 -->
+				<p class="bg-success">L'activite est terminee</p><br>
+				<!-- else -->
+				<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nbDaysLeft}}</strong></span> jour(s) avant la fin de cet activité.</p><br>
+				<!-- endif -->
+				<p>Pourcentage accomplis :</p>
 				<div class="progress progress-striped active">
-				  <!-- if {{activities' value.percent_done}} < 30 -->
+				  <!-- if {{activities' value.percent_done}} < 40 -->
 				  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: {{activities' value.percent_done}}%">
-				  <!-- elseif {{activities' value.percent_done}} >= 30 && {{activities' value.percent_done}} < 70 -->
+				  <!-- elseif {{activities' value.percent_done}} >= 40 && {{activities' value.percent_done}} < 70 -->
 				  <div class="progress-bar progress-bar-warning"  role="progressbar" style="width: {{activities' value.percent_done}}%">
 				  <!-- else -->
 				  <div class="progress-bar progress-bar-success"  role="progressbar" style="width: {{activities' value.percent_done}}%">
@@ -43,7 +49,8 @@
 			<hr>
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></a>
+			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-trash"></span></a>
+			  	<a href="javascript:void(0)" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 			    <h3 class="panel-title">Petites astuces pour les maths</h3>
 			  </div>
 			  <div class="panel-body">
@@ -52,7 +59,8 @@
 			</div>
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></a>
+			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-trash"></span></a>
+			  	<a href="javascript:void(0)" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 			    <h3 class="panel-title">Petites astuces pour l'anglais</h3>
 			  </div>
 			  <div class="panel-body">
@@ -62,5 +70,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- include 'delete-modal' -->
 	</body>
+	<script type="text/javascript" src="{{baseurl}}global/js/main_page.js"></script>
 </html>

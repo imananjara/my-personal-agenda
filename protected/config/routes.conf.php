@@ -10,7 +10,9 @@ $route['*']['/logout'] = array('UserController', 'toLogout');
 $route['post']['/getsession'] = array('UserController', 'getSession');
 $route['post']['/adduser'] = array('UserController', 'adduser');
 
-$route['get']['/addactivity'] = array('ActivityController', 'getActivityCreationPage');
+$route['get']['/activity'] = array('ActivityController', 'getActivityEditionPage');
+$route['get']['/activity/:activity_id'] = array('ActivityController', 'getActivityEditionPage');
+$route['get']['/deleteactivity/:activity_id'] = array('ActivityController', 'deleteActivity');
 
 $route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
 
