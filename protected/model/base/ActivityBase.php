@@ -29,7 +29,7 @@ class ActivityBase extends DooModel{
     public $description;
 
     /**
-     * @var date
+     * @var datetime
      */
     public $end_date;
 
@@ -78,7 +78,7 @@ class ActivityBase extends DooModel{
                 ),
 
                 'end_date' => array(
-                        array( 'date' ),
+                        array( 'datetime' ),
                         array( 'notnull' ),
                 ),
 
