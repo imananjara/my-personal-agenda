@@ -21,12 +21,12 @@
 				<h4>{{activities' value.title}} ({{activities' value.activity_type_name}})</h4>
 				<hr>
 				<p>{{activities' value.description}}</p><br>
-				<!-- if {{activities' value.nbDaysLeft}} == 0 -->
+				<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 -->
 				<p class="bg-success">L'activite est terminee</p><br>
 				<!-- else -->
-				<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nbDaysLeft}}</strong></span> jour(s) avant la fin de cet activité.</p><br>
+				<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nb_days_left}}</strong></span> jour(s), <span class="text-info"><strong>{{activities' value.nb_hours_left}}</strong></span> heure(s) et <span class="text-info"><strong>{{activities' value.nb_minutes_left}}</strong></span> minute(s) avant la fin de cet activité.</p><br>
 				<!-- endif -->
-				<p>Pourcentage accomplis :</p>
+				<p>Pourcentage accompli :</p>
 				<div class="progress progress-striped active">
 				  <!-- if {{activities' value.percent_done}} < 40 -->
 				  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: {{activities' value.percent_done}}%">

@@ -6,7 +6,11 @@ $( document ).ready(function() {
 	//When the page loads, we hide the notifications bar
 	$('#notifications').hide();
 	
-	$(".datepicker").datepicker();
+	//Active datepicker	
+	$('#inputBirthdayInscrip').datetimepicker({
+		language: 'fr',
+		pickTime: false
+	});
   
 	//If the user click on connect button
 	$( "#to-connect-action" ).on("click", function() {

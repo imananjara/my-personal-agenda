@@ -6,13 +6,21 @@ $( document ).ready(function() {
 	//Get app's base url
 	var baseurl = $('#base-url').val();
 	
-	//Active datepicker
-	$(".datepicker").datepicker();
+	//Active datepicker	
+	$('#activityEndDate').datetimepicker({
+		language: 'fr',
+		pickTime: false
+	});
+	
+	$('#activityEndHour').datetimepicker({
+		language: 'fr',
+		pickDate: false
+	});
 	
 	//If the user click on submit button
 	$("#save-activity-btn").on("click", function(){
 
-		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").val() == "")
+		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").val() == "" || $('#activityEndHour').val() == "")
 		{
 			notification('alert-danger', '<strong>Erreur lors de l\'ajout d\'activite</strong> : Vous devez remplir les champs suivants : Titre, Description, Date de fin');
 			return;
