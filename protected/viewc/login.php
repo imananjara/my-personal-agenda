@@ -4,9 +4,11 @@
 	<meta charset=UTF-8>
 	<title>Authentification - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
-	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/datepicker3.css">
+	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/bootstrap-datetimepicker.min.css">
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src='<?php echo $data['baseurl']; ?>global/js/bootstrap-datepicker.js'></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/moment.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-datetimepicker.fr.js"></script>
 </head>
 <body>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
@@ -73,7 +75,7 @@
 					  <div class="form-group">
 					    <label for="inputBirthdayInscrip" class="col-sm-2 control-label">Naissance</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control datepicker" name="inputBirthdayInscrip" id="inputBirthdayInscrip" placeholder="Date de naissance">
+					      <input type="text" class="form-control" name="inputBirthdayInscrip" id="inputBirthdayInscrip" placeholder="Date de naissance">
 					    </div>
 					  </div>
 					  <div class="form-group">
