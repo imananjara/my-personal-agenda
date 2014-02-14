@@ -16,7 +16,7 @@
 			<?php if( isset($data['activities']) ): ?>
 			<?php foreach($data['activities'] as $k1=>$v1): ?>
 			<div class="well activity-section">
-				<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" data-toggle="confirmation" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
+				<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
 				<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 				<h4><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</h4>
 				<hr>

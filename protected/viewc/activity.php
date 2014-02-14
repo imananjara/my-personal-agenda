@@ -8,11 +8,11 @@
 	<title>Creation d'activite - My Personal Agenda</title>
 	<?php endif; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
-	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/moment.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
 </head>
 <body>
 	<div id="notifications" class='alert alert-notification'></div>
@@ -45,7 +45,11 @@
 			    <div class="col-sm-10">
 			      <select id="activityTypes" name="activityTypes" class="form-control">
 			      	  <?php foreach($data['activitytypes'] as $k1=>$v1): ?>
+			      	  <?php if( isset($data['activity']) && $v1['activity_type_id'] == $data['activity']['activity_type_id'] ): ?>
+			      	  <option selected="selected" value="<?php echo $v1['activity_type_id']; ?>"><?php echo $v1['activity_type_name']; ?></option>
+			      	  <?php else: ?>
 			      	  <option value="<?php echo $v1['activity_type_id']; ?>"><?php echo $v1['activity_type_name']; ?></option>
+			      	  <?php endif; ?>
 			      	  <?php endforeach; ?>
 				  </select>
 			    </div>

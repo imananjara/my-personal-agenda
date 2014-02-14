@@ -8,11 +8,11 @@
 	<title>Creation d'activite - My Personal Agenda</title>
 	<!-- endif -->
 	<!-- include 'css_files' -->
-	<link rel="stylesheet" href="{{baseurl}}global/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="{{baseurl}}global/css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<!-- include 'js_files' -->
-	<script type="text/javascript" src="{{baseurl}}global/js/moment.min.js"></script>
-	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
 </head>
 <body>
 	<div id="notifications" class='alert alert-notification'></div>
@@ -45,7 +45,11 @@
 			    <div class="col-sm-10">
 			      <select id="activityTypes" name="activityTypes" class="form-control">
 			      	  <!-- loop activitytypes -->
+			      	  <!-- if {{isset(activity)}} && {{activitytypes' value.activity_type_id}} == {{activity.activity_type_id}} -->
+			      	  <option selected="selected" value="{{activitytypes' value.activity_type_id}}">{{activitytypes' value.activity_type_name}}</option>
+			      	  <!-- else -->
 			      	  <option value="{{activitytypes' value.activity_type_id}}">{{activitytypes' value.activity_type_name}}</option>
+			      	  <!-- endif -->
 			      	  <!-- endloop -->
 				  </select>
 			    </div>

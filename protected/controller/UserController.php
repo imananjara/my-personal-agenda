@@ -9,6 +9,11 @@ class UserController extends BaseController{
 		
 	public function getLoginPage() {
 		
+		if (isset($_SESSION["mpa_user_id"]) && isset($_SESSION["mpa_user_login"]))
+		{
+			return $this->_data['baseurl'];
+		}
+		
 		$this->renderView('login');
 	}
 	

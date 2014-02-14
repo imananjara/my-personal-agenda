@@ -114,7 +114,7 @@ class Activity extends ActivityBase{
 	}
 	
 	/**
-	 * Sort activities tab and add attribut "nb_days_left"
+	 * Sort activities tab and add attributs "nb_days_left", "nb_hours_left" and "nb_minutes_left"
 	 * @param  $activities
 	 * @return $activities
 	 */
@@ -126,19 +126,27 @@ class Activity extends ActivityBase{
 			$now   = time();
 			$endDate = strtotime($activities[$i]["end_date"]);
 			
-			$diff = abs($now - $endDate);
+			$diff = $endDate - $now;
 			
-			$tmp = $diff;
-			$activities[$i]["nb_seconds_left"] = $tmp % 60;
-			
-			$tmp = floor( ($tmp - $activities[$i]["nb_seconds_left"]) /60 );
-			$activities[$i]["nb_minutes_left"] = $tmp % 60;
-			
-			$tmp = floor( ($tmp - $activities[$i]["nb_minutes_left"])/60 );
-			$activities[$i]["nb_hours_left"] = $tmp % 24;
-			
-			$tmp = floor( ($tmp - $activities[$i]["nb_hours_left"])  /24 );
-			$activities[$i]["nb_days_left"] = $tmp;
+			//If the activity is finished
+			if ($diff > 0) {
+				$tmp = $diff;
+				$activities[$i]["nb_seconds_left"] = $tmp % 60;
+				
+				$tmp = floor( ($tmp - $activities[$i]["nb_seconds_left"]) /60 );
+				$activities[$i]["nb_minutes_left"] = $tmp % 60;
+				
+				$tmp = floor( ($tmp - $activities[$i]["nb_minutes_left"])/60 );
+				$activities[$i]["nb_hours_left"] = $tmp % 24;
+				
+				$tmp = floor( ($tmp - $activities[$i]["nb_hours_left"])  /24 );
+				$activities[$i]["nb_days_left"] = $tmp;
+			} else {
+				$activities[$i]["nb_seconds_left"] = 0;
+				$activities[$i]["nb_minutes_left"] = 0;
+				$activities[$i]["nb_hours_left"] = 0;
+				$activities[$i]["nb_days_left"] = 0;
+			}
 		}
 		
 		return $activities;

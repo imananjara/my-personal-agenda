@@ -8,7 +8,7 @@ class ActivityController extends BaseController {
 	
 	/**
 	 * Get activity edition page (to create or update activity)
-	 * @return string
+	 * @return activity page
 	 */
 	public function getActivityEditionPage() {
 		
@@ -41,6 +41,7 @@ class ActivityController extends BaseController {
 	
 	/**
 	 * Create or update an activity
+	 * @return the main page (redirection)
 	 */
 	public function saveActivity() {
 		
@@ -56,6 +57,7 @@ class ActivityController extends BaseController {
 	
 	/**
 	 * Delete an activity
+	 * @return the main page (redirection)
 	 */
 	public function deleteActivity() {
 		
@@ -64,6 +66,37 @@ class ActivityController extends BaseController {
 			Activity::_deleteActivity($this->params["activity_id"]);
 		}
 		return $this->_data["baseurl"]; 
+	}
+	
+	/**
+	 * Load a calendar and put activities into this
+	 */
+	public function getCalendarOfActivity() {
+		//Load all activities and format arrayList to JSON
+		$this->_data["activities"] = Activity::_getActivities();
+		
+		$activitiesArray = array();
+		foreach ($this->_data["activities"] as $activity)
+		{
+			$activitiesArray[] = array(
+				'id' => (int)$activity["activity_id"],
+				'title' => $activity["title"],
+				'url' => $this->_data["baseurl"] ."activity/". $activity["activity_id"],
+				'class' => "event-important",
+				'start' => (int)strtotime($activity["end_date"]) * 1000,
+				'end' => (int)strtotime($activity["end_date"]) * 1000
+			);
+		}
+			
+		$this->_data["activitiesJson"] = json_encode($activitiesArray);
+		
+		//Write JSON into events.json.txt
+		file_put_contents("global/utils/events.json.txt", json_encode(array('success' => 1, 'result' => $activitiesArray)));
+		
+		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
+		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
+		
+		$this->renderView('calendar');
 	}
 	
 	
