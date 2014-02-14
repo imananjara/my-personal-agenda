@@ -8,7 +8,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="mpa-nav-bar">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Mon calendrier</a></li>
+        <li><a href="<?php echo $data['baseurl']; ?>calendar"><span class="glyphicon glyphicon-calendar"></span> Mon calendrier</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-star"></span> Mes favoris</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
