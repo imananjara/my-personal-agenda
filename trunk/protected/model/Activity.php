@@ -59,6 +59,10 @@ class Activity extends ActivityBase{
 		
 	}
 	
+	/**
+	 * Delete an activity
+	 * @param $activity_id
+	 */
 	public static function _deleteActivity($activity_id) {
 		
 		$activity = new Activity();
