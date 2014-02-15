@@ -70,6 +70,7 @@ class ActivityController extends BaseController {
 	
 	/**
 	 * Load a calendar and put activities into this
+	 * @return calendar page
 	 */
 	public function getCalendarOfActivity() {
 		//Load all activities and format arrayList to JSON

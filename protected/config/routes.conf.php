@@ -13,14 +13,14 @@ $route['post']['/adduser'] = array('UserController', 'adduser');
 $route['get']['/activity'] = array('ActivityController', 'getActivityEditionPage');
 $route['get']['/activity/:activity_id'] = array('ActivityController', 'getActivityEditionPage');
 $route['get']['/deleteactivity/:activity_id'] = array('ActivityController', 'deleteActivity');
+$route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
 
 $route['get']['/calendar'] = array('ActivityController', 'getCalendarOfActivity');
 
-$route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
-
-
-
-
+$route['get']['/note'] = array('NoteController','getNoteEditionPage');
+$route['get']['/note/:note_id'] = array('NoteController','getNoteEditionPage');
+$route['post']['/savenote'] = array('NoteController', 'saveNote');
+$route['get']['/deletenote/:note_id'] = array('NoteController', 'deleteNote');
 //-------------------------------------------------------------------
 
  

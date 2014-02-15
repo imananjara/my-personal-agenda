@@ -45,32 +45,27 @@
 			<?php endif; ?>
 		</div>
 		<div class="col-md-4 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES<a href="javascript:void(0)" class="btn btn-info pull-right">Ajouter une note</a></div>
+			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info pull-right">Ajouter une note</a></div>
 			<hr>
+			<?php if( isset($data['notes']) ): ?>
+			<?php foreach($data['notes'] as $k1=>$v1): ?>
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-trash"></span></a>
-			  	<a href="javascript:void(0)" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-			    <h3 class="panel-title">Petites astuces pour les maths</h3>
+			  	<a href="javascript:void(0)" id="note-<?php echo $v1['note_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
+			  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+			    <h3 class="panel-title"><?php echo $v1['title']; ?></h3>
 			  </div>
 			  <div class="panel-body">
-			    <p>Avoir une calculette ! C'est important</p>
+			    <?php echo $v1['full_content']; ?>
 			  </div>
 			</div>
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<a href="javascript:void(0)" class="btn btn-danger btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-trash"></span></a>
-			  	<a href="javascript:void(0)" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-			    <h3 class="panel-title">Petites astuces pour l'anglais</h3>
-			  </div>
-			  <div class="panel-body">
-			    <p>- Apprendre les verbes irreguliers</p>
-			    <p>- Prendre toujours ses cours</p>
-			  </div>
-			</div>
+			<?php endforeach; ?>
+			<?php else: ?>
+			<p>Aucune note n'est enregistree dans l'application</p>
+			<?php endif; ?>
 		</div>
-	</div>
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-activity-modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-note-modal.php"; ?>
 	</body>
 	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/main_page.js"></script>
 </html>
