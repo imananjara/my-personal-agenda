@@ -4,9 +4,12 @@
 	<meta charset=UTF-8>
 	<title>Page principale - My Personal Agenda</title>
 	<!-- include 'css_files' -->
+	<link href="{{baseurl}}global/css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
 	<!-- include 'js_files' -->
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 </head>
 <body>
+	<div style="z-index: 10;" class='notifications bottom-right'></div>
 	<!-- include 'menu_bar' -->
 	<input type="hidden" id="base-url" value="{{baseurl}}">
 	<div class="row">
@@ -14,32 +17,35 @@
 			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="{{baseurl}}activity" class="btn btn-info pull-right">Ajouter une activite</a></div>
 			<hr>
 			<!-- if {{isset(activities)}} -->
-			<!-- loop activities -->
-			<div class="well activity-section">
-				<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
-				<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-				<h4>{{activities' value.title}} ({{activities' value.activity_type_name}})</h4>
-				<hr>
-				<p>{{activities' value.description}}</p><br>
-				<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 -->
-				<p class="bg-success">L'activite est terminee</p><br>
-				<!-- else -->
-				<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nb_days_left}}</strong></span> jour(s), <span class="text-info"><strong>{{activities' value.nb_hours_left}}</strong></span> heure(s) et <span class="text-info"><strong>{{activities' value.nb_minutes_left}}</strong></span> minute(s) avant la fin de cet activité.</p><br>
-				<!-- endif -->
-				<p>Pourcentage accompli :</p>
-				<div class="progress progress-striped active">
-				  <!-- if {{activities' value.percent_done}} < 40 -->
-				  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: {{activities' value.percent_done}}%">
-				  <!-- elseif {{activities' value.percent_done}} >= 40 && {{activities' value.percent_done}} < 70 -->
-				  <div class="progress-bar progress-bar-warning"  role="progressbar" style="width: {{activities' value.percent_done}}%">
-				  <!-- else -->
-				  <div class="progress-bar progress-bar-success"  role="progressbar" style="width: {{activities' value.percent_done}}%">
-				  <!-- endif -->
-				    <span class="sr-only">{{activities' value.percent_done}}% Complete</span>
-				  </div>
+			<div id="activity-section-panel">
+				<!-- loop activities -->
+				<div class="well activity-section">
+					<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+					<h4 class="activityNameForNotif">{{activities' value.title}} ({{activities' value.activity_type_name}})</h4>
+					<hr>
+					<p>{{activities' value.description}}</p><br>
+					<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 -->
+					<p class="bg-success">L'activite est terminee</p><br>
+					<!-- else -->
+					<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nb_days_left}}</strong></span> jour(s), <span class="text-info"><strong>{{activities' value.nb_hours_left}}</strong></span> heure(s) et <span class="text-info"><strong>{{activities' value.nb_minutes_left}}</strong></span> minute(s) avant la fin de cet activité.</p><br>
+					<!-- endif -->
+					<div style="display:none;" class="leftTimeSeconds">{{activities' value.tmpLeft}}</div>
+					<p>Pourcentage accompli :</p>
+					<div class="progress progress-striped active">
+					  <!-- if {{activities' value.percent_done}} < 40 -->
+					  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: {{activities' value.percent_done}}%">
+					  <!-- elseif {{activities' value.percent_done}} >= 40 && {{activities' value.percent_done}} < 70 -->
+					  <div class="progress-bar progress-bar-warning"  role="progressbar" style="width: {{activities' value.percent_done}}%">
+					  <!-- else -->
+					  <div class="progress-bar progress-bar-success"  role="progressbar" style="width: {{activities' value.percent_done}}%">
+					  <!-- endif -->
+					    <span class="sr-only">{{activities' value.percent_done}}% Complete</span>
+					  </div>
+					</div>
 				</div>
+				<!-- endloop -->
 			</div>
-			<!-- endloop -->
 			<!-- else -->
 			<p>Aucune activite n'a ete planifiee</p>
 			<!-- endif -->
@@ -48,18 +54,20 @@
 			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES<a href="{{baseurl}}note" class="btn btn-info pull-right">Ajouter une note</a></div>
 			<hr>
 			<!-- if {{isset(notes)}} -->
-			<!-- loop notes -->
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<a href="javascript:void(0)" id="note-{{notes' value.note_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
-			  	<a href="{{baseurl}}note/{{notes' value.note_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-			    <h3 class="panel-title">{{notes' value.title}}</h3>
-			  </div>
-			  <div class="panel-body">
-			    {{notes' value.full_content}}
-			  </div>
+			<div id="note-section-panel">
+				<!-- loop notes -->
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				  	<a href="javascript:void(0)" id="note-{{notes' value.note_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
+				  	<a href="{{baseurl}}note/{{notes' value.note_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+				    <h3 class="panel-title">{{notes' value.title}}</h3>
+				  </div>
+				  <div class="panel-body">
+				    {{notes' value.full_content}}
+				  </div>
+				</div>
+				<!-- endloop -->
 			</div>
-			<!-- endloop -->
 			<!-- else -->
 			<p>Aucune note n'est enregistree dans l'application</p>
 			<!-- endif -->
