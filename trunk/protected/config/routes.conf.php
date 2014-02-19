@@ -21,6 +21,9 @@ $route['get']['/note'] = array('NoteController','getNoteEditionPage');
 $route['get']['/note/:note_id'] = array('NoteController','getNoteEditionPage');
 $route['post']['/savenote'] = array('NoteController', 'saveNote');
 $route['get']['/deletenote/:note_id'] = array('NoteController', 'deleteNote');
+
+$route['get']['/profile'] = array('UserController', 'getUserProfile');
+$route['post']['/editprofile'] = array('UserController', 'editUserProfile');
 //-------------------------------------------------------------------
 
  

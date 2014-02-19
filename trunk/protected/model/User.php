@@ -58,4 +58,52 @@ class User extends UserBase{
 		
 		$user->insert();
 	}
+	
+	/**
+	 * Get the user's informations
+	 */
+	public static function _getUserProfile() {
+		
+		$options = array(
+				'asArray' => true,
+				'limit' => 1
+		);
+		
+		$user = new User();
+		$user->user_id = $_SESSION["mpa_user_id"];
+		
+		$user = $user->find($options);
+		
+		if(empty($user)) return null;
+		
+		return  $user;
+	}
+	
+	/**
+	 * Edit the user's profile
+	 * @param $firstName
+	 * @param $lastName
+	 * @param $birthday
+	 * @param $email
+	 */
+	public static function _editUserProfile($firstName, $lastName, $birthday, $email) {
+		
+		$options['limit'] = 1;
+		
+		//birthday to SQL mode
+		$date = explode('/', $birthday);
+		$birthday = $date[2].'-'.$date[0].'-'.$date[1];
+		
+		$user = new User();
+		$user->user_id = $_SESSION["mpa_user_id"];
+		$user = $user->find($options);
+		
+		$user->firstname = $firstName;
+		$user->lastname = $lastName;
+		$user->birthday_date = $birthday;
+		$user->email = $email;
+
+		$user->update();
+		
+	}
 }

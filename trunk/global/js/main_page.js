@@ -2,8 +2,44 @@ $( document ).ready(function() {
 	
 	var activitytodel;
 	var notetodel;
+	var type;
+	var activityNameJs;
+	var notifColor;
+	var varText;
+	
+	var activityNameForNotif = $(".activityNameForNotif");
+	
 	//Get app's base url
 	var baseurl = $('#base-url').val();
+	
+	//Notification system : display a notification when the remaining time is under that 1 day (updatable)
+	$(".leftTimeSeconds").each(function(){
+		
+		if ($(this).html() < 86400) {
+			
+			 activityNameJs = $(this).parent().find(activityNameForNotif).html();
+			 varText = 'L\'activite "' + activityNameJs + '" arrive bientot a son terme (moins de 1 jour restant)';
+			 notifColor = 'warning';
+			 
+			 if ($(this).html() < 43200) {
+				 varText = 'Attention, il reste moins de 12 heures pour terminer l\'activite : "' + activityNameJs + '"';
+				 notifColor = 'danger';
+			 }
+			 
+			 if ($(this).html() == 0) {
+				 varText = 'L\'activite "' + activityNameJs + '" est terminee';
+				 notifColor = 'info';
+			 }
+			 
+			 $('.bottom-right').notify({
+				    message: {text:  varText},
+			 		closable: false,
+			 		fadeOut: { enabled: true, delay: 6000 },
+			 		type: notifColor
+				  }).show(); // for the ones that aren't closable and don't fade out there is a .hide() function.
+			} 
+	});
+	
 	
 	//If the user click on "delete button"
 	$(".del-activity").on('click', function(){
@@ -30,13 +66,5 @@ $( document ).ready(function() {
 		$('#delete-note-modal').modal('hide');
 		location.href = baseurl + "deletenote/" + notetodel;
 	});
-		
-	//Notification system
-	function notification(type, message) {
-	 	$('#notifications').removeClass();
-	 	$('#notifications').addClass('alert '+type).html(message);
-	 	$('#notifications').slideDown();
-	 	setTimeout(function(){ $('#notifications').slideUp(); }, 2000);
-	 }
 	
 });

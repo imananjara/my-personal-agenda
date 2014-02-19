@@ -118,7 +118,7 @@ class Activity extends ActivityBase{
 	}
 	
 	/**
-	 * Sort activities tab and add attributs "nb_days_left", "nb_hours_left" and "nb_minutes_left"
+	 * Sort activities tab and add attributs "nb_days_left", "nb_hours_left", "nb_minutes_left" and "tmp_left"
 	 * @param  $activities
 	 * @return $activities
 	 */
@@ -132,8 +132,11 @@ class Activity extends ActivityBase{
 			
 			$diff = $endDate - $now;
 			
-			//If the activity is finished
+			//If the activity isn't finished
 			if ($diff > 0) {
+				
+				//Get the seconds between now and the end date and store it into tmpLeft attribute
+				$activities[$i]["tmpLeft"] = $diff;
 				$tmp = $diff;
 				$activities[$i]["nb_seconds_left"] = $tmp % 60;
 				
@@ -146,6 +149,7 @@ class Activity extends ActivityBase{
 				$tmp = floor( ($tmp - $activities[$i]["nb_hours_left"])  /24 );
 				$activities[$i]["nb_days_left"] = $tmp;
 			} else {
+				$activities[$i]["tmpLeft"] = 0;
 				$activities[$i]["nb_seconds_left"] = 0;
 				$activities[$i]["nb_minutes_left"] = 0;
 				$activities[$i]["nb_hours_left"] = 0;

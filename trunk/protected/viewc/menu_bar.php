@@ -14,8 +14,7 @@
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session_login']; ?> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Mon profil</a></li>
-            <li><a href="#">Statistiques</a></li>
+            <li><a href="<?php echo $data['baseurl']; ?>profile">Mon profil</a></li>
             <li class="divider"></li>
             <li><a href="<?php echo $data['baseurl']; ?>logout">Se deconnecter</a></li>
           </ul>
