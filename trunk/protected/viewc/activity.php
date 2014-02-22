@@ -68,18 +68,24 @@
 			  <div class="form-group">
 			    <label for="activityEndDate" class="col-sm-2 control-label">Echeance</label>
 			    <div class="col-sm-5">
+			      <div class='input-group date' id="activityEndDate">
 			      <?php if( isset($data['activity']) ): ?>
-			      <input type="text" class="form-control" value="<?php echo $data['activity']['end_date']; ?>" placeholder="Date de fin de l'activite" name="activityEndDate" id="activityEndDate">
+			      <input type="text" class="form-control" value="<?php echo $data['activity']['end_date']; ?>" placeholder="Date de fin de l'activite" name="activityEndDate">
 			      <?php else: ?>
-			      <input type="text" class="form-control" placeholder="Date de fin de l'activite" name="activityEndDate" id="activityEndDate">
+			      <input type="text" class="form-control" placeholder="Date de fin de l'activite" name="activityEndDate">
 			      <?php endif; ?>
+			      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+			      </div>
 			    </div>
 			    <div class="col-sm-5">
+			    	<div class='input-group date' id="activityEndHour">
 			    	<?php if( isset($data['activity']) ): ?>
-			    	<input type="text" class="form-control" value="<?php echo $data['activity']['end_hour']; ?>" placeholder="Heure de fin de l'activite" name="activityEndHour" id="activityEndHour"/>
+			    	<input type="text" class="form-control" value="<?php echo $data['activity']['end_hour']; ?>" placeholder="Heure de fin de l'activite" name="activityEndHour"/>
 			    	<?php else: ?>
-			    	<input type="text" class="form-control" placeholder="Heure de fin de l'activite" name="activityEndHour" id="activityEndHour"/>
+			    	<input type="text" class="form-control" placeholder="Heure de fin de l'activite" name="activityEndHour"/>
 			    	<?php endif; ?>
+			    	<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+			    	</div>
 			    </div>
 			  </div>
 			  <div class="form-group">

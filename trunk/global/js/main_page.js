@@ -12,6 +12,31 @@ $( document ).ready(function() {
 	//Get app's base url
 	var baseurl = $('#base-url').val();
 	
+	//Add tooltips to del/edit button
+	$(".del-activity").tooltip({
+		title: 'Supprimer cette activite'
+	});
+	
+	$(".edit-activity").tooltip({
+		title: 'Editer cette activite'
+	});
+	
+	$(".edit-note").tooltip({
+		title: 'Editer cette note'
+	});
+	
+	$(".del-note").tooltip({
+		title: 'Supprimer cette note'
+	});
+	
+	//Add tooltip to the progress bar
+	$(".progress").each(function(){
+		$(this).tooltip({
+			title: $(this).children(".activityPercentDone").html(),
+			placement: 'right'
+		});
+	});
+	
 	//Notification system : display a notification when the remaining time is under that 1 day (updatable)
 	$(".leftTimeSeconds").each(function(){
 		

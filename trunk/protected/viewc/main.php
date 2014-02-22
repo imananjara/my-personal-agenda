@@ -21,7 +21,7 @@
 				<?php foreach($data['activities'] as $k1=>$v1): ?>
 				<div class="well activity-section">
 					<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
-					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
 					<h4 class="activityNameForNotif"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</h4>
 					<hr>
 					<p><?php echo $v1['description']; ?></p><br>
@@ -33,6 +33,7 @@
 					<div style="display:none;" class="leftTimeSeconds"><?php echo $v1['tmpLeft']; ?></div>
 					<p>Pourcentage accompli :</p>
 					<div class="progress progress-striped active">
+					  <div style="display:none;" class="activityPercentDone">Pourcentage accompli : <?php echo $v1['percent_done']; ?>%</div>
 					  <?php if( $v1['percent_done'] < 40 ): ?>
 					  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: <?php echo $v1['percent_done']; ?>%">
 					  <?php elseif( $v1['percent_done'] >= 40 && $v1['percent_done'] < 70 ): ?>
@@ -59,7 +60,7 @@
 				<div class="panel panel-default">
 				  <div class="panel-heading">
 				  	<a href="javascript:void(0)" id="note-<?php echo $v1['note_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
-				  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+				  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
 				    <h3 class="panel-title"><?php echo $v1['title']; ?></h3>
 				  </div>
 				  <div class="panel-body">
