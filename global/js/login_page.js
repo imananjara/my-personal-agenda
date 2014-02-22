@@ -55,7 +55,7 @@ $( document ).ready(function() {
 	
 	//If the user click on the subscribe button
 	$("#to-subscribe-action").on('click', function(){
-		if ($("#inputLoginInscrip").val() == "" || $("#inputPasswordInscrip").val() == "" && $("#inputFirstNameInscrip").val() == "" && $("#inputLastNameInscrip").val() == "" && $("#inputBirthdayInscrip").val() == "" && $("#inputEmailInscrip").val() == "")
+		if ($("#inputLoginInscrip").val() == "" || $("#inputPasswordInscrip").val() == "" && $("#inputFirstNameInscrip").val() == "" && $("#inputLastNameInscrip").val() == "" && $("#inputBirthdayInscrip").children( "input" ).val() == "" && $("#inputEmailInscrip").val() == "")
 		{
 			notification('alert-danger', '<strong>Erreur lors de l\'inscription</strong> : Vous devez remplir tous les champs pour vous inscrire');
 			return;

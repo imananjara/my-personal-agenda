@@ -21,7 +21,7 @@
 				<!-- loop activities -->
 				<div class="well activity-section">
 					<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
-					<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
 					<h4 class="activityNameForNotif">{{activities' value.title}} ({{activities' value.activity_type_name}})</h4>
 					<hr>
 					<p>{{activities' value.description}}</p><br>
@@ -33,6 +33,7 @@
 					<div style="display:none;" class="leftTimeSeconds">{{activities' value.tmpLeft}}</div>
 					<p>Pourcentage accompli :</p>
 					<div class="progress progress-striped active">
+					  <div style="display:none;" class="activityPercentDone">Pourcentage accompli : {{activities' value.percent_done}}%</div>
 					  <!-- if {{activities' value.percent_done}} < 40 -->
 					  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: {{activities' value.percent_done}}%">
 					  <!-- elseif {{activities' value.percent_done}} >= 40 && {{activities' value.percent_done}} < 70 -->
@@ -59,7 +60,7 @@
 				<div class="panel panel-default">
 				  <div class="panel-heading">
 				  	<a href="javascript:void(0)" id="note-{{notes' value.note_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
-				  	<a href="{{baseurl}}note/{{notes' value.note_id}}" class="btn btn-info btn-xs activity-btn pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+				  	<a href="{{baseurl}}note/{{notes' value.note_id}}" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
 				    <h3 class="panel-title">{{notes' value.title}}</h3>
 				  </div>
 				  <div class="panel-body">

@@ -74,8 +74,11 @@
 					  </div>  
 					  <div class="form-group">
 					    <label for="inputBirthdayInscrip" class="col-sm-2 control-label">Naissance</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="inputBirthdayInscrip" id="inputBirthdayInscrip" placeholder="Date de naissance">
+					    <div class="col-sm-5">
+					      <div class='input-group date' id="inputBirthdayInscrip">
+					      	<input type="text" class="form-control" name="inputBirthdayInscrip" placeholder="Date de naissance">
+					      	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					      </div>
 					    </div>
 					  </div>
 					  <div class="form-group">

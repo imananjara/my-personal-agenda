@@ -20,7 +20,7 @@ $( document ).ready(function() {
 	//If the user click on submit button
 	$("#save-activity-btn").on("click", function(){
 
-		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").val() == "" || $('#activityEndHour').val() == "")
+		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").children( "input" ).val() == "" || $('#activityEndHour').children( "input" ).val() == "")
 		{
 			notification('alert-danger', '<strong>Erreur lors de l\'ajout d\'activite</strong> : Vous devez remplir les champs suivants : Titre, Description, Date de fin');
 			return;
