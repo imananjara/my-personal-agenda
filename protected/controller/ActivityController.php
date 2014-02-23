@@ -83,7 +83,7 @@ class ActivityController extends BaseController {
 				'id' => (int)$activity["activity_id"],
 				'title' => $activity["title"],
 				'url' => $this->_data["baseurl"] ."activity/". $activity["activity_id"],
-				'class' => "event-important",
+				'class' => "event-info",
 				'start' => (int)strtotime($activity["end_date"]) * 1000,
 				'end' => (int)strtotime($activity["end_date"]) * 1000
 			);

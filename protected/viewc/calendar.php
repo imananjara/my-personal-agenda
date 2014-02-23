@@ -13,7 +13,6 @@
 <body>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//menu_bar.php"; ?>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
-	<input type="hidden" id="activities-for-calendar" value=<?php echo $data['activitiesJson']; ?>>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<h3></h3>

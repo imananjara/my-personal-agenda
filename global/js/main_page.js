@@ -9,10 +9,24 @@ $( document ).ready(function() {
 	
 	var activityNameForNotif = $(".activityNameForNotif");
 	
+	//Initialise month tab
+	var monthsTab = { "01" : "Janvier", 
+					  "02" : "Fevrier", 
+					  "03" : "Mars",
+					  "04" : "Avril",
+					  "05" : "Mai",
+					  "06" : "Juin",
+					  "07" : "Juillet",
+					  "08" : "Aout",
+					  "09" : "Septembre",
+					  "10" : "Octobre",
+					  "11" : "Novembre",
+					  "12" : "Decembre"};
+	
 	//Get app's base url
 	var baseurl = $('#base-url').val();
 	
-	//Add tooltips to del/edit button
+	//Add tooltips to see/del/edit button
 	$(".del-activity").tooltip({
 		title: 'Supprimer cette activite'
 	});
@@ -27,6 +41,10 @@ $( document ).ready(function() {
 	
 	$(".del-note").tooltip({
 		title: 'Supprimer cette note'
+	});
+	
+	$('.see-activity').tooltip({
+		title: 'Voir cette activite'
 	});
 	
 	//Add tooltip to the progress bar
@@ -65,6 +83,29 @@ $( document ).ready(function() {
 			} 
 	});
 	
+	//If the user click on "see activity" button, create an activity view
+	$(".see-activity").on('click', function(){
+		
+		$("#activity-modal-title").html("Fiche de l\'activite : " + $(this).parent().find(".activityNameForNotif").html());
+		
+		//Clean the activity modal body
+		$("#activity-modal-content").empty();
+		 
+		$("#activity-modal-content").append($("<p></p>").html("Cette activite a comme date de fin le <strong>" + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong>"));
+		$("#activity-modal-content").append($("<p></p>").html("Vous avez ecrit comme description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
+		
+		//Commentary
+		var activityCommentary = $(this).parent().find(".activityCommentary").html();
+		
+		if (activityCommentary != "") {
+			
+			$("#activity-modal-content").append($("<p></p>").html("Vous avez ecrit un commentaire sur cette activite :"));
+			$("#activity-modal-content").append($("<div></div>").addClass("well").html(activityCommentary));
+		}
+		
+		$('#activity-modal').modal('show');
+	});
+	
 	
 	//If the user click on "delete button"
 	$(".del-activity").on('click', function(){
@@ -91,5 +132,16 @@ $( document ).ready(function() {
 		$('#delete-note-modal').modal('hide');
 		location.href = baseurl + "deletenote/" + notetodel;
 	});
+	
+	function getFullDate(sqldate) {
+		
+		var sqlEndDate = sqldate.split(" ")[0].split("-");
+		
+		var sqlEndHour = sqldate.split(" ")[1].split(":");
+		
+		var fullDate = sqlEndDate[2] + " " + monthsTab[sqlEndDate[1]] + " " + sqlEndDate[0] + " a " + sqlEndHour[0] + "h" + sqlEndHour[1];
+		
+		return fullDate;
+	}
 	
 });

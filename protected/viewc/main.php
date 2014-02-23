@@ -22,18 +22,18 @@
 				<div class="well activity-section">
 					<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
 					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="javascript:void(0)" id="seeactivity-<?php echo $v1['activity_id']; ?>" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
 					<h4 class="activityNameForNotif"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</h4>
 					<hr>
-					<p><?php echo $v1['description']; ?></p><br>
+					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 ): ?>
 					<p class="bg-success">L'activite est terminee</p><br>
 					<?php else: ?>
 					<p class="bg-info">Il reste <span class="text-info"><strong><?php echo $v1['nb_days_left']; ?></strong></span> jour(s), <span class="text-info"><strong><?php echo $v1['nb_hours_left']; ?></strong></span> heure(s) et <span class="text-info"><strong><?php echo $v1['nb_minutes_left']; ?></strong></span> minute(s) avant la fin de cet activité.</p><br>
 					<?php endif; ?>
-					<div style="display:none;" class="leftTimeSeconds"><?php echo $v1['tmpLeft']; ?></div>
 					<p>Pourcentage accompli :</p>
 					<div class="progress progress-striped active">
-					  <div style="display:none;" class="activityPercentDone">Pourcentage accompli : <?php echo $v1['percent_done']; ?>%</div>
+					  <div class="activityPercentDone hidden-elements">Pourcentage accompli : <?php echo $v1['percent_done']; ?>%</div>
 					  <?php if( $v1['percent_done'] < 40 ): ?>
 					  <div class="progress-bar progress-bar-danger"  role="progressbar" style="width: <?php echo $v1['percent_done']; ?>%">
 					  <?php elseif( $v1['percent_done'] >= 40 && $v1['percent_done'] < 70 ): ?>
@@ -44,6 +44,9 @@
 					    <span class="sr-only"><?php echo $v1['percent_done']; ?>% Complete</span>
 					  </div>
 					</div>
+					<div class="leftTimeSeconds hidden-elements"><?php echo $v1['tmpLeft']; ?></div>
+					<div class="activityCommentary hidden-elements"><?php echo $v1['commentary']; ?></div>
+					<div class="activityEndDate hidden-elements"><?php echo $v1['end_date']; ?></div> 
 				</div>
 				<?php endforeach; ?>
 			</div>
@@ -75,6 +78,7 @@
 		</div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-activity-modal.php"; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-note-modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//activity_modal.php"; ?>
 	</body>
 	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/main_page.js"></script>
 </html>

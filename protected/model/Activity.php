@@ -113,6 +113,11 @@ class Activity extends ActivityBase{
 		
 		if(empty($activities)) return null;
 		
+		//End line managment
+		foreach ($activities as &$activity) {
+			$activity["commentary"] = nl2br(htmlentities($activity["commentary"]));
+		}
+		
 		//Sort activities and add nbDaysLeft Column (used into main.html)
 		return Activity::_sortActivitiesTable($activities);
 	}
