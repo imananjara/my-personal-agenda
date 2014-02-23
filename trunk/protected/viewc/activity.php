@@ -92,17 +92,13 @@
 			    <label for="activityDone" class="col-sm-2 control-label">Fait a (en %)</label>
 			    <div class="col-sm-10">
 			      <select class="form-control" name="activityDone" id="activityDone">
-			      	  <option value="0">0</option>
-					  <option value="10">10</option>
-					  <option value="20">20</option>
-					  <option value="30">30</option>
-					  <option value="40">40</option>
-					  <option value="50">50</option>
-					  <option value="60">60</option>
-					  <option value="70">70</option>
-					  <option value="80">80</option>
-					  <option value="90">90</option>
-					  <option value="100">100</option>
+					  <?php foreach(range(0, 100, 10) as $data['i']): ?>
+					  <?php if( isset($data['activity']) && $data['i'] == $data['activity']['percent_done'] ): ?>
+					  <option selected="selected" value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
+					  <?php else: ?>
+					  <option value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
+					  <?php endif; ?>
+					  <?php endforeach; ?>
 				  </select>
 			    </div>
 			  </div>

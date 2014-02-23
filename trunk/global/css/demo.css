@@ -1,4 +1,4 @@
-/* My personal agemda css page */
+/* My personal agenda css page */
 
 .activity-section
 {
@@ -13,4 +13,9 @@ textarea
 .activity-btn
 {
 	margin-left : 5px;
+}
+
+.hidden-elements
+{
+	display:none;
 }
