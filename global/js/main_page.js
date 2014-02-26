@@ -139,7 +139,7 @@ $( document ).ready(function() {
 		
 		var sqlEndHour = sqldate.split(" ")[1].split(":");
 		
-		var fullDate = sqlEndDate[2] + " " + monthsTab[sqlEndDate[1]] + " " + sqlEndDate[0] + " a " + sqlEndHour[0] + "h" + sqlEndHour[1];
+		var fullDate = sqlEndDate[2] + " " + monthsTab[sqlEndDate[1]] + " " + sqlEndDate[0] + " à " + sqlEndHour[0] + "h" + sqlEndHour[1];
 		
 		return fullDate;
 	}
