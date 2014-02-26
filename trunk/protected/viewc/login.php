@@ -27,19 +27,19 @@
 				<div class="tab-pane fade in active" id="connexion-content">
 					<form id="connexion-form" class="form-horizontal" method="post" role="form">
 					  <div class="form-group">
-					    <label for="inputLoginAuth" class="col-sm-2 control-label">Login</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="inputLoginAuth" id="inputLoginAuth" placeholder="Login">
+					    <label for="inputLoginAuth" class="col-sm-3 control-label">Pseudonyme</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" name="inputLoginAuth" id="inputLoginAuth" placeholder="Pseudonyme">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputPasswordAuth" class="col-sm-2 control-label">Mdp</label>
-					    <div class="col-sm-10">
+					    <label for="inputPasswordAuth" class="col-sm-3 control-label">Mot de passe</label>
+					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="inputPasswordAuth" id="inputPasswordAuth" placeholder="Mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-10">
+					    <div class="col-sm-offset-3 col-sm-9">
 					      <a href="javascript:void(0)" id="to-connect-action" class="btn btn-default">Se connecter</a>
 					    </div>
 					  </div>
@@ -49,31 +49,31 @@
 				<div class="tab-pane fade" id="inscription-content">
 					<form id="inscription-form" class="form-horizontal" method="post" role="form">
 					  <div class="form-group">
-					    <label for="inputLoginInscrip" class="col-sm-2 control-label">Login</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="inputLoginInscrip" id="inputLoginInscrip" placeholder="Login">
+					    <label for="inputLoginInscrip" class="col-sm-3 control-label">Pseudonyme</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" name="inputLoginInscrip" id="inputLoginInscrip" placeholder="Pseudonyme">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputPasswordInscrip" class="col-sm-2 control-label">Mdp</label>
-					    <div class="col-sm-10">
+					    <label for="inputPasswordInscrip" class="col-sm-3 control-label">Mot de passe</label>
+					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="inputPasswordInscrip" id="inputPasswordInscrip" placeholder="Mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputFirstNameInscrip" class="col-sm-2 control-label">Prenom</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="inputFirstNameInscrip" id="inputFirstNameInscrip" placeholder="Prenom">
+					    <label for="inputFirstNameInscrip" class="col-sm-3 control-label">Prénom</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" name="inputFirstNameInscrip" id="inputFirstNameInscrip" placeholder="Prénom">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputLastNameInscrip" class="col-sm-2 control-label">Nom</label>
-					    <div class="col-sm-10">
+					    <label for="inputLastNameInscrip" class="col-sm-3 control-label">Nom</label>
+					    <div class="col-sm-9">
 					      <input type="text" class="form-control" name="inputLastNameInscrip" id="inputLastNameInscrip" placeholder="Nom">
 					    </div>
 					  </div>  
 					  <div class="form-group">
-					    <label for="inputBirthdayInscrip" class="col-sm-2 control-label">Naissance</label>
+					    <label for="inputBirthdayInscrip" class="col-sm-3 control-label">Naissance</label>
 					    <div class="col-sm-5">
 					      <div class='input-group date' id="inputBirthdayInscrip">
 					      	<input type="text" class="form-control" name="inputBirthdayInscrip" placeholder="Date de naissance">
@@ -82,13 +82,13 @@
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputEmailInscrip" class="col-sm-2 control-label">Email</label>
-					    <div class="col-sm-10">
+					    <label for="inputEmailInscrip" class="col-sm-3 control-label">Email</label>
+					    <div class="col-sm-9">
 					      <input type="text" class="form-control" name="inputEmailInscrip" id="inputEmailInscrip" placeholder="Email">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-10">
+					    <div class="col-sm-offset-3 col-sm-9">
 					      <a href="javascript:void(0)" id="to-subscribe-action" class="btn btn-default">S'inscrire</a>
 					   </div>
 					  </div>
