@@ -14,7 +14,7 @@
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info pull-right">Ajouter une activite</a></div>
+			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info pull-right">Ajouter une activité</a></div>
 			<hr>
 			<?php if( isset($data['activities']) ): ?>
 			<div id="activity-section-panel">
@@ -27,7 +27,7 @@
 					<hr>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 ): ?>
-					<p class="bg-success">L'activite est terminee</p><br>
+					<p class="bg-success">L'activite est terminée</p><br>
 					<?php else: ?>
 					<p class="bg-info">Il reste <span class="text-info"><strong><?php echo $v1['nb_days_left']; ?></strong></span> jour(s), <span class="text-info"><strong><?php echo $v1['nb_hours_left']; ?></strong></span> heure(s) et <span class="text-info"><strong><?php echo $v1['nb_minutes_left']; ?></strong></span> minute(s) avant la fin de cet activité.</p><br>
 					<?php endif; ?>
@@ -51,7 +51,7 @@
 				<?php endforeach; ?>
 			</div>
 			<?php else: ?>
-			<p>Aucune activite n'a ete planifiee</p>
+			<p>Aucune activité n'a été planifiée.</p>
 			<?php endif; ?>
 		</div>
 		<div class="col-md-4 col-md-offset-1 well">
@@ -73,7 +73,7 @@
 				<?php endforeach; ?>
 			</div>
 			<?php else: ?>
-			<p>Aucune note n'est enregistree dans l'application</p>
+			<p>Aucune note n'est enregistrée dans l'application</p>
 			<?php endif; ?>
 		</div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-activity-modal.php"; ?>
