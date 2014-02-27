@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	
 	//Initialise month tab
 	var monthsTab = { "01" : "Janvier", 
-					  "02" : "Fevrier", 
+					  "02" : "Février", 
 					  "03" : "Mars",
 					  "04" : "Avril",
 					  "05" : "Mai",
@@ -21,18 +21,18 @@ $( document ).ready(function() {
 					  "09" : "Septembre",
 					  "10" : "Octobre",
 					  "11" : "Novembre",
-					  "12" : "Decembre"};
+					  "12" : "Décembre"};
 	
 	//Get app's base url
 	var baseurl = $('#base-url').val();
 	
 	//Add tooltips to see/del/edit button
 	$(".del-activity").tooltip({
-		title: 'Supprimer cette activite'
+		title: 'Supprimer cette activité'
 	});
 	
 	$(".edit-activity").tooltip({
-		title: 'Editer cette activite'
+		title: 'Editer cette activité'
 	});
 	
 	$(".edit-note").tooltip({
@@ -44,7 +44,7 @@ $( document ).ready(function() {
 	});
 	
 	$('.see-activity').tooltip({
-		title: 'Voir cette activite'
+		title: 'Voir cette activité'
 	});
 	
 	//Add tooltip to the progress bar
@@ -61,16 +61,16 @@ $( document ).ready(function() {
 		if ($(this).html() < 86400) {
 			
 			 activityNameJs = $(this).parent().find(activityNameForNotif).html();
-			 varText = 'L\'activite "' + activityNameJs + '" arrive bientot a son terme (moins de 1 jour restant)';
+			 varText = 'L\'activité "' + activityNameJs + '" arrive bientot a son terme (moins de 1 jour restant)';
 			 notifColor = 'warning';
 			 
 			 if ($(this).html() < 43200) {
-				 varText = 'Attention, il reste moins de 12 heures pour terminer l\'activite : "' + activityNameJs + '"';
+				 varText = 'Attention, il reste moins de 12 heures pour terminer l\'activité : "' + activityNameJs + '"';
 				 notifColor = 'danger';
 			 }
 			 
 			 if ($(this).html() == 0) {
-				 varText = 'L\'activite "' + activityNameJs + '" est terminee';
+				 varText = 'L\'activité "' + activityNameJs + '" est terminée';
 				 notifColor = 'info';
 			 }
 			 
@@ -86,20 +86,20 @@ $( document ).ready(function() {
 	//If the user click on "see activity" button, create an activity view
 	$(".see-activity").on('click', function(){
 		
-		$("#activity-modal-title").html("Fiche de l\'activite : " + $(this).parent().find(".activityNameForNotif").html());
+		$("#activity-modal-title").html("Fiche de l\'activité : " + $(this).parent().find(".activityNameForNotif").html());
 		
 		//Clean the activity modal body
 		$("#activity-modal-content").empty();
 		 
-		$("#activity-modal-content").append($("<p></p>").html("Cette activite a comme date de fin le <strong>" + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong>"));
-		$("#activity-modal-content").append($("<p></p>").html("Vous avez ecrit comme description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
+		$("#activity-modal-content").append($("<p></p>").html("Cette activité prend fin le <strong>" + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong> et est completé à <strong>" + $(this).parent().find(".activityPercentDone").html().split(" : ")[1] + "</strong>"));
+		$("#activity-modal-content").append($("<p></p>").html("Vous avez écrit comme description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
 		
 		//Commentary
 		var activityCommentary = $(this).parent().find(".activityCommentary").html();
 		
 		if (activityCommentary != "") {
 			
-			$("#activity-modal-content").append($("<p></p>").html("Vous avez ecrit un commentaire sur cette activite :"));
+			$("#activity-modal-content").append($("<p></p>").html("Vous avez écrit un commentaire sur cette activité :"));
 			$("#activity-modal-content").append($("<div></div>").addClass("well").html(activityCommentary));
 		}
 		

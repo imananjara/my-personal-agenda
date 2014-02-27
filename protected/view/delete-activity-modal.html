@@ -3,10 +3,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="delete-activity-header">Suppression d'une activite</h4>
+        <h4 class="modal-title" id="delete-activity-header">Suppression d'une activité</h4>
       </div>
       <div id="delete-activity-body" class="modal-body">
-        Voulez-vous vraiment supprimer cette activite ?
+        Voulez-vous vraiment supprimer cette activité ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
