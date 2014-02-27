@@ -26,9 +26,9 @@
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="inputFirstNameProfile" class="col-sm-2 control-label">Prenom</label>
+					    <label for="inputFirstNameProfile" class="col-sm-2 control-label">Prénom</label>
 					    <div class="col-sm-10">
-					      <input type="text" value="<?php echo $data['user']['firstname']; ?>" class="form-control" name="inputFirstNameProfile" id="inputFirstNameProfile" placeholder="Prenom">
+					      <input type="text" value="<?php echo $data['user']['firstname']; ?>" class="form-control" name="inputFirstNameProfile" id="inputFirstNameProfile" placeholder="Prénom">
 					    </div>
 					  </div>
 					  <div class="form-group">

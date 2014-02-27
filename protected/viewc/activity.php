@@ -3,9 +3,9 @@
 <head>
 	<meta charset=UTF-8>
 	<?php if( isset($data['activity']) ): ?>
-	<title>Edition d'activite - My Personal Agenda</title>
+	<title>Edition d'activité - My Personal Agenda</title>
 	<?php else: ?>
-	<title>Creation d'activite - My Personal Agenda</title>
+	<title>Creation d'activité - My Personal Agenda</title>
 	<?php endif; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
