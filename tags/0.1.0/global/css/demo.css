@@ -1,0 +1,21 @@
+/* My personal agenda css page */
+
+.activity-section
+{
+	background-color : white;
+}
+
+textarea
+{
+   resize: none;
+}
+
+.activity-btn
+{
+	margin-left : 5px;
+}
+
+.hidden-elements
+{
+	display:none;
+}
