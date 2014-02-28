@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.1
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Dim 02 Février 2014 à 17:06
+-- Généré le :  Ven 28 Février 2014 à 22:06
 -- Version du serveur :  5.6.15
 -- Version de PHP :  5.4.17
 
@@ -32,13 +32,13 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `user_id` int(11) NOT NULL,
   `title` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `description` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
+  `end_date` datetime NOT NULL,
+  `percent_done` int(4) NOT NULL,
   `commentary` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`activity_id`),
   KEY `activity_type_id` (`activity_type_id`,`user_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -48,10 +48,18 @@ CREATE TABLE IF NOT EXISTS `activity` (
 
 CREATE TABLE IF NOT EXISTS `activity_type` (
   `activity_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `activity_type_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `activity_type_description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`activity_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `activity_type`
+--
+
+INSERT INTO `activity_type` (`activity_type_id`, `activity_type_name`, `activity_type_description`) VALUES
+(1, 'Loisirs', 'Tout ce qui concerne les activités non scolaires'),
+(2, 'Activités scolaire', 'Travail à l''école, projets scolaires, rapports...');
 
 -- --------------------------------------------------------
 
@@ -66,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`note_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `birthday_date` date NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Contraintes pour les tables exportées
