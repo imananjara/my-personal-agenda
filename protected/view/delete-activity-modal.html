@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
-        <button type="button" id="delete-modal-activity-btn" class="btn btn-primary">Oui</button>
+        <button type="button" id="delete-modal-activity-btn" class="btn btn-danger">Oui</button>
       </div>
     </div>
   </div>
