@@ -19,7 +19,7 @@ class User extends UserBase{
 	
 		$user = new User();
 		$user->login = $login;
-		$user->password = $password;
+		$user->password = md5($password);
 		
 		$user = $user->find($options);
 		
@@ -50,7 +50,7 @@ class User extends UserBase{
 		
 		$user = new User();
 		$user->login = $login;
-		$user->password = $password;
+		$user->password = md5($password);
 		$user->firstname = $firstname;
 		$user->lastname = $lastname;
 		$user->email = $email;
