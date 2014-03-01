@@ -161,9 +161,26 @@ class Activity extends ActivityBase{
 				$activities[$i]["nb_days_left"] = 0;
 			}
 		}
+		//Sort activities with the php function "usort"
+		usort($activities, "Activity::_compareActivities");
 		
 		return $activities;
 		
+	}
+	
+	/**
+	 * Sort comparator
+	 */
+	public static function _compareActivities($a, $b) {
+		if ($a["tmpLeft"] == $b["tmpLeft"])
+		{
+			if ($a["percent_done"] == $b["percent_done"])
+			{
+				return 0;
+			}
+			return ($a["percent_done"] < $b["percent_done"]) ? -1 : 1;
+		}
+		return ($a["tmpLeft"] < $b["tmpLeft"]) ? -1 : 1;
 	}
 	
 }
