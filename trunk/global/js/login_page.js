@@ -5,12 +5,6 @@ $( document ).ready(function() {
 	
 	//When the page loads, we hide the notifications bar
 	$('#notifications').hide();
-	
-	//Active datepicker	
-	$('#inputBirthdayInscrip').datetimepicker({
-		language: 'fr',
-		pickTime: false
-	});
   
 	//If the user click on connect button
 	$( "#to-connect-action" ).on("click", function() {
@@ -55,21 +49,15 @@ $( document ).ready(function() {
 	
 	//If the user click on the subscribe button
 	$("#to-subscribe-action").on('click', function(){
-		if ($("#inputLoginInscrip").val() == "" || $("#inputPasswordInscrip").val() == "" && $("#inputFirstNameInscrip").val() == "" && $("#inputLastNameInscrip").val() == "" && $("#inputBirthdayInscrip").children( "input" ).val() == "" && $("#inputEmailInscrip").val() == "")
+		if ($("#inputLoginInscrip").val() == "" || $("#inputPasswordInscrip").val() == "" || $("#inputFirstNameInscrip").val() == "" || $("#inputLastNameInscrip").val() == "" || $("#inputEmailInscrip").val() == "")
 		{
 			notification('alert-danger', '<strong>Erreur lors de l\'inscription</strong> : Vous devez remplir tous les champs pour vous inscrire');
 			return;
 		}
-		
-		//Check the date format
-		if (!(/^\d{2}\/\d{2}\/\d{4}$/.test($("#inputBirthdayInscrip").children( "input" ).val()))) {
-			notification('alert-danger', '<strong>Erreur lors de l\'inscription</strong> : Vous devez saisir une date dans le format suivant : JJ/MM/AAAA');
-			return;
-		}
-		
+				
 		//Check the mail format
 		if (!(/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test($("#inputEmailInscrip").val()))) {
-			notification('alert-danger', '<strong>Erreur lors de l\'inscription</strong> : L\'email a été écrit dans un format incorrect');
+			notification('alert-danger', '<strong>Erreur lors de l\'inscription</strong> : L\'email a été écrit dans un format incorrect.');
 			return;
 		}
 		
@@ -89,7 +77,6 @@ $( document ).ready(function() {
 			$("#inputPasswordInscrip").val(""); 
 			$("#inputFirstNameInscrip").val("");
 			$("#inputLastNameInscrip").val("");
-			$("#inputBirthdayInscrip").children( "input" ).val("");
 			$("#inputEmailInscrip").val("");
 			
 			$("#connexion-tab").trigger('click');
