@@ -53,7 +53,7 @@ class UserController extends BaseController{
 	 */
 	public function adduser(){
 		
-		User::_addUser($_POST['inputLoginInscrip'],$_POST['inputPasswordInscrip'], $_POST['inputFirstNameInscrip'], $_POST['inputLastNameInscrip'], $_POST['inputBirthdayInscrip'], $_POST['inputEmailInscrip']);
+		User::_addUser($_POST['inputLoginInscrip'],$_POST['inputPasswordInscrip'], $_POST['inputFirstNameInscrip'], $_POST['inputLastNameInscrip'], $_POST['inputEmailInscrip']);
 	}
 	
 	/**
@@ -66,11 +66,6 @@ class UserController extends BaseController{
 		
 		$this->_data["user"] = User::_getUserProfile();
 		
-		$full_date = explode(' ', $this->_data["user"]["birthday_date"]);
-			
-		$birthday_date = explode("-", $full_date[0]);
-		$this->_data["user"]["birthday_date"] = $birthday_date[2].'/'.$birthday_date[1].'/'.$birthday_date[0];
-		
 		$this->renderView('profile');
 	}
 	
@@ -78,8 +73,7 @@ class UserController extends BaseController{
 	 * Edit the current user profile
 	 */
 	public function editUserProfile(){
-		$_SESSION["test"] = $_POST["inputFirstNameProfile"];
-		User::_editUserProfile($_POST["inputFirstNameProfile"], $_POST["inputLastNameProfile"], $_POST["inputBirthdayProfile"], $_POST["inputEmailProfile"]);
+		User::_editUserProfile($_POST["inputFirstNameProfile"], $_POST["inputLastNameProfile"], $_POST["inputEmailProfile"]);
 		return $this->_data["baseurl"];
 	}
 }

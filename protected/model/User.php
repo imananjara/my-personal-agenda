@@ -39,22 +39,16 @@ class User extends UserBase{
 	 * @param $password
 	 * @param $firstname
 	 * @param $lastname
-	 * @param $birthday
 	 * @param $email
 	 */
-	public static function _addUser($login, $password, $firstname, $lastname, $birthday, $email)
+	public static function _addUser($login, $password, $firstname, $lastname, $email)
 	{
-		//birthday to SQL mode
-		$date = explode('/', $birthday);
-		$birthday = $date[2].'-'.$date[1].'-'.$date[0];
-		
 		$user = new User();
 		$user->login = $login;
 		$user->password = md5($password);
 		$user->firstname = $firstname;
 		$user->lastname = $lastname;
 		$user->email = $email;
-		$user->birthday_date = $birthday;
 		
 		$user->insert();
 	}
@@ -86,13 +80,9 @@ class User extends UserBase{
 	 * @param $birthday
 	 * @param $email
 	 */
-	public static function _editUserProfile($firstName, $lastName, $birthday, $email) {
+	public static function _editUserProfile($firstName, $lastName, $email) {
 		
 		$options['limit'] = 1;
-		
-		//birthday to SQL mode
-		$date = explode('/', $birthday);
-		$birthday = $date[2].'-'.$date[1].'-'.$date[0];
 		
 		$user = new User();
 		$user->user_id = $_SESSION["mpa_user_id"];
@@ -100,7 +90,6 @@ class User extends UserBase{
 		
 		$user->firstname = $firstName;
 		$user->lastname = $lastName;
-		$user->birthday_date = $birthday;
 		$user->email = $email;
 
 		$user->update();

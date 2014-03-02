@@ -38,15 +38,6 @@
 					    </div>
 					  </div>  
 					  <div class="form-group">
-					    <label for="inputBirthdayProfile" class="col-sm-2 control-label">Naissance</label>
-					    <div class="col-sm-5">
-						  <div class='input-group date' id="inputBirthdayProfile">
-					      	<input type="text" value="<?php echo $data['user']['birthday_date']; ?>" class="form-control" name="inputBirthdayProfile" placeholder="Date de naissance">
-					      	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="form-group">
 					    <label for="inputEmailProfile" class="col-sm-2 control-label">Email</label>
 					    <div class="col-sm-10">
 					      <input type="text" value="<?php echo $data['user']['email']; ?>" class="form-control" name="inputEmailProfile" id="inputEmailProfile" placeholder="Email">

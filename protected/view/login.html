@@ -73,15 +73,6 @@
 					    </div>
 					  </div>  
 					  <div class="form-group">
-					    <label for="inputBirthdayInscrip" class="col-sm-3 control-label">Naissance</label>
-					    <div class="col-sm-5">
-					      <div class='input-group date' id="inputBirthdayInscrip">
-					      	<input type="text" class="form-control" name="inputBirthdayInscrip" placeholder="Date de naissance">
-					      	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="form-group">
 					    <label for="inputEmailInscrip" class="col-sm-3 control-label">Email</label>
 					    <div class="col-sm-9">
 					      <input type="text" class="form-control" name="inputEmailInscrip" id="inputEmailInscrip" placeholder="Email">

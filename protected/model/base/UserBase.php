@@ -33,14 +33,9 @@ class UserBase extends DooModel{
      */
     public $email;
 
-    /**
-     * @var date
-     */
-    public $birthday_date;
-
     public $_table = 'user';
     public $_primarykey = 'user_id';
-    public $_fields = array('user_id','login','password','firstname','lastname','email','birthday_date');
+    public $_fields = array('user_id','login','password','firstname','lastname','email');
 
     public function getVRules() {
         return array(
@@ -72,11 +67,6 @@ class UserBase extends DooModel{
 
                 'email' => array(
                         array( 'maxlength', 250 ),
-                        array( 'notnull' ),
-                ),
-
-                'birthday_date' => array(
-                        array( 'date' ),
                         array( 'notnull' ),
                 )
             );
