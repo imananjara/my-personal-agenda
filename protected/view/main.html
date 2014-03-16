@@ -12,6 +12,15 @@
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
 	<!-- include 'menu_bar' -->
 	<input type="hidden" id="base-url" value="{{baseurl}}">
+	
+	<div id="user-parameters" class="hidden-elements">
+		<div id="simple_alert_msg">{{notification.simple_alert_msg}}</div>
+		<div id="simple_alert_tl">{{notification.simple_alert_tl}}</div>
+		<div id="critical_alert_msg">{{notification.critical_alert_msg}}</div>
+		<div id="critical_alert_tl">{{notification.critical_alert_tl}}</div>
+		<div id="end_activity_msg">{{notification.end_activity_msg}}</div>
+	</div>
+	
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
 			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="{{baseurl}}activity" class="btn btn-info pull-right">Ajouter une activité</a></div>

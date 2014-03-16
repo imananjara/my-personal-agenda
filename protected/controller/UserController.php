@@ -1,5 +1,6 @@
 <?php
 Doo::loadModel('User');
+Doo::loadModel('Notification');
 Doo::loadController('BaseController');
 
 /**
@@ -61,10 +62,18 @@ class UserController extends BaseController{
 	 */
 	public function getUserProfile(){
 		
+		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		{
+			return $this->_data['baseurl'] .'login';
+		}
+		
 		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
 		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
 		
 		$this->_data["user"] = User::_getUserProfile();
+		
+		//get notification linked with the current user
+		$this->_data['notification'] = Notification::_getUserNotification();
 		
 		$this->renderView('profile');
 	}
@@ -74,7 +83,13 @@ class UserController extends BaseController{
 	 */
 	public function editUserProfile(){
 		User::_editUserProfile($_POST["inputFirstNameProfile"], $_POST["inputLastNameProfile"], $_POST["inputEmailProfile"]);
-		return $this->_data["baseurl"];
+	}
+	
+	/**
+	 * Edit the user notification
+	 */
+	public function  editUserNotification(){
+		Notification::_updateUserNotification($_POST['notification_id'], $_POST['simple_alert_msg'], $_POST['simple_alert_tl'], $_POST['critical_alert_msg'], $_POST['critical_alert_tl'], $_POST['end_activity_msg']);
 	}
 }
 

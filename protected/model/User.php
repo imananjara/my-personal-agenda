@@ -50,7 +50,18 @@ class User extends UserBase{
 		$user->lastname = $lastname;
 		$user->email = $email;
 		
-		$user->insert();
+		$insertedUserId = $user->insert();
+		
+		//Insert a notification object into database
+		Doo::loadModel('Notification');
+		$notif = new Notification();
+		$notif->user_id = $insertedUserId;
+		$notif->simple_alert_msg = "Cette activité sera terminée dans moins de 1 jour.";
+		$notif->simple_alert_tl = 86400;
+		$notif->critical_alert_msg = "Attention, cette activité terminera dans moins de 12 heures.";
+		$notif->critical_alert_tl = 43200;
+		$notif->end_activity_msg = "Cette activité est terminée.";
+		$notif->insert();
 	}
 	
 	/**

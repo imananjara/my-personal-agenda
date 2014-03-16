@@ -22,7 +22,19 @@ $( document ).ready(function() {
 
 		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").children( "input" ).val() == "" || $('#activityEndHour').children( "input" ).val() == "")
 		{
-			notification('alert-danger', '<strong>Erreur lors de l\'ajout d\'activite</strong> : Vous devez remplir les champs suivants : Titre, Description, Date de fin');
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout/modification de l\'activité</strong> : Vous devez remplir les champs suivants : Titre, Description, Date de fin');
+			return;
+		}
+		
+		//Check the date format
+		if (!(/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test($("#activityEndDate").children( "input" ).val()))) {
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout/modification de l\'activite</strong> : La date de l\'échéance est écrit dans un format incorrect.');
+			return;
+		}
+		
+		//Check the hour format
+		if (!(/^[0-9]{2}\:[0-9]{2}$/.test($("#activityEndHour").children( "input" ).val()))) {
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout/modification de l\'activite</strong> : L\'heure de l\'échéance est écrit dans un format incorrect.');
 			return;
 		}
 		
