@@ -2,6 +2,7 @@
 Doo::loadModel('Activity');
 Doo::loadModel('User');
 Doo::loadModel('Note');
+Doo::loadModel('Notification');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
 /**
@@ -26,6 +27,9 @@ class MainPageController extends BaseController{
 		
 		//get activities (for the user)
 		$this->_data["activities"] = Activity::_getActivities();
+		
+		//get notification linked with the current user
+		$this->_data['notification'] = Notification::_getUserNotification();
 		
 		//get notes (for the user)
 		$this->_data["notes"] = Note::_getNotes();

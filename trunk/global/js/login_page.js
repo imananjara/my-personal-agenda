@@ -4,7 +4,7 @@ $( document ).ready(function() {
 	baseurl = $('#base-url').val();
 	
 	//When the page loads, we hide the notifications bar
-	$('#notifications').hide();
+	$('#notifications-login').hide();
   
 	//If the user click on connect button
 	$( "#to-connect-action" ).on("click", function() {
@@ -93,10 +93,10 @@ $( document ).ready(function() {
 	
 	//Notification system
 	function notification(type, message) {
-	 	$('#notifications').removeClass();
-	 	$('#notifications').addClass('alert '+type).html(message);
-	 	$('#notifications').slideDown();
-	 	setTimeout(function(){ $('#notifications').slideUp(); }, 2000);
+	 	$('#notifications-login').removeClass();
+	 	$('#notifications-login').addClass('alert '+type).html(message);
+	 	$('#notifications-login').slideDown();
+	 	setTimeout(function(){ $('#notifications-login').slideUp(); }, 2000);
 	 }
 	
 });

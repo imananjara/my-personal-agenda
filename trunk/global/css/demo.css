@@ -19,3 +19,15 @@ textarea
 {
 	display:none;
 }
+
+.alert-tl-label
+{
+	padding-top:5px;
+}
+
+#notifications
+{
+	position: fixed;
+	z-index:4;
+	width: 100%;
+}

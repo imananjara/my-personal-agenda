@@ -24,6 +24,7 @@ $route['get']['/deletenote/:note_id'] = array('NoteController', 'deleteNote');
 
 $route['get']['/profile'] = array('UserController', 'getUserProfile');
 $route['post']['/editprofile'] = array('UserController', 'editUserProfile');
+$route['post']['/editnotification'] = array('UserController', 'editUserNotification');
 //-------------------------------------------------------------------
 
  

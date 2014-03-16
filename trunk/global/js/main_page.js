@@ -58,19 +58,22 @@ $( document ).ready(function() {
 	//Notification system : display a notification when the remaining time is under that 1 day (updatable)
 	$(".leftTimeSeconds").each(function(){
 		
-		if ($(this).html() < 86400) {
+		//Warning alert
+		if ($(this).html() < parseInt($("#simple_alert_tl").html())) {
 			
 			 activityNameJs = $(this).parent().find(activityNameForNotif).html();
-			 varText = 'L\'activité "' + activityNameJs + '" arrive bientot a son terme (moins de 1 jour restant)';
+			 varText = activityNameJs + " : " + $("#simple_alert_msg").html();
 			 notifColor = 'warning';
 			 
-			 if ($(this).html() < 43200) {
-				 varText = 'Attention, il reste moins de 12 heures pour terminer l\'activité : "' + activityNameJs + '"';
+			 //Critical alert
+			 if ($(this).html() < parseInt($("#critical_alert_tl").html())) {
+				 varText = activityNameJs + " : " + $("#critical_alert_msg").html();
 				 notifColor = 'danger';
 			 }
 			 
+			 //End activity alert
 			 if ($(this).html() == 0) {
-				 varText = 'L\'activité "' + activityNameJs + '" est terminée';
+				 varText = activityNameJs + " : " + $("#end_activity_msg").html();
 				 notifColor = 'info';
 			 }
 			 

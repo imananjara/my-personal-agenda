@@ -12,6 +12,15 @@
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//menu_bar.php"; ?>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
+	
+	<div id="user-parameters" class="hidden-elements">
+		<div id="simple_alert_msg"><?php echo $data['notification']['simple_alert_msg']; ?></div>
+		<div id="simple_alert_tl"><?php echo $data['notification']['simple_alert_tl']; ?></div>
+		<div id="critical_alert_msg"><?php echo $data['notification']['critical_alert_msg']; ?></div>
+		<div id="critical_alert_tl"><?php echo $data['notification']['critical_alert_tl']; ?></div>
+		<div id="end_activity_msg"><?php echo $data['notification']['end_activity_msg']; ?></div>
+	</div>
+	
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
 			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info pull-right">Ajouter une activité</a></div>

@@ -16,6 +16,10 @@ $dbmap['Activity']['belongs_to']['User'] = array('foreign_key'=>'user_id');
 $dbmap['User']['has_many']['Note'] = array('foreign_key'=>'user_id');
 $dbmap['Note']['belongs_to']['User'] = array('foreign_key'=>'user_id');
 
+//Notification/User
+$dbmap['User']['has_one']['Notification'] = array('foreign_key' => 'user_id');
+$dbmap['Notification']['belongs_to']['User'] = array('foreign_key' => 'user_id');
+
 $dbconfig['dev'] = array($HOST, $NAME, $USER, $PASSWD, 'mysql', true, 'charset'=>'utf8');
 $dbconfig['prod'] = array($HOST, $NAME, $USER, $PASSWD, 'mysql', true, 'charset'=>'utf8');
 ?>
