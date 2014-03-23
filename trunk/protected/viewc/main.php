@@ -85,9 +85,9 @@
 			<p>Aucune note n'est enregistrée dans l'application</p>
 			<?php endif; ?>
 		</div>
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-activity-modal.php"; ?>
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//delete-note-modal.php"; ?>
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//activity_modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_activity_modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_note_modal.php"; ?>
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/activity_modal.php"; ?>
 	</body>
 	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/main_page.js"></script>
 </html>
