@@ -20,6 +20,8 @@ class Note extends NoteBase{
 		$note = $note->find($options);
 		
 		if(empty($note)) return null;
+		
+		$note["title"] = stripslashes(htmlspecialchars($note["title"], ENT_QUOTES));
 			
 		return $note;
 	}

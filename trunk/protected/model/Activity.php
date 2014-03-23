@@ -22,6 +22,9 @@ class Activity extends ActivityBase{
 		
 		if(empty($activity)) return null;
 		
+		$activity["title"] = stripslashes(htmlspecialchars($activity["title"], ENT_QUOTES));
+		$activity["description"] = stripslashes(htmlspecialchars($activity["description"], ENT_QUOTES));
+		
 		return $activity;
 	}
 	
@@ -131,7 +134,6 @@ class Activity extends ActivityBase{
 		
 		for ($i = 0; $i < count($activities); $i++)
 		{
-			date_default_timezone_set('Europe/Paris');
 			$now   = time();
 			$endDate = strtotime($activities[$i]["end_date"]);
 			
