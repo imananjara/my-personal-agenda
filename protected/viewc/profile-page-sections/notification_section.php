@@ -4,6 +4,8 @@
 	<div id="simple_alert_tl_seconds"><?php echo $data['notification']['simple_alert_tl']; ?></div>
 	<div id="critical_alert_tl_seconds"><?php echo $data['notification']['critical_alert_tl']; ?></div>
 </div>
+
+<div class="well" style="background-color:white;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : L'alerte de niveau 1 doit apparaitre avant l'alerte de niveau 2</div>
 						
 <form id="notification-form">
 	<div class="panel panel-warning">
@@ -36,6 +38,7 @@
 					</div>
 				</div>
 			</div>
+			<p class="help-block">Ce message apparaitra à <strong>X</strong> jour(s), <strong>Y</strong> heure(s) et <strong>Z</strong> minute(s) avant la fin de l'activité</p>
 		</div>
 	</div>
 	<div class="panel panel-danger">
@@ -68,6 +71,7 @@
 					</div>
 				</div>
 			</div>
+			<p class="help-block">Ce message apparaitra à <strong>X</strong> jour(s), <strong>Y</strong> heure(s) et <strong>Z</strong> minute(s) avant la fin de l'activité</p>
 		</div>
 	</div>
 	<div class="panel panel-info">
