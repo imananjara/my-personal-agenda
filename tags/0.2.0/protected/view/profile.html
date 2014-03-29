@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=UTF-8>
+	<title>Mon profil - My Personal Agenda</title>
+	<!-- include 'css_files' -->
+	<link rel="stylesheet" href="{{baseurl}}global/css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+	<!-- include 'js_files' -->
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="{{baseurl}}global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
+</head>
+<body>
+	<div id="notifications" class='alert alert-notification'></div>
+	<!-- include 'menu_bar' -->
+	<input type="hidden" id="base-url" value="{{baseurl}}">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 well">
+			<div class="row">
+				<ul class="nav nav-pills nav-stacked col-md-3">
+				  <li class="active"><a href="#profile-content" data-toggle="tab">Mon profil</a></li>
+				  <li><a href="#notifications-content" data-toggle="tab">Mes notifications</a></li>
+				</ul>
+				<div class="tab-content col-md-9">
+					<div class="tab-pane fade in active" id="profile-content">
+						<!-- include 'profile-page-sections/user_profile_section' -->
+					</div>
+					<div class="tab-pane fade" id="notifications-content">
+						<!-- include 'profile-page-sections/notification_section' -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="{{baseurl}}global/js/profile_page.js"></script>
+</html>
