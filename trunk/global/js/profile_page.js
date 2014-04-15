@@ -3,8 +3,9 @@ $( document ).ready(function() {
 	//Get app's base url
 	baseurl = $('#base-url').val();
 	
-	//When the page loads, we hide the notifications bar
+	//When the page loads, we hide the notifications bar and the ajax loader gif
 	$('#notifications').hide();
+	$('#ajax-loader').hide();
 	
 	//For each time left, convert this into date format (days, hours and minutes);
 	get_days_hour_minutes(parseInt($("#simple_alert_tl_seconds").html()), "simple_alert_tl");
@@ -29,11 +30,15 @@ $( document ).ready(function() {
 		var data = $("#update-profile-form").serialize();
 		var url = baseurl + "editprofile";
 		
+		//Show ajax loader
+		$('#ajax-loader').show();
+		
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: data
 		}).success(function(){
+			$('#ajax-loader').hide();
 			notification('alert-success', 'Votre profil a bien été édité');
 		});
 		
@@ -70,11 +75,15 @@ $( document ).ready(function() {
 		var data = $("#notification-form").serialize();
 		var url = baseurl + "editnotification";
 		
+		//Show ajax loader
+		$('#ajax-loader').show();
+		
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: data
 		}).success(function(){
+			$('#ajax-loader').hide();
 			notification('alert-success', 'Vos notifications ont été modifiées avec succès');
 		});
 	});

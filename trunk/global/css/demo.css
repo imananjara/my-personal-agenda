@@ -31,3 +31,14 @@ textarea
 	z-index:4;
 	width: 100%;
 }
+
+#ajax-loader
+{
+	position: fixed;
+    left : 49%;
+	right : 49%;
+	bottom : 49%;
+	top : 49%;
+	width : auto;
+	z-index: 4;
+}
