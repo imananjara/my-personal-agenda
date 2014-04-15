@@ -14,6 +14,7 @@
 	<div id="notifications" class='alert alert-notification'></div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//menu_bar.php"; ?>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
+	<div id="ajax-loader"><img src="<?php echo $data['baseurl']; ?>global/img/ajaxloader.gif"/></div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 well">
 			<div class="row">

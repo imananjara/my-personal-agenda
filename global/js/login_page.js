@@ -3,8 +3,9 @@ $( document ).ready(function() {
 	//Get app's base url
 	baseurl = $('#base-url').val();
 	
-	//When the page loads, we hide the notifications bar
+	//When the page loads, we hide the notifications bar and the ajax loader gif
 	$('#notifications-login').hide();
+	$('#ajax-loader').hide();
   
 	//If the user click on connect button
 	$( "#to-connect-action" ).on("click", function() {
@@ -18,6 +19,8 @@ $( document ).ready(function() {
 		
 		data = $("#connexion-form").serialize();
 		url = baseurl + "getsession";
+		
+		$('#ajax-loader').show();
 
 		$.ajax({
 			type: "POST",
@@ -27,12 +30,14 @@ $( document ).ready(function() {
 			
 			if(isConnected=="true")
 			{
+				$('#ajax-loader').hide();
 				//Refresh to access to the main page
 				location.href = baseurl;
 			}
 			
 			else
 			{
+				$('#ajax-loader').hide();
 				notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Les identifiants sont incorrects');
 				$("#inputLoginAuth").val("");
 				$("#inputPasswordAuth").val("");
@@ -64,12 +69,15 @@ $( document ).ready(function() {
 		data = $("#inscription-form").serialize();
 		url = baseurl + "adduser";
 		
+		$('#ajax-loader').show();
+		
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: data
 		}).success(function() {
 			
+			$('#ajax-loader').hide();
 			notification('alert-success', '<strong>Inscription reussie</strong> : Vous pouvez dès à présent vous connecter sur l\'application (onglet Connexion)');
 			
 			//Clean the form

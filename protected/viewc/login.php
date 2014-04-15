@@ -15,6 +15,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 well">
 			<div id="notifications-login" class='alert alert-notification'></div>
+			<div id="ajax-loader"><img src="<?php echo $data['baseurl']; ?>global/img/ajaxloader.gif"/></div>
 			<h2>My Personal Agenda</h2><br>
 			
 			<ul class="nav nav-tabs">
