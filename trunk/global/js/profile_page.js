@@ -66,6 +66,12 @@ $( document ).ready(function() {
 		$("#simple_alert_tl").val((parseInt($("#simple_alert_tl_day").val()) * 86400) + (parseInt($("#simple_alert_tl_hour").val()) * 3600) + (parseInt($("#simple_alert_tl_minute").val()) * 60));
 		$("#critical_alert_tl").val((parseInt($("#critical_alert_tl_day").val()) * 86400) + (parseInt($("#critical_alert_tl_hour").val()) * 3600) + (parseInt($("#critical_alert_tl_minute").val()) * 60));
 		
+		if ((parseInt($("#simple_alert_tl").val()) == 0) || (parseInt($("#critical_alert_tl").val()) == 0))
+		{
+			notification('alert-danger', '<strong>Erreur lors de la modification des notifications</strong> : Seule l\'alerte "Fin de l\'activité" peut apparaitre au moment où une activité prend fin');
+			return;
+		}
+		
 		if (parseInt($("#simple_alert_tl").val()) < parseInt($("#critical_alert_tl").val()))
 		{
 			notification('alert-danger', '<strong>Erreur lors de la modification des notifications</strong> : L\'alerte de niveau 1 doit apparaitre avant l\'alerte de niveau 2');
