@@ -1,9 +1,10 @@
 <?php
-/**
- * Basics methodes used into the project
- * 
- */
 
+/**
+ * BaseController
+ * Basic methods used into the project
+ * @author imananjara <ivan.mananjara@gmail.com>
+ */
 class BaseController extends DooController{
 	
 	/**

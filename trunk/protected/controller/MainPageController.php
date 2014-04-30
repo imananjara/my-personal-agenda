@@ -5,10 +5,12 @@ Doo::loadModel('Note');
 Doo::loadModel('Notification');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
-/**
- * Main Page controller
- */
 
+/**
+ * MainPageController
+ * Load MPA's main page
+ * @author imananjara <ivan.mananjara@gmail.com>
+ */
 class MainPageController extends BaseController{
 	
 	/**
