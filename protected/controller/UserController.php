@@ -4,7 +4,9 @@ Doo::loadModel('Notification');
 Doo::loadController('BaseController');
 
 /**
- * User controller : Manage the application's user
+ * User controller 
+ * Manage the application's user
+ * @author imananjara <ivan.mananjara@gmail.com>
  */
 class UserController extends BaseController{
 	

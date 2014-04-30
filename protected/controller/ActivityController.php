@@ -4,6 +4,11 @@ Doo::loadModel('ActivityType');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
 
+/**
+ * ActivityController
+ * This class is used for managing users activities
+ * @author imananjara <ivan.mananjara@gmail.com>
+ */
 class ActivityController extends BaseController {
 	
 	/**

@@ -1,9 +1,10 @@
 <?php
+
 /**
- * Test controller
+ * TestController
+ * Used for testing application's functions
+ * @author imananjara <ivan.mananjara@gmail.com>
  */
-
-
 class TestController extends DooController{
 	
 	public function simpleTest(){

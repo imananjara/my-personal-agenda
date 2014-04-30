@@ -1,10 +1,12 @@
 <?php
 Doo::loadModel('Note');
 Doo::loadController('BaseController');
-/**
- * Note controller
- */
 
+/**
+ * NoteController
+ * Manage user's notes
+ * @author imananjara <ivan.mananjara@gmail.com>
+ */
 class NoteController extends BaseController{
 	
 	/**
