@@ -20,10 +20,16 @@
 		<div id="critical_alert_tl"><?php echo $data['notification']['critical_alert_tl']; ?></div>
 		<div id="end_activity_msg"><?php echo $data['notification']['end_activity_msg']; ?></div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-dashboard"></span> ACTIVITES<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info pull-right">Ajouter une activité</a></div>
+			<span class="glyphicon glyphicon-dashboard"></span> ACTIVITES
+			<div class="pull-right">
+				<?php if( isset($data['display_export_btn']) ): ?>
+				<a href="<?php echo $data['baseurl']; ?>exportactivities" class="btn btn-success"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a>
+				<?php endif; ?>
+				<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Ajouter une activité</a>
+			</div>
 			<hr>
 			<?php if( isset($data['activities']) ): ?>
 			<div id="activity-section-panel">
@@ -64,7 +70,10 @@
 			<?php endif; ?>
 		</div>
 		<div class="col-md-4 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info pull-right">Ajouter une note</a></div>
+			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES
+			<div class="pull-right">
+				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Ajouter une note</a></div>
+			</div>
 			<hr>
 			<?php if( isset($data['notes']) ): ?>
 			<div id="note-section-panel">

@@ -36,6 +36,11 @@ class MainPageController extends BaseController{
 		//get notes (for the user)
 		$this->_data["notes"] = Note::_getNotes();
 		
+		//Display export button
+		if (count($this->_data["activities"]) > 0) {
+			$this->_data["display_export_btn"] = 1;
+		}
+		
 		$this->renderView('main');
 	}
 	
