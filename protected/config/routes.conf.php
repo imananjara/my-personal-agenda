@@ -2,6 +2,7 @@
 
 //----------------My personal agenda routes--------------------------
 $route['*']['/simpletest'] = array('TestController', 'simpleTest');
+
 $route['*']['/'] = array('MainPageController', 'getMainPage');
 
 $route['*']['/login'] = array('UserController', 'getLoginPage');
@@ -25,6 +26,8 @@ $route['get']['/deletenote/:note_id'] = array('NoteController', 'deleteNote');
 $route['get']['/profile'] = array('UserController', 'getUserProfile');
 $route['post']['/editprofile'] = array('UserController', 'editUserProfile');
 $route['post']['/editnotification'] = array('UserController', 'editUserNotification');
+
+$route['get']['/exportactivities'] = array('ExportController', 'exportActivitiesPdf');
 //-------------------------------------------------------------------
 
  
