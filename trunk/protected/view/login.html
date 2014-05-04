@@ -40,11 +40,21 @@
 					    </div>
 					  </div>
 					  <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-10">
+					      <div class="checkbox">
+					        <label>
+					          <input type="checkbox" name="admin_page_access"> Accéder à la page d'administration *
+					        </label>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="form-group">
 					    <div class="col-sm-offset-3 col-sm-9">
 					      <a href="javascript:void(0)" id="to-connect-action" class="btn btn-default">Se connecter</a>
 					    </div>
 					  </div>
-					</form>
+					</form><br>
+					<p>* Reservé uniquement aux administrateurs de l'application</p>
 				</div>
 				
 				<div class="tab-pane fade" id="inscription-content">

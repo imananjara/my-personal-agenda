@@ -9,9 +9,8 @@ class User extends UserBase{
 	 * @param $password
 	 * @return boolean
 	 */
-	public static function _getSession($login, $password)
+	public static function _getSession($login, $password, $admin_checkbox)
 	{
-		$isConnected = false;
 		$options = array(
 				'asArray' => true,
 				'limit' => 1
@@ -25,12 +24,19 @@ class User extends UserBase{
 		
 		if ($user != null)
 		{
-			$isConnected = true;
+			if ($admin_checkbox == "checked" && !$user["is_admin"]) {
+				return "false-admin_page_forbidden_access";
+			}
+			
 			$_SESSION["mpa_user_id"] = $user["user_id"];
 			$_SESSION["mpa_user_login"] = $user["login"];
+			$_SESSION["mpa_user_is_admin"] = $user["is_admin"];
+			
+			return "true-authorized";
 		}
 		
-		return $isConnected;
+		return "false-incorrect_credentials";
+	
 	}
 	
 	/**
@@ -49,6 +55,7 @@ class User extends UserBase{
 		$user->firstname = $firstname;
 		$user->lastname = $lastname;
 		$user->email = $email;
+		$user->is_admin = false;
 		
 		$insertedUserId = $user->insert();
 		

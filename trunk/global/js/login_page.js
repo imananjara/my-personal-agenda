@@ -27,20 +27,32 @@ $( document ).ready(function() {
 			url: url,
 			data: data
 		}).success(function(isConnected) {
+		
+			var mpa_is_connected = isConnected.split("-")[0];
+			var mpa_reason = isConnected.split("-")[1];
 			
-			if(isConnected=="true")
+			if(mpa_is_connected=="true")
 			{
 				$('#ajax-loader').hide();
 				//Refresh to access to the main page
-				location.href = baseurl;
+				if( $('input[name=admin_page_access]').is(':checked') ){
+					location.href = baseurl + "administrator";
+				} else {
+					location.href = baseurl;
+				}
 			}
 			
 			else
 			{
 				$('#ajax-loader').hide();
-				notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Les identifiants sont incorrects');
-				$("#inputLoginAuth").val("");
-				$("#inputPasswordAuth").val("");
+				
+				if (mpa_reason=="admin_page_forbidden_access") {
+					notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Vous n\'avez pas les droits d\'acceder à l\'interface administrateur');
+					$('input[name=admin_page_access]').removeAttr("checked");
+				} else {
+					notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Les identifiants sont incorrects');
+				} 
+			
 				$("#inputLoginAuth").focus();
 				return;
 			}

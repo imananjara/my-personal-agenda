@@ -1,5 +1,14 @@
 /* My personal agenda css page */
 
+body
+{
+	background-image: url(../img/paper.png);
+}
+
+#administrator-body {
+	background-image: url(../img/bo_play_pattern.png);
+}
+
 .activity-section
 {
 	background-color : white;
