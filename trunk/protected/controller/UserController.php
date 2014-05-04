@@ -58,6 +58,29 @@ class UserController extends BaseController{
 	}
 	
 	/**
+	 * Get administration's users management page
+	 */
+	public function getAdministratorUsersPage(){
+		
+		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		{
+			return $this->_data['baseurl'] .'login';
+		}
+		
+		if (!$_SESSION["mpa_user_is_admin"]) {
+			return $this->_data['baseurl'];
+		}
+		
+		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
+		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
+		
+		$this->_data["admin_users_table"] = User::_getApplicationUsers();
+		
+		$this->renderView('administrator/administrator_users');
+		
+	}
+	
+	/**
 	 * Get the current user profile
 	 */
 	public function getUserProfile(){
