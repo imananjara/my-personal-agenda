@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=UTF-8>
+		<title>Administrateur - Gestion des utilisateurs - My Personal Agenda</title>
+		<!-- include '../css_files' -->
+		<!-- include '../js_files' -->
+	</head>
+	<body id="administrator-body">
+		<!-- include 'administrator_menu_bar' -->
+		<div class="row">
+		  <div class="col-md-10 col-md-offset-1 well">
+		  	<h4><span class="glyphicon glyphicon-user"></span> Liste des utilisateurs de My Personal Agenda</h4>
+		  	<hr>
+		  	<!-- if {{isset(admin_users_table)}} -->
+		  	<table class="table table-bordered table-striped">
+		  		<tr>
+			  		<th>Pseudonyme</th>
+			  		<th>Nom</th>
+			  		<th>Prénom</th>
+			  		<th>Email</th>
+			  		<th>Administrateur</th>
+			  	</tr>
+			  	<!-- loop admin_users_table -->
+			  	<tr>
+			  		<td>{{admin_users_table' value.login}}</td>
+			  		<td>{{admin_users_table' value.lastname}}</td>
+			  		<td>{{admin_users_table' value.firstname}}</td>
+			  		<td>{{admin_users_table' value.email}}</td>
+			  		<!-- if {{admin_users_table' value.is_admin}} -->
+			  			<td>Oui</td>
+			  		<!-- else -->
+			  			<td>Non</td>
+			  		<!-- endif -->
+			  		<td>
+			  			<a href="javascript:void(0)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+			  			<a href="javascript:void(0)" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span></a>
+			  			<a href="javascript:void(0)" class="btn btn-success"><span class="glyphicon glyphicon-transfer"></span></a>
+			  		</td>
+				</tr>
+			  	<!-- endloop -->
+			</table>
+		  	<!-- else -->
+		  	<p>Aucun utilisateur n'a ete enregistré dans l'application</p>
+		  	<!-- endif -->
+		  </div>
+		</div>
+	</body>
+</html>

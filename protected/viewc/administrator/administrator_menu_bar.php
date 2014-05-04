@@ -7,6 +7,10 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="mpa-nav-bar">
+      <ul class="nav navbar-nav">
+      	<li><a href="<?php echo $data['baseurl']; ?>administrator/users">Utilisateurs</a></li>
+      	<li><a href="<?php echo $data['baseurl']; ?>administrator/activitytypes">Types d'activités</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session_login']; ?> <b class="caret"></b></a>

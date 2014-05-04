@@ -113,4 +113,21 @@ class User extends UserBase{
 		$user->update();
 		
 	}
+	
+	/**
+	 * Get all application's users
+	 */
+	public static function _getApplicationUsers() {
+		
+		$options = array(
+				'asArray' => true
+		);
+		
+		$users = new User();
+		$users = $users->find($options);
+		
+		if(empty($users)) return null;
+		
+		return $users;
+	}
 }
