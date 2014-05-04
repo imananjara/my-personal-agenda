@@ -28,6 +28,8 @@ $route['post']['/editprofile'] = array('UserController', 'editUserProfile');
 $route['post']['/editnotification'] = array('UserController', 'editUserNotification');
 
 $route['get']['/exportactivities'] = array('ExportController', 'exportActivitiesPdf');
+
+$route['get']['/administrator'] = array('MainPageController', 'getAdministratorMainPage');
 //-------------------------------------------------------------------
 
  

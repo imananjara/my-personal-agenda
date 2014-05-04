@@ -41,6 +41,10 @@ class ActivityController extends BaseController {
 		
 		$this->_data["activitytypes"] = ActivityType::_getActivityTypes();
 		
+		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
+			$this->_data["display_access_admin_page_btn"] = 1;
+		}
+		
 		$this->renderView('activity');
 	}
 	

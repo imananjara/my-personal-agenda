@@ -33,9 +33,14 @@ class UserBase extends DooModel{
      */
     public $email;
 
+    /**
+     * @var tinyint Max length is 1.
+     */
+    public $is_admin;
+
     public $_table = 'user';
     public $_primarykey = 'user_id';
-    public $_fields = array('user_id','login','password','firstname','lastname','email');
+    public $_fields = array('user_id','login','password','firstname','lastname','email','is_admin');
 
     public function getVRules() {
         return array(
@@ -67,6 +72,12 @@ class UserBase extends DooModel{
 
                 'email' => array(
                         array( 'maxlength', 250 ),
+                        array( 'notnull' ),
+                ),
+
+                'is_admin' => array(
+                        array( 'integer' ),
+                        array( 'maxlength', 1 ),
                         array( 'notnull' ),
                 )
             );

@@ -77,7 +77,7 @@
 		<?php endif; ?>
 		
 		<?php if( ! empty($data['others_table']) ): ?>
-		<?php if( !empty($data['critical_alert_table']) || !empty($data['simple_alert_table']) ): ?>
+		<?php if( !empty($data['critical_alert_table']) || !empty($data['simple_alert_table']) || !empty($data['end_date_reached']) ): ?>
 			<p>Autres activité(s)</p>
 		<?php endif; ?>
 		<table border="1" class="report_table">

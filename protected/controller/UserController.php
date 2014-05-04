@@ -28,16 +28,14 @@ class UserController extends BaseController{
 	 * Get a session for an application and send a response to the AJAX request
 	 */
 	public function getSession() {
+		
+		if (isset($_POST['admin_page_access'])) {
+			$admin_checkbox = "checked";
+		} else {
+			$admin_checkbox = "unchecked";
+		}
 
-		if(User::_getSession($_POST['inputLoginAuth'],$_POST['inputPasswordAuth']))
-		{
-			$isConnected = "true";
-		}
-		else
-		{
-			$isConnected = "false";
-		}
-		echo $isConnected;
+		echo User::_getSession($_POST['inputLoginAuth'],$_POST['inputPasswordAuth'], $admin_checkbox);
 	}
 	
 	/**
@@ -76,6 +74,10 @@ class UserController extends BaseController{
 		
 		//get notification linked with the current user
 		$this->_data['notification'] = Notification::_getUserNotification();
+		
+		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
+			$this->_data["display_access_admin_page_btn"] = 1;
+		}
 		
 		$this->renderView('profile');
 	}
