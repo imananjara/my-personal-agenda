@@ -49,28 +49,6 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
-	 * Get administration's activity types management page
-	 */
-	public function getAdministratorActivityTypesPage() {
-		
-		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
-		if (!$_SESSION["mpa_user_is_admin"]) {
-			return $this->_data['baseurl'];
-		}
-		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
-		
-		$this->_data["admin_activitytypes_table"] = ActivityType::_getActivityTypes();
-		
-		$this->renderView('administrator/administrator_activitytypes');
-	}
-	
-	/**
 	 * Create or update an activity
 	 * @return the main page (redirection)
 	 */
