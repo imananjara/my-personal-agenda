@@ -9,7 +9,6 @@
     <div class="collapse navbar-collapse" id="mpa-nav-bar">
       <ul class="nav navbar-nav">
       	<li><a href="<?php echo $data['baseurl']; ?>administrator/users">Utilisateurs</a></li>
-      	<li><a href="<?php echo $data['baseurl']; ?>administrator/activitytypes">Types d'activités</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

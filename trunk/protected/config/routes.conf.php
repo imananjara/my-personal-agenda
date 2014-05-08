@@ -31,7 +31,6 @@ $route['get']['/exportactivities'] = array('ExportController', 'exportActivities
 
 $route['get']['/administrator'] = array('MainPageController', 'getAdministratorMainPage');
 $route['get']['/administrator/users'] = array('UserController', 'getAdministratorUsersPage');
-$route['get']['/administrator/activitytypes'] = array('ActivityController', 'getAdministratorActivityTypesPage');
 //-------------------------------------------------------------------
 
  
