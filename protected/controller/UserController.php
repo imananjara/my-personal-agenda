@@ -1,6 +1,7 @@
 <?php
 Doo::loadModel('User');
 Doo::loadModel('Notification');
+Doo::loadModel("ActivityType");
 Doo::loadController('BaseController');
 
 /**
@@ -97,6 +98,9 @@ class UserController extends BaseController{
 		
 		//get notification linked with the current user
 		$this->_data['notification'] = Notification::_getUserNotification();
+		
+		//get activity types
+		$this->_data['activity_types'] = ActivityType::_getActivityTypes();
 		
 		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
 			$this->_data["display_access_admin_page_btn"] = 1;
