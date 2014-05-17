@@ -21,4 +21,43 @@ class ActivityType extends ActivityTypeBase{
 		return $types;
 		
 	}
+	
+	/**
+	 * Add an activity type and return it's id
+	 */
+	public static function _addActivityType($name, $description) {
+		
+		$type = new ActivityType();
+		$type->activity_type_name = $name;
+		$type->activity_type_description = $description;
+		
+		return $type->insert();
+	}
+	
+	/**
+	 * Update an activity type and return it's id
+	 */
+	public static function _updateActivityType($id, $name, $description) {
+		
+		$options['limit'] = 1;
+		$type = new ActivityType();
+		$type->activity_type_id = $id;
+		$type = $type->find($options);
+		
+		$type->activity_type_name = $name;
+		$type->activity_type_description = $description;
+		$type->update();
+		
+		return $id;
+	}
+	
+	/**
+	 * Delete an activity type with it's id
+	 */
+	public static function _deleteActivityType($id) {
+		
+		$type = new ActivityType();
+		$type->activity_type_id = $id;
+		$type->delete();
+	}
 }

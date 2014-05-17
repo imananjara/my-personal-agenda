@@ -78,6 +78,25 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
+	 * Save (create or update) an activity type and return it's id
+	 */
+	public function saveActivityType() {
+		
+		if (isset($_POST['activity_type_id'])) {
+			echo ActivityType::_updateActivityType($_POST['activity_type_id'], $_POST["activity_type_name"], $_POST["activity_type_description"]);
+		} else {
+			echo ActivityType::_addActivityType($_POST["activity_type_name"], $_POST["activity_type_description"]);
+		}
+	}
+	
+	/**
+	 * Delete an activity_type
+	 */
+	public function deleteActivityType() {
+		ActivityType::_deleteActivityType($this->params['activity_type_id']);
+	}
+	
+	/**
 	 * Load a calendar and put activities into this
 	 * @return calendar page
 	 */
