@@ -111,14 +111,25 @@ class Activity extends ActivityBase{
 				'where' => 'user_id=' .$_SESSION["mpa_user_id"]
 		);
 		
+		$activityTypeOption = array(
+				'asArray' 	=> true,
+				'limit' => 1
+		);
+		
 		$activities = new Activity();
-		$activities = $activities->relate("ActivityType", $option);
+		$activities = $activities->find($option);
 		
 		if(empty($activities)) return null;
 		
-		//End line managment
+		Doo::loadModel('ActivityType');
+				
+		//End line managment and add type
 		foreach ($activities as &$activity) {
 			$activity["commentary"] = nl2br(htmlentities($activity["commentary"]));
+			
+			$activityType = new ActivityType();
+			$activityType->activity_type_id = $activity["activity_type_id"];
+			$activity["activity_type"] = $activityType->find($activityTypeOption);
 		}
 		
 		//Sort activities and add nbDaysLeft Column (used into main.html)

@@ -10,10 +10,11 @@ class ActivityType extends ActivityTypeBase{
 	public static function _getActivityTypes() {
 		
 		$option = array(
-				'asArray' 	=> true,
+				'asArray' 	=> true
 		);
 		
 		$types = new ActivityType();
+		$types->user_id = $_SESSION["mpa_user_id"];
 		$types = $types->find($option);
 		
 		if(empty($types)) return null;
@@ -30,6 +31,7 @@ class ActivityType extends ActivityTypeBase{
 		$type = new ActivityType();
 		$type->activity_type_name = $name;
 		$type->activity_type_description = $description;
+		$type->user_id = $_SESSION["mpa_user_id"];
 		
 		return $type->insert();
 	}

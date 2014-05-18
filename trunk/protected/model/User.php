@@ -69,6 +69,20 @@ class User extends UserBase{
 		$notif->critical_alert_tl = 43200;
 		$notif->end_activity_msg = "Cette activité est terminée.";
 		$notif->insert();
+		
+		//Insert types into database
+		Doo::loadModel('ActivityType');
+		$activityType = new ActivityType();
+		$activityType->user_id = $insertedUserId;
+		
+		$activityType->activity_type_name = "Activité scolaire";
+		$activityType->activity_type_description = "Travail à l'école, projets scolaires, rapports...";
+		$activityType->insert();
+		
+		$activityType->activity_type_name = "Activité professionnelle";
+		$activityType->activity_type_description = "Tout ce qui a un rapport avec le monde du travail...";
+		$activityType->insert();
+		
 	}
 	
 	/**

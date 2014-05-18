@@ -28,7 +28,7 @@
 			</tr>
 			<?php foreach($data['end_date_reached'] as $k1=>$v1): ?>
 			<tr>
-				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</td>
+				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_activity_type_name']; ?>)</td>
 				<td><?php echo $v1['description']; ?></td>
 				<td><?php echo $v1['percent_done']; ?>%</td>
 			</tr>
@@ -47,7 +47,7 @@
 			</tr>
 			<?php foreach($data['critical_alert_table'] as $k1=>$v1): ?>
 			<tr>
-				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</td>
+				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</td>
 				<td><?php echo $v1['description']; ?></td>
 				<td><?php echo $v1['nb_days_left']; ?> jour(s), <?php echo $v1['nb_hours_left']; ?> heure(s) et <?php echo $v1['nb_minutes_left']; ?> minute(s)</td>
 				<td><?php echo $v1['percent_done']; ?>%</td>
@@ -67,7 +67,7 @@
 			</tr>
 			<?php foreach($data['simple_alert_table'] as $k1=>$v1): ?>
 			<tr>
-				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</td>
+				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</td>
 				<td><?php echo $v1['description']; ?></td>
 				<td><?php echo $v1['nb_days_left']; ?> jour(s), <?php echo $v1['nb_hours_left']; ?> heure(s) et <?php echo $v1['nb_minutes_left']; ?> minute(s)</td>
 				<td><?php echo $v1['percent_done']; ?>%</td>
@@ -89,7 +89,7 @@
 			</tr>
 			<?php foreach($data['others_table'] as $k1=>$v1): ?>
 			<tr>
-				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</td>
+				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</td>
 				<td><?php echo $v1['description']; ?></td>
 				<td><?php echo $v1['nb_days_left']; ?> jour(s), <?php echo $v1['nb_hours_left']; ?> heure(s) et <?php echo $v1['nb_minutes_left']; ?> minute(s)</td>
 				<td><?php echo $v1['percent_done']; ?>%</td>
