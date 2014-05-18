@@ -28,7 +28,7 @@
 			</tr>
 			<!-- loop end_date_reached -->
 			<tr>
-				<td>{{end_date_reached' value.title}} ({{end_date_reached' value.activity_type_name}})</td>
+				<td>{{end_date_reached' value.title}} ({{end_date_reached' value.activity_type_activity_type_name}})</td>
 				<td>{{end_date_reached' value.description}}</td>
 				<td>{{end_date_reached' value.percent_done}}%</td>
 			</tr>
@@ -47,7 +47,7 @@
 			</tr>
 			<!-- loop critical_alert_table -->
 			<tr>
-				<td>{{critical_alert_table' value.title}} ({{critical_alert_table' value.activity_type_name}})</td>
+				<td>{{critical_alert_table' value.title}} ({{critical_alert_table' value.activity_type.activity_type_name}})</td>
 				<td>{{critical_alert_table' value.description}}</td>
 				<td>{{critical_alert_table' value.nb_days_left}} jour(s), {{critical_alert_table' value.nb_hours_left}} heure(s) et {{critical_alert_table' value.nb_minutes_left}} minute(s)</td>
 				<td>{{critical_alert_table' value.percent_done}}%</td>
@@ -67,7 +67,7 @@
 			</tr>
 			<!-- loop simple_alert_table -->
 			<tr>
-				<td>{{simple_alert_table' value.title}} ({{simple_alert_table' value.activity_type_name}})</td>
+				<td>{{simple_alert_table' value.title}} ({{simple_alert_table' value.activity_type.activity_type_name}})</td>
 				<td>{{simple_alert_table' value.description}}</td>
 				<td>{{simple_alert_table' value.nb_days_left}} jour(s), {{simple_alert_table' value.nb_hours_left}} heure(s) et {{simple_alert_table' value.nb_minutes_left}} minute(s)</td>
 				<td>{{simple_alert_table' value.percent_done}}%</td>
@@ -89,7 +89,7 @@
 			</tr>
 			<!-- loop others_table -->
 			<tr>
-				<td>{{others_table' value.title}} ({{others_table' value.activity_type_name}})</td>
+				<td>{{others_table' value.title}} ({{others_table' value.activity_type.activity_type_name}})</td>
 				<td>{{others_table' value.description}}</td>
 				<td>{{others_table' value.nb_days_left}} jour(s), {{others_table' value.nb_hours_left}} heure(s) et {{others_table' value.nb_minutes_left}} minute(s)</td>
 				<td>{{others_table' value.percent_done}}%</td>

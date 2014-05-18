@@ -38,7 +38,7 @@
 					<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
 					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
 					<a href="javascript:void(0)" id="seeactivity-<?php echo $v1['activity_id']; ?>" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
-					<h4 class="activityNameForNotif"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_name']; ?>)</h4>
+					<h4 class="activityNameForNotif"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</h4>
 					<hr>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 ): ?>

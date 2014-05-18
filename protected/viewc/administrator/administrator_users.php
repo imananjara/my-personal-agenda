@@ -32,11 +32,6 @@
 			  		<?php else: ?>
 			  			<td>Non</td>
 			  		<?php endif; ?>
-			  		<td>
-			  			<a href="javascript:void(0)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
-			  			<a href="javascript:void(0)" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span></a>
-			  			<a href="javascript:void(0)" class="btn btn-success"><span class="glyphicon glyphicon-transfer"></span></a>
-			  		</td>
 				</tr>
 			  	<?php endforeach; ?>
 			</table>
