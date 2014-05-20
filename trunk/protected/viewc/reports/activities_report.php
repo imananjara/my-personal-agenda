@@ -28,7 +28,7 @@
 			</tr>
 			<?php foreach($data['end_date_reached'] as $k1=>$v1): ?>
 			<tr>
-				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type_activity_type_name']; ?>)</td>
+				<td><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</td>
 				<td><?php echo $v1['description']; ?></td>
 				<td><?php echo $v1['percent_done']; ?>%</td>
 			</tr>
