@@ -5,11 +5,11 @@ $route['*']['/simpletest'] = array('TestController', 'simpleTest');
 
 $route['*']['/'] = array('MainPageController', 'getMainPage');
 
-$route['*']['/login'] = array('UserController', 'getLoginPage');
-$route['*']['/logout'] = array('UserController', 'toLogout');
+$route['*']['/login'] = array('AuthentificationController', 'getLoginPage');
+$route['*']['/logout'] = array('AuthentificationController', 'toLogout');
 
-$route['post']['/getsession'] = array('UserController', 'getSession');
-$route['post']['/adduser'] = array('UserController', 'adduser');
+$route['post']['/getsession'] = array('AuthentificationController', 'getSession');
+$route['post']['/adduser'] = array('AuthentificationController', 'adduser');
 
 $route['get']['/activity'] = array('ActivityController', 'getActivityEditionPage');
 $route['get']['/activity/:activity_id'] = array('ActivityController', 'getActivityEditionPage');
