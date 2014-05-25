@@ -4,19 +4,19 @@
 	<meta charset=UTF-8>
 	<title>Authentification - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
-	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>global/css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
 </head>
 <body>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 well">
 			<div id="notifications-login" class='alert alert-notification'></div>
-			<div id="ajax-loader"><img src="<?php echo $data['baseurl']; ?>global/img/ajaxloader.gif"/></div>
-			<img src="<?php echo $data['baseurl']; ?>global/img/mpa_logo.gif" alt="mpa_logo"/><br><br>
+			<div id="ajax-loader"><img src="<?php echo $data['globalurl']; ?>img/ajaxloader.gif"/></div>
+			<img src="<?php echo $data['globalurl']; ?>img/mpa_logo.gif" alt="mpa_logo"/><br><br>
 			
 			<ul class="nav nav-tabs">
 			  <li class="active"><a id="connexion-tab" href="#connexion-content" data-toggle="tab">Connexion</a></li>
@@ -100,6 +100,6 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/login_page.js"></script>
+<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/login_page.js"></script>
 
 </html>

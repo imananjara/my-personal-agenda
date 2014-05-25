@@ -58,5 +58,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/note_page.js"></script>
+<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/note_page.js"></script>
 </html>
