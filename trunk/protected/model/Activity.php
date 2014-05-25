@@ -48,8 +48,8 @@ class Activity extends ActivityBase{
 		$activity = $activity->find($options);
 		
 		//end date to SQL mode
-		$date = explode('/', $endDate);
-		$endDate = $date[2].'-'.$date[1].'-'.$date[0];
+		Doo::loadModel('Date');
+		$endDate = Date::_dateHumanToSQL($endDate);
 		
 		$activity->title = $title;
 		$activity->activity_type_id = $activityType;
@@ -85,8 +85,8 @@ class Activity extends ActivityBase{
 	public static function _addActivity($title, $activityType, $description, $endDate, $endHour, $done, $commentary) {
 		
 		//end date to SQL mode
-		$date = explode('/', $endDate);
-		$endDate = $date[2].'-'.$date[1].'-'.$date[0];
+		Doo::loadModel('Date');
+		$endDate = Date::_dateHumanToSQL($endDate);
 		
 		$activity = new Activity();
 		$activity->title = $title;
