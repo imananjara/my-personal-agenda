@@ -4,9 +4,9 @@
 	<meta charset=UTF-8>
 	<title>Page principale - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
-	<link href="<?php echo $data['baseurl']; ?>global/css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
+	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 </head>
 <body>
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
@@ -26,9 +26,9 @@
 			<span class="glyphicon glyphicon-dashboard"></span> ACTIVITES
 			<div class="pull-right">
 				<?php if( isset($data['display_export_btn']) ): ?>
-				<a href="<?php echo $data['baseurl']; ?>exportactivities" class="btn btn-success"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a>
+				<a href="<?php echo $data['baseurl']; ?>exportactivities" class="btn btn-success">Exporter</a>
 				<?php endif; ?>
-				<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Ajouter une activité</a>
+				<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info">Ajouter une activité</a>
 			</div>
 			<hr>
 			<?php if( isset($data['activities']) ): ?>
@@ -72,7 +72,7 @@
 		<div class="col-md-4 col-md-offset-1 well">
 			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES
 			<div class="pull-right">
-				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Ajouter une note</a></div>
+				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info">Ajouter une note</a></div>
 			</div>
 			<hr>
 			<?php if( isset($data['notes']) ): ?>
@@ -98,5 +98,5 @@
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_note_modal.php"; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/activity_modal.php"; ?>
 	</body>
-	<script type="text/javascript" src="<?php echo $data['baseurl']; ?>global/js/main_page.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/main_page.js"></script>
 </html>

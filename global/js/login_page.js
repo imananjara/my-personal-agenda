@@ -47,7 +47,7 @@ $( document ).ready(function() {
 				$('#ajax-loader').hide();
 				
 				if (mpa_reason=="admin_page_forbidden_access") {
-					notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Vous n\'avez pas les droits d\'acceder à l\'interface administrateur');
+					notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Vous n\'avez pas les droits d\'accéder à l\'interface administrateur');
 					$('input[name=admin_page_access]').removeAttr("checked");
 				} else {
 					notification('alert-danger', '<strong>Erreur lors de la connexion</strong> : Les identifiants sont incorrects');

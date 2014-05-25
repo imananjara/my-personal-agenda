@@ -8,10 +8,11 @@
 class BaseController extends DooController{
 	
 	/**
-	 * Initialize the base url
+	 * Initialize the base url and globalurl
 	 */
 	public function __construct() {
 		$this->_data['baseurl'] = Doo::conf()->APP_URL;
+		$this->_data['globalurl'] = $this->_data['baseurl'].'global/';
 	}
 	
 	/**
