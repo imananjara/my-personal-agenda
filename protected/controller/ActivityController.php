@@ -27,13 +27,10 @@ class ActivityController extends BaseController {
 			$this->_data["activity"] = Activity::_getActivity($this->params["activity_id"]);
 			
 			//SQL mode to human mode
+			Doo::loadModel('Date');
 			$full_date = explode(' ', $this->_data["activity"]["end_date"]);
-			
-			$end_date = explode("-", $full_date[0]);
-			$this->_data["activity"]["end_date"] = $end_date[2].'/'.$end_date[1].'/'.$end_date[0];
-			
-			$end_hour = explode(":", $full_date[1]);
-			$this->_data["activity"]["end_hour"] = $end_hour[0] .":". $end_hour[1];
+			$this->_data["activity"]["end_date"] = Date::_dateSQLToHuman($full_date[0]);
+			$this->_data["activity"]["end_hour"] = Date::_hourSQLToHuman($full_date[1]);
 		}
 		
 		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
