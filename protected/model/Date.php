@@ -6,7 +6,7 @@
 class Date
 {
 	/**
-	 * Transform sql date to the human's format (dd/mm/yyyy)
+	 * Transform sql date into the human's format (dd/mm/yyyy)
 	 * @param  $date
 	 * @return string
 	 */
@@ -18,7 +18,7 @@ class Date
 	}
 	
 	/**
-	 * Transform human date to the sql's format (yyyy-mm-dd)
+	 * Transform human date into the sql's format (yyyy-mm-dd)
 	 * @param  $date
 	 * @return string
 	 */
@@ -30,7 +30,7 @@ class Date
 	}
 	
 	/**
-	 * Transform sql hour to the human's format (hh:mm)
+	 * Transform sql hour into the human's format (hh:mm)
 	 * @param  $hour
 	 * @return string
 	 */
