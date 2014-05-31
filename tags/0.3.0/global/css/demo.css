@@ -1,0 +1,55 @@
+/* My personal agenda css page */
+
+/* Temporary code
+body
+{
+	background-image: url(../img/paper.png);
+}
+*/
+
+#administrator-body {
+	background-image: url(../img/bo_play_pattern.png);
+}
+
+.activity-section
+{
+	background-color : white;
+}
+
+textarea
+{
+   resize: none;
+}
+
+.activity-btn
+{
+	margin-left : 5px;
+}
+
+.hidden-elements
+{
+	display:none;
+}
+
+.alert-tl-label
+{
+	padding-top:5px;
+}
+
+#notifications
+{
+	position: fixed;
+	z-index:4;
+	width: 100%;
+}
+
+#ajax-loader
+{
+	position: fixed;
+    left : 49%;
+	right : 49%;
+	bottom : 49%;
+	top : 49%;
+	width : auto;
+	z-index: 4;
+}
