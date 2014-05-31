@@ -14,6 +14,13 @@ Doo::loadController('UserController');
 class MainPageController extends BaseController{
 	
 	/**
+	 * Constructor for MainPageController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+	
+	/**
 	 * Get 'My personal agenda' main page
 	 * @return the main page
 	 */

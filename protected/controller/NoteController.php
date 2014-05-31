@@ -10,6 +10,13 @@ Doo::loadController('BaseController');
 class NoteController extends BaseController{
 	
 	/**
+	 * Constructor for NoteController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+	
+	/**
 	 * Get note edition page (to create or update note)
 	 */
 	public function getNoteEditionPage() {

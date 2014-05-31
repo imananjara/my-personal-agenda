@@ -12,6 +12,13 @@ Doo::loadController('UserController');
 class ActivityController extends BaseController {
 	
 	/**
+	 * Constructor for ActivityController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+	
+	/**
 	 * Get activity edition page (to create or update activity)
 	 * @return activity page
 	 */
