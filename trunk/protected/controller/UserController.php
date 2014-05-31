@@ -10,6 +10,13 @@ Doo::loadController('BaseController');
  * @author imananjara <ivan.mananjara@gmail.com>
  */
 class UserController extends BaseController{
+	
+	/**
+	 * Constructor for UserController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
 		
 	/**
 	 * Get administration's users management page

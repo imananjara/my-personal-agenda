@@ -8,6 +8,13 @@ Doo::loadController('BaseController');
  * @author darkredz
  */
 class ErrorController extends BaseController{
+	
+	/**
+	 * Constructor for ErrorController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
 
     public function index(){
     	

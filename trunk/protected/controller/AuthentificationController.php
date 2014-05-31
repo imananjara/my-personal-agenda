@@ -3,11 +3,18 @@ Doo::loadModel('User');
 Doo::loadController('BaseController');
 
 /**
- * Authentification controller.php 
+ * AuthentificationController
  * Concerns the authentification's system
  * @author imananjara <ivan.mananjara@gmail.com>
  */
 class AuthentificationController extends BaseController{
+	
+	/**
+	 * Constructor for AuthentificationController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
 	
 	/**
 	 * Get the login page

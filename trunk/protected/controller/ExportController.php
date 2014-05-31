@@ -13,6 +13,13 @@ Doo::loadModel('Notification');
 class ExportController extends BaseController{
 	
 	/**
+	 * Constructor for ExportController class
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+	
+	/**
 	 * Export the activities list to the PDF format using HTML2PDF
 	 */
 	public function exportActivitiesPdf() {
