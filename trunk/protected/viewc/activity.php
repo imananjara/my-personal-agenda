@@ -41,7 +41,7 @@
 			  </div>
 			  <?php if( isset($data['activitytypes']) ): ?>
 			  <div class="form-group">
-			    <label for="activityTypes" class="col-sm-2 control-label">Type activite</label>
+			    <label for="activityTypes" class="col-sm-2 control-label">Type</label>
 			    <div class="col-sm-10">
 			      <select id="activityTypes" name="activityTypes" class="form-control">
 			      	  <?php foreach($data['activitytypes'] as $k1=>$v1): ?>
@@ -66,7 +66,7 @@
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="activityEndDate" class="col-sm-2 control-label">Echeance</label>
+			    <label for="activityEndDate" class="col-sm-2 control-label">Echéance</label>
 			    <div class="col-sm-5">
 			      <div class='input-group date' id="activityEndDate">
 			      <?php if( isset($data['activity']) ): ?>
@@ -89,7 +89,7 @@
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="activityDone" class="col-sm-2 control-label">Fait a (en %)</label>
+			    <label for="activityDone" class="col-sm-2 control-label">Fait à (en %)</label>
 			    <div class="col-sm-10">
 			      <select class="form-control" name="activityDone" id="activityDone">
 					  <?php foreach(range(0, 100, 10) as $data['i']): ?>
@@ -115,9 +115,9 @@
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
 			      <?php if( isset($data['activity']) ): ?>
-			      <a id="save-activity-btn" class="btn btn-default">Editer l'activite</a>
+			      <a id="save-activity-btn" class="btn btn-default">Editer l'activité</a>
 			      <?php else: ?>
-			      <a id="save-activity-btn" class="btn btn-default">Creer l'activite</a>
+			      <a id="save-activity-btn" class="btn btn-default">Créer l'activité</a>
 			      <?php endif; ?>
 			    </div>
 			  </div>
