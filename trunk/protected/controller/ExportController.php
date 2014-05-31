@@ -29,7 +29,7 @@ class ExportController extends BaseController{
 		$html2pdf->pdf->SetDisplayMode('fullpage');
 		$html2pdf->pdf->SetAuthor('My Personal Agenda');
 		$html2pdf->writeHTML($this->getActivitiesReportHtml());
-		$html2pdf->Output('Rapport activites - My Personal Agenda.pdf', 'D');
+		$html2pdf->Output('Rapport activites - My Personal Agenda - ' . date("d/m/Y") . ".pdf", 'D');
 	}
 	
 	/**
