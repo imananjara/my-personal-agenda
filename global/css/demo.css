@@ -1,39 +1,27 @@
 /* My personal agenda css page */
 
-/* Temporary code
+/*=============================*/
+/*            Global           */
+/*=============================*/
+
 body
 {
 	background-image: url(../img/paper.png);
 }
-*/
 
 #administrator-body {
 	background-image: url(../img/bo_play_pattern.png);
 }
 
-.activity-section
+.custom-well
 {
-	background-color : white;
-}
-
-textarea
-{
-   resize: none;
-}
-
-.activity-btn
-{
-	margin-left : 5px;
+	background-color:white;
+	border:1px none;
 }
 
 .hidden-elements
 {
 	display:none;
-}
-
-.alert-tl-label
-{
-	padding-top:5px;
 }
 
 #notifications
@@ -52,4 +40,32 @@ textarea
 	top : 49%;
 	width : auto;
 	z-index: 4;
+}
+
+/*=============================*/
+/*            Main             */
+/*=============================*/
+
+.activity-section
+{
+	background-color : white;
+}
+
+textarea
+{
+   resize: none;
+}
+
+.activity-btn
+{
+	margin-left : 5px;
+}
+
+/*=============================*/
+/*         Parameters          */
+/*=============================*/
+
+.alert-tl-label
+{
+	padding-top:5px;
 }
