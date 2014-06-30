@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top custom-navbar" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="mpa-nav-bar">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session_login']; ?> <b class="caret"></b></a>
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Page de <?php echo $data['session_login']; ?> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo $data['baseurl']; ?>profile">Mon profil</a></li>
             <?php if( isset($data['display_access_admin_page_btn']) ): ?>
@@ -22,4 +22,4 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav><br><br><br><br><br>

@@ -17,6 +17,20 @@ body
 {
 	background-color:white;
 	border:1px none;
+	box-shadow:none;
+}
+
+.custom-panel 
+{
+	border: 1px none;
+	box-shadow:none;
+}
+
+.custom-navbar
+{
+	background-color:white;
+	border: 1px none;
+	box-shadow:none;
 }
 
 .hidden-elements
@@ -46,14 +60,15 @@ body
 /*            Main             */
 /*=============================*/
 
-.activity-section
-{
-	background-color : white;
-}
-
 textarea
 {
    resize: none;
+}
+
+.activityNameForNotif
+{
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .activity-btn
