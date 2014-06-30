@@ -22,23 +22,22 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-5 col-md-offset-1 well">
-			<span class="glyphicon glyphicon-dashboard"></span> ACTIVITES
+		<div class="col-md-5 col-md-offset-1">
 			<div class="pull-right">
 				<?php if( isset($data['display_export_btn']) ): ?>
 				<a href="<?php echo $data['baseurl']; ?>exportactivities" class="btn btn-success">Exporter</a>
 				<?php endif; ?>
 				<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info">Ajouter une activité</a>
 			</div>
-			<hr>
+			<br><br><br>
 			<?php if( isset($data['activities']) ): ?>
 			<div id="activity-section-panel">
 				<?php foreach($data['activities'] as $k1=>$v1): ?>
-				<div class="well activity-section">
+				<div class="well custom-well">
 					<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
 					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
 					<a href="javascript:void(0)" id="seeactivity-<?php echo $v1['activity_id']; ?>" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
-					<h4 class="activityNameForNotif"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</h4>
+					<div class="activityNameForNotif">[<?php echo $v1['activity_type']['activity_type_name']; ?>] <?php echo $v1['title']; ?></div>
 					<hr>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 ): ?>
@@ -56,7 +55,7 @@
 					  <?php else: ?>
 					  <div class="progress-bar progress-bar-success"  role="progressbar" style="width: <?php echo $v1['percent_done']; ?>%">
 					  <?php endif; ?>
-					    <span class="sr-only"><?php echo $v1['percent_done']; ?>% Complete</span>
+					    <?php echo $v1['percent_done']; ?>%
 					  </div>
 					</div>
 					<div class="leftTimeSeconds hidden-elements"><?php echo $v1['tmpLeft']; ?></div>
@@ -66,19 +65,18 @@
 				<?php endforeach; ?>
 			</div>
 			<?php else: ?>
-			<p>Aucune activité n'a été planifiée.</p>
+			<div class="well custom-well">Aucune activité n'a été planifiée.</div>
 			<?php endif; ?>
 		</div>
-		<div class="col-md-4 col-md-offset-1 well">
-			<div><span class="glyphicon glyphicon-list-alt"></span> NOTES
+		<div class="col-md-5">
 			<div class="pull-right">
-				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info">Ajouter une note</a></div>
+				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info">Ajouter une note</a>
 			</div>
-			<hr>
+			<br><br><br>
 			<?php if( isset($data['notes']) ): ?>
 			<div id="note-section-panel">
 				<?php foreach($data['notes'] as $k1=>$v1): ?>
-				<div class="panel panel-default">
+				<div class="panel panel-info custom-panel ">
 				  <div class="panel-heading">
 				  	<a href="javascript:void(0)" id="note-<?php echo $v1['note_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
 				  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -91,7 +89,7 @@
 				<?php endforeach; ?>
 			</div>
 			<?php else: ?>
-			<p>Aucune note n'est enregistrée dans l'application</p>
+			<div class="well custom-well">Aucune note n'est enregistrée dans l'application</div>
 			<?php endif; ?>
 		</div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_activity_modal.php"; ?>
