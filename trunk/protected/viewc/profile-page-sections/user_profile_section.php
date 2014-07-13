@@ -1,4 +1,4 @@
-<div><span class="glyphicon glyphicon-user"></span> MON PROFIL</div><hr>
+<div class="custom-well-header">Mon profil</div><hr>
 <form id="update-profile-form" method="post" action="<?php echo $data['baseurl']; ?>editprofile" role="form">
 	<div class="form-group">
 		<label for="inputFirstNameProfile">Prénom :</label><br>
@@ -13,6 +13,6 @@
 		<input type="text" value="<?php echo $data['user']['email']; ?>" class="form-control" name="inputEmailProfile" id="inputEmailProfile" placeholder="Email">
 	</div><br>
 	<div class="form-group">
-		<a href="javascript:void(0)" id="to-update-profile-action" class="btn btn-default">Editer mon profil</a>
+		<a href="javascript:void(0)" id="to-update-profile-action" class="btn btn-success">Editer mon profil</a>
 	</div>
 </form>

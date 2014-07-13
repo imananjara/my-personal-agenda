@@ -87,7 +87,7 @@ class ActivityController extends BaseController {
 	public function saveActivityType() {
 		
 		if (isset($_POST['activity_type_id'])) {
-			echo ActivityType::_updateActivityType($_POST['activity_type_id'], $_POST["activity_type_name"], $_POST["activity_type_description"]);
+			echo ActivityType::_updateActivityType($_POST);
 		} else {
 			echo ActivityType::_addActivityType($_POST["activity_type_name"], $_POST["activity_type_description"]);
 		}

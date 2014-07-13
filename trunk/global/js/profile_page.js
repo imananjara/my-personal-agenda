@@ -7,6 +7,9 @@ $( document ).ready(function() {
 	$('#notifications').hide();
 	$('#ajax-loader').hide();
 	
+	//Activate x-editable
+	activate_x_editable();
+	
 	//For each time left, convert this into date format (days, hours and minutes);
 	get_days_hour_minutes(parseInt($("#simple_alert_tl_seconds").html()), "simple_alert_tl");
 	get_days_hour_minutes(parseInt($("#critical_alert_tl_seconds").html()), "critical_alert_tl");
@@ -116,12 +119,11 @@ $( document ).ready(function() {
 			
 			//Line's insertion
 			var newTabLine = $("<tr></tr>").attr("id", "activity-type-" + activity_type_id);
-			newTabLine.append($("<td></td>").html($("#activity_type_name").val()));
-			newTabLine.append($("<td></td>").html($("#activity_type_description").val()));
+			newTabLine.append($("<td></td>").html($("<a></a>").addClass("activity-type-name").attr("href","javascript:void(0)").html($("#activity_type_name").val())));
+			newTabLine.append($("<td></td>").html($("<a></a>").addClass("activity-type-description").attr("href","javascript:void(0)").html($("#activity_type_description").val())));
 			
 			var deleteButton = $("<a></a>").addClass("btn btn-danger delete-activity-type-btn").attr("href","javascript:void(0)").html("Supprimer");
-			var editButton = $("<a></a>").addClass("btn btn-primary edit-activity-type-btn").attr("href","javascript:void(0)").html("Editer");
-			newTabLine.append($("<td></td>").append(editButton).append(" ").append(deleteButton));
+			newTabLine.append($("<td></td>").append(deleteButton));
 
 			newTabLine.insertBefore($("#add-activity-type-line")).hide().fadeIn('slow');
 			
@@ -130,112 +132,14 @@ $( document ).ready(function() {
 			
 			$('#ajax-loader').hide();
 			
+			//Setup editable for the new elements
+			activate_x_editable();
+			
 			notification('alert-success', 'Votre type d\'activité a bien été enregistré');
 		});
 	
 	});
 	
-	//When the user click on the edit button display edit form
-	$("#activity-type-table").on('click', '.edit-activity-type-btn', function(){
-		
-		var activityNameCol = $(this).parent().parent().children(':nth-child(1)');
-		var activityDescriptionCol = $(this).parent().parent().children(':nth-child(2)');
-		var activityActionsCol = $(this).parent().parent().children(':nth-child(3)');
-		
-		//Get name and description
-		var activityNameToEdit = activityNameCol.html();
-		var activityDescToEdit = activityDescriptionCol.html();
-		
-		//Remove colums
-		activityNameCol.empty();
-		activityDescriptionCol.empty();
-		activityActionsCol.empty();
-		
-		//Add inputs
-		var activityNameInput = $("<input>").addClass("form-control activity-name-to-edit").attr("placeholder", "Nom...").val(activityNameToEdit);
-		var activityNameHidden = $("<input>").attr("type", "hidden").addClass("activity-name-hidden").val(activityNameToEdit).hide();
-		activityNameCol.append(activityNameInput).append(activityNameHidden);
-		var activityDescInput = $("<input>").addClass("form-control activity-desc-to-edit").attr("placeholder", "Description...").val(activityDescToEdit);
-		var activityDescHidden = $("<input>").attr("type", "hidden").addClass("activity-desc-hidden").val(activityDescToEdit).hide();
-		activityDescriptionCol.append(activityDescInput).append(activityDescHidden);
-		
-		//Add buttons
-		var cancelButton = $("<a></a>").addClass("btn btn-danger cancel-action-btn").attr("href","javascript:void(0)").html("Annuler");
-		var validateButton = $("<a></a>").addClass("btn btn-success validate-edit-action-btn").attr("href","javascript:void(0)").html("Valider");
-		activityActionsCol.append(validateButton).append(" ").append(cancelButton);
-
-	});
-	
-	//When the user clicks on the cancel button, we hide inputs and display instead the colums 
-	$("#activity-type-table").on("click", ".cancel-action-btn", function(){
-
-		var activityNameCol = $(this).parent().parent().children(':nth-child(1)');
-		var activityDescriptionCol = $(this).parent().parent().children(':nth-child(2)');
-		var activityActionsCol = $(this).parent().parent().children(':nth-child(3)');
-		
-		var activityNameValue = activityNameCol.find(".activity-name-hidden").val();
-		var activityDescValue = activityDescriptionCol.find(".activity-desc-hidden").val();
-		
-		//Remove colums
-		activityNameCol.empty();
-		activityDescriptionCol.empty();
-		activityActionsCol.empty();
-		
-		activityNameCol.append(activityNameValue);
-		activityDescriptionCol.append(activityDescValue);
-		
-		//Add buttons
-		var editButton = $("<a></a>").addClass("btn btn-primary edit-activity-type-btn").attr("href","javascript:void(0)").html("Editer");
-		var deleteButton = $("<a></a>").addClass("btn btn-danger delete-activity-type-btn").attr("href","javascript:void(0)").html("Supprimer");
-		activityActionsCol.append(editButton).append(" ").append(deleteButton);
-	});
-	
-	//When the user validates edition, update the activity type
-	$("#activity-type-table").on("click", ".validate-edit-action-btn", function(){
-		
-		var activityNameCol = $(this).parent().parent().children(':nth-child(1)');
-		var activityDescriptionCol = $(this).parent().parent().children(':nth-child(2)');
-		var activityActionsCol = $(this).parent().parent().children(':nth-child(3)');
-		
-		var activityNameValue = activityNameCol.find(".activity-name-to-edit").val();
-		var activityDescValue = activityDescriptionCol.find(".activity-desc-to-edit").val();
-		
-		if (activityNameValue == "" || activityDescValue == "") {
-			notification('alert-danger', '<strong>Erreur lors de l\'édition d\'un type d\'activité</strong> : Vous devez remplir tous les champs pour pouvoir éditer un type d\'activité');
-			return;
-		}
-		
-		var data = "activity_type_id=" + $(this).parent().parent().attr("id").split("-")[2] + "&activity_type_name=" + activityNameValue + "&activity_type_description=" + activityDescValue;
-		var url = baseurl + "saveactivitytype";
-		
-		//Show ajax loader
-		$('#ajax-loader').show();
-		
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: data
-		}).success(function(activity_type_id){
-			
-			//Remove colums
-			activityNameCol.empty();
-			activityDescriptionCol.empty();
-			activityActionsCol.empty();
-			
-			//Add new values
-			activityNameCol.append(activityNameValue);
-			activityDescriptionCol.append(activityDescValue);
-			
-			//Add buttons
-			var editButton = $("<a></a>").addClass("btn btn-primary edit-activity-type-btn").attr("href","javascript:void(0)").html("Editer");
-			var deleteButton = $("<a></a>").addClass("btn btn-danger delete-activity-type-btn").attr("href","javascript:void(0)").html("Supprimer");
-			activityActionsCol.append(editButton).append(" ").append(deleteButton);
-			
-			$('#ajax-loader').hide();
-			
-			notification('alert-success', 'Votre type d\'activité a été modifié avec succès');
-		});
-	});
 	
 	$("#activity-type-table").on("click", ".delete-activity-type-btn", function(){
 		
@@ -260,6 +164,61 @@ $( document ).ready(function() {
 			notification('alert-success', 'Votre type d\'activité a été supprimé avec succès');
 		});
 	});
+	
+	function activate_x_editable() {
+		
+		//Activity type's name
+		$(".activity-type-name").editable({
+			placement: 'left',
+			emptytext: "Indéfini",
+			emptyclass: '',
+		    type: 'text',
+		    title: 'Veuillez saisir un nom',
+		    success: function(response, activity_type_name) {
+		    	
+		    	if(activity_type_name == "") {
+		    		activity_type_name = "Indéfini";
+		    	}
+		    	var activityTypeId = $(this).parent().parent().attr("id").split("-")[2];
+		    	var data = "activity_type_name=" + activity_type_name + "&activity_type_id=" + activityTypeId;
+				var url = baseurl + "saveactivitytype";
+				
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: data
+				}).success(function(){
+					notification('alert-success', 'Votre type d\'activité a bien été modifié');
+				});
+		    }  
+		});
+		
+		//Activity type's description
+		$(".activity-type-description").editable({
+			placement: 'left',
+			emptytext: "Indéfini",
+			emptyclass: '',
+		    type: 'text',
+		    title: 'Veuillez saisir une description',
+		    success: function(response, activity_type_description) {
+		    	
+		    	if(activity_type_description == "") {
+		    		activity_type_description = "Indéfini";
+		    	}
+		    	var activityTypeId = $(this).parent().parent().attr("id").split("-")[2];
+		    	var data = "activity_type_description=" + activity_type_description + "&activity_type_id=" + activityTypeId;
+				var url = baseurl + "saveactivitytype";
+				
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: data
+				}).success(function(){
+					notification('alert-success', 'Votre type d\'activité a bien été modifié');
+				});
+		    }  
+		});
+	}
 	
 	//Convert seconds into date format
 	function get_days_hour_minutes(time, alert_type) {
