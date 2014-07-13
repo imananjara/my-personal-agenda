@@ -20,6 +20,12 @@ body
 	box-shadow:none;
 }
 
+.custom-well-header
+{
+	font-size: 16px;
+	font-weight: 500;
+}
+
 .custom-panel 
 {
 	border: 1px none;
@@ -31,6 +37,7 @@ body
 	background-color:white;
 	border: 1px none;
 	box-shadow:none;
+	z-index:20;
 }
 
 .hidden-elements
@@ -41,7 +48,7 @@ body
 #notifications
 {
 	position: fixed;
-	z-index:4;
+	z-index:30;
 	width: 100%;
 }
 
@@ -65,12 +72,6 @@ textarea
    resize: none;
 }
 
-.activityNameForNotif
-{
-	font-size: 16px;
-	font-weight: 500;
-}
-
 .activity-btn
 {
 	margin-left : 5px;
@@ -83,4 +84,10 @@ textarea
 .alert-tl-label
 {
 	padding-top:5px;
+}
+
+.activity-type-name, .activity-type-description
+{
+	border-bottom: none!important;
+	color:black;
 }

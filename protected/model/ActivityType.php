@@ -39,18 +39,21 @@ class ActivityType extends ActivityTypeBase{
 	/**
 	 * Update an activity type and return it's id
 	 */
-	public static function _updateActivityType($id, $name, $description) {
+	public static function _updateActivityType($activityTypeInfos) {
 		
 		$options['limit'] = 1;
 		$type = new ActivityType();
-		$type->activity_type_id = $id;
+		$type->activity_type_id = $activityTypeInfos['activity_type_id'];
 		$type = $type->find($options);
 		
-		$type->activity_type_name = $name;
-		$type->activity_type_description = $description;
+		if (isset($activityTypeInfos['activity_type_name'])) {
+			$type->activity_type_name = $activityTypeInfos['activity_type_name'];
+		} else {
+			$type->activity_type_description = $activityTypeInfos['activity_type_description'];
+		}
 		$type->update();
 		
-		return $id;
+		return $activityTypeInfos['activity_type_id'];
 	}
 	
 	/**
