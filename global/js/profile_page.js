@@ -7,6 +7,12 @@ $( document ).ready(function() {
 	$('#notifications').hide();
 	$('#ajax-loader').hide();
 	
+	//Reduce panels
+	$('.reduce').on('click', function() {
+		var $div = $(this).nextAll(".reduce-panel");
+		$div.toggle("fast");
+	});
+	
 	//Activate x-editable
 	activate_x_editable();
 	
