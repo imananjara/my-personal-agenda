@@ -19,8 +19,12 @@
 				<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//profile-page-sections/user_profile_section.php"; ?>
 			</div>
 			<div class="well custom-well">
-				<div class="custom-well-header">Section en travaux</div><hr>
-				<p>Un nouvel élément sera bientôt disponible. Restez connecté !</p>
+				<span class="caret pull-right reduce"></span>
+				<div class="custom-well-header">Section en travaux</div>
+				<div class="reduce-panel">
+					<hr>
+					<p>Un nouvel élément sera bientôt disponible. Restez connecté !</p>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-6">

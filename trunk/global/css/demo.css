@@ -20,6 +20,19 @@ body
 	box-shadow:none;
 }
 
+.custom-well-grey
+{
+	border:1px none;
+	box-shadow:none;
+}
+
+.custom-alert
+{
+	border-color: none;
+	border: none;
+}
+
+
 .custom-well-header
 {
 	font-size: 16px;
@@ -50,6 +63,11 @@ body
 	position: fixed;
 	z-index:30;
 	width: 100%;
+}
+
+.form-control
+{
+	box-shadow: none!important;
 }
 
 #ajax-loader
@@ -90,4 +108,14 @@ textarea
 {
 	border-bottom: none!important;
 	color:black;
+}
+
+.notification-panel
+{
+	box-shadow:none;
+}
+
+.reduce:hover
+{
+	cursor:pointer; 
 }
