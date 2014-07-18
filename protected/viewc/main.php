@@ -40,10 +40,10 @@
 					<div class="activityNameForNotif custom-well-header">[<?php echo $v1['activity_type']['activity_type_name']; ?>] <?php echo $v1['title']; ?></div>
 					<hr>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
-					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 ): ?>
+					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 && $v1['nb_seconds_left'] == 0 ): ?>
 					<p class="bg-success">L'activite est terminée</p><br>
 					<?php else: ?>
-					<p class="bg-info">Il reste <span class="text-info"><strong><?php echo $v1['nb_days_left']; ?></strong></span> jour(s), <span class="text-info"><strong><?php echo $v1['nb_hours_left']; ?></strong></span> heure(s) et <span class="text-info"><strong><?php echo $v1['nb_minutes_left']; ?></strong></span> minute(s) avant la fin de cet activité.</p><br>
+					<p class="bg-info">Il reste <span class="text-info"><strong><?php echo $v1['nb_days_left']; ?></strong></span> jour(s), <span class="text-info"><strong><?php echo $v1['nb_hours_left']; ?></strong></span> heure(s), <span class="text-info"><strong><?php echo $v1['nb_minutes_left']; ?></strong></span> minute(s) et <span class="text-info"><strong><?php echo $v1['nb_seconds_left']; ?></strong></span> seconde(s)  avant la fin de cet activité.</p><br>
 					<?php endif; ?>
 					<p>Pourcentage accompli :</p>
 					<div class="progress progress-striped active">
