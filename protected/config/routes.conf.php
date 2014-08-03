@@ -15,8 +15,10 @@ $route['get']['/activity'] = array('ActivityController', 'getActivityEditionPage
 $route['get']['/activity/:activity_id'] = array('ActivityController', 'getActivityEditionPage');
 $route['get']['/deleteactivity/:activity_id'] = array('ActivityController', 'deleteActivity');
 $route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
+$route['post']['/reassignactivities'] = array('ActivityController', 'reassignActivities');
 
 $route['post']['/saveactivitytype'] = array('ActivityController', 'saveActivityType');
+$route['get']['/getactivitiesbyactivitytype/:activity_type_id'] = array('ActivityController', 'getActivitiesByActivityType');
 $route['get']['/deleteactivitytype/:activity_type_id'] = array('ActivityController', 'deleteActivityType');
 
 //$route['get']['/calendar'] = array('ActivityController', 'getCalendarOfActivity');

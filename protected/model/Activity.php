@@ -137,6 +137,46 @@ class Activity extends ActivityBase{
 	}
 	
 	/**
+	 * Get all activities linked with the chosen activity type
+	 * @param $idActivityType
+	 * @return Activities
+	 */
+	public static function _getActivitiesByActivityType($idActivityType) {
+		
+		$option = array(
+				'asArray' 	=> true,
+		);
+		
+		$activities = new Activity();
+		$activities->activity_type_id = $idActivityType;
+		$activities = $activities->find($option);
+		
+		if(empty($activities)) return null;
+		
+		return $activities;
+	}
+	
+	/**
+	 * Reassign activities
+	 * @param activities with associated activity-type
+	 */
+	public static function _reassignActivity($activityTab) {
+		
+		$option = array(
+				'limit' => 1
+		);
+		
+		foreach ($activityTab as $key => $value) {
+	      $activity = new Activity();
+		  $activity->activity_id = explode("-", $key)[2];
+		  $activity = $activity->find($option);
+		  $activity->activity_type_id = explode("-", $value)[2];
+		  $activity->update();
+	    }
+    
+	}
+	
+	/**
 	 * Sort activities tab and add attributs "nb_days_left", "nb_hours_left", "nb_minutes_left" and "tmp_left"
 	 * @param  $activities
 	 * @return $activities
