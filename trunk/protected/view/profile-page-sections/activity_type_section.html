@@ -11,7 +11,7 @@
 			<th>Description</th>
 		</tr>
 		<!-- loop activity_types -->
-		<tr id="activity-type-{{activity_types' value.activity_type_id}}">
+		<tr class="activity-type-row" id="activity-type-{{activity_types' value.activity_type_id}}">
 			<td><a href="javascript:void(0)" class="activity-type-name">{{activity_types' value.activity_type_name}}</a></td>
 			<td><a href="javascript:void(0)" class="activity-type-description">{{activity_types' value.activity_type_description}}</a></td>
 			<td>
@@ -26,3 +26,5 @@
 		</tr>
 	</table>
 </div>
+
+<!-- include '../main-page-modals/reassign_activities_modal' -->

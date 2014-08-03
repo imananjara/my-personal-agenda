@@ -11,7 +11,7 @@
 			<th>Description</th>
 		</tr>
 		<?php foreach($data['activity_types'] as $k1=>$v1): ?>
-		<tr id="activity-type-<?php echo $v1['activity_type_id']; ?>">
+		<tr class="activity-type-row" id="activity-type-<?php echo $v1['activity_type_id']; ?>">
 			<td><a href="javascript:void(0)" class="activity-type-name"><?php echo $v1['activity_type_name']; ?></a></td>
 			<td><a href="javascript:void(0)" class="activity-type-description"><?php echo $v1['activity_type_description']; ?></a></td>
 			<td>
@@ -26,3 +26,5 @@
 		</tr>
 	</table>
 </div>
+
+<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//profile-page-sections/../main-page-modals/reassign_activities_modal.php"; ?>

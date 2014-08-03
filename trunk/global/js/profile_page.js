@@ -124,7 +124,7 @@ $( document ).ready(function() {
 		}).success(function(activity_type_id){
 			
 			//Line's insertion
-			var newTabLine = $("<tr></tr>").attr("id", "activity-type-" + activity_type_id);
+			var newTabLine = $("<tr></tr>").addClass("activity-type-row").attr("id", "activity-type-" + activity_type_id);
 			newTabLine.append($("<td></td>").html($("<a></a>").addClass("activity-type-name").attr("href","javascript:void(0)").html($("#activity_type_name").val())));
 			newTabLine.append($("<td></td>").html($("<a></a>").addClass("activity-type-description").attr("href","javascript:void(0)").html($("#activity_type_description").val())));
 			
@@ -146,7 +146,7 @@ $( document ).ready(function() {
 	
 	});
 	
-	
+	//If the user clicks on 'delete' button
 	$("#activity-type-table").on("click", ".delete-activity-type-btn", function(){
 		
 		var activityTypeLine = $(this).parent().parent();
@@ -157,19 +157,100 @@ $( document ).ready(function() {
 			return;
 		}
 		
-		var url = baseurl + 'deleteactivitytype/' + activityTypeId;
+		var url = baseurl + 'getactivitiesbyactivitytype/' + activityTypeId;
 		
-		//Show ajax loader
-		$('#ajax-loader').show();
 		
-		$.ajax({
-			url: url
-		}).success(function(){
-			activityTypeLine.remove();
-			$('#ajax-loader').hide();
-			notification('alert-success', 'Votre type d\'activité a été supprimé avec succès');
+		$.getJSON(url, function(activitiesTab){
+						
+			if (activitiesTab != null) {
+				build_activity_reassignment_modal(activityTypeId, activitiesTab);
+			} else {
+				delete_activity_type(activityTypeId);
+			}
 		});
 	});
+	
+	//If the user confirms his choices, reassign the activities and delete the chosen activity type
+	$("#reassign-activity-btn").on('click',function(){
+		var activityReassignedChain = "";
+		var incrementator = 0;
+		$(".reassigned-activity-row").each(function(){
+			if (incrementator == 0) {
+				activityReassignedChain += $(this).find(".reassignment-modal-activity-name").attr("id") + "=" + $(this).find(".reassignment-modal-activity-type-list .form-control option:selected").val();
+			} else {
+				activityReassignedChain += "&" + $(this).find(".reassignment-modal-activity-name").attr("id") + "=" + $(this).find(".reassignment-modal-activity-type-list .form-control option:selected").val();
+			}
+			incrementator++;
+		});
+		
+		var url = baseurl + "reassignactivities";
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: activityReassignedChain
+		}).success(function(){
+			delete_activity_type($("#activity-type-deleted-id").html());
+		});
+	});
+	
+	//Delete lines
+	$("#activity-reassignment-modal").on('hidden.bs.modal', function () {
+		  $(".reassigned-activity-row").remove();
+	});
+	
+	//Build and show an activity reassignment's modal
+	function build_activity_reassignment_modal(activityTypeId, activitiesTab) {
+		
+		//Build the modal
+		var activityTypeToDeleteName = $('#activity-type-' + activityTypeId).find(".activity-type-name").html();
+		$('#activity-type-deleted-name').html(activityTypeToDeleteName);
+		$("#activity-type-deleted-id").html(activityTypeId);
+		
+		for (var i= 0; i < activitiesTab.length; i++) {
+			
+			var reassignedActRow = $("<tr></tr>").addClass("reassigned-activity-row");
+			var actNameCol = $("<td></td>").html(activitiesTab[i]['title']).attr("id", "reassigned-activity-" + activitiesTab[i]['activity_id']).addClass("reassignment-modal-activity-name");
+			var actTypeCol = $("<td></td>").addClass("reassignment-modal-activity-type-list");
+			
+			var activityTypeSelect = $("<select></select>").addClass("form-control");
+			
+			$(".activity-type-row").each(function(){
+				if (activityTypeToDeleteName != $(this).find(".activity-type-name").html()) {
+					activityTypeSelect.append($("<option></option>").attr("value", "reassigned-activitytype-" + $(this).attr("id").split("-")[2]).html($(this).find(".activity-type-name").html()));
+				}
+			});
+			
+			actTypeCol.append(activityTypeSelect);
+			
+			$("#activities-list").append(reassignedActRow.append(actNameCol).append(actTypeCol));
+		}
+		
+		//Display the modal
+		$('#activity-reassignment-modal').modal('toggle');
+	}
+	
+	//Delete an activity type from it's id. This function also removes it's line from the activity type's table 
+	function delete_activity_type(activityTypeId) {
+		
+		var url = baseurl + 'deleteactivitytype/' + activityTypeId;
+        
+        //Show ajax loader
+        $('#ajax-loader').show();
+        
+        $.ajax({
+                url: url
+        }).success(function(){
+        		//Check if reassignement modal is shown.
+        		if ($('#activity-reassignment-modal').hasClass('in')){
+        			$('#activity-reassignment-modal').modal('hide');
+        		}
+        		$('#activity-type-' + activityTypeId).remove();
+                $('#ajax-loader').hide();
+                notification('alert-success', 'Votre type d\'activité a été supprimé avec succès');
+        });
+	}
+	
 	
 	function activate_x_editable() {
 		

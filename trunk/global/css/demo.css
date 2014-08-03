@@ -119,3 +119,14 @@ textarea
 {
 	cursor:pointer; 
 }
+
+.reassignment-modal-activity-name
+{
+	width:50%; 
+	vertical-align:middle!important;
+}
+
+.reassignment-modal-activity-type-list
+{
+	width:50%; 
+}

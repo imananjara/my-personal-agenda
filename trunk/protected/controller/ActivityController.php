@@ -82,6 +82,20 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
+	 * Get all activities linked with the chosen activity type
+	 */
+	public function getActivitiesByActivityType() {
+		echo json_encode(Activity::_getActivitiesByActivityType($this->params['activity_type_id']));
+	}
+	
+	/**
+	 * Reassign activities
+	 */
+	public function reassignActivities() {
+		Activity::_reassignActivity($_POST);
+	}
+	
+	/**
 	 * Save (create or update) an activity type and return it's id
 	 */
 	public function saveActivityType() {
