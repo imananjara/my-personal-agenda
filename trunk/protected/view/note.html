@@ -8,53 +8,61 @@
 	<title>Creation de note - My Personal Agenda</title>
 	<!-- endif -->
 	<!-- include 'css_files' -->
+	<link href="{{globalurl}}css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
 	<!-- include 'js_files' -->
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
 </head>
 <body>
 <div id="notifications" class='alert alert-notification'></div>
 	<!-- include 'menu_bar' -->
+	
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 well">
-			<!-- if {{isset(note)}} -->
-			<div>EDITION DE LA NOTE <strong>"{{note.title}}"</strong></div>
-			<!-- else -->
-			<div>CREATION D'UNE NOTE</div>
-			<!-- endif -->
-			<hr>
-			<form id="save-note-form" method="post" action="{{baseurl}}savenote" class="form-horizontal" role="form">
-			  <!-- if {{isset(note)}} -->
- 			  <input type="hidden" name="idNote" id="idNote" value="{{note.note_id}}"/>
- 			  <!-- endif -->
-			  <div class="form-group">
-			    <label for="noteTitle" class="col-sm-2 control-label">Titre</label>
-			    <div class="col-sm-5">
-			      <!-- if {{isset(note)}} -->
-			      <input type="text" value="{{note.title}}" class="form-control" name="noteTitle" id="noteTitle" placeholder="Titre de la note">
-			      <!-- else -->
-			      <input type="text" class="form-control" name="noteTitle" id="noteTitle" placeholder="Titre de la note">
-			      <!-- endif -->
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="noteContent" class="col-sm-2 control-label">Contenu</label>
-			    <div class="col-sm-10">
-			      <!-- if {{isset(note)}} -->
-			      <textarea id="noteContent" name="noteContent" placeholder="Contenu de la note ici..." class="form-control" rows="5">{{note.full_content}}</textarea>
-			      <!-- else -->
-			      <textarea id="noteContent" name="noteContent" placeholder="Contenu de la note ici..." class="form-control" rows="5"></textarea>
-			      <!-- endif -->
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <!-- if {{isset(note)}} -->
-			      <a id="save-note-btn" class="btn btn-default">Editer la note</a>
-			      <!-- else -->
-			      <a id="save-note-btn" class="btn btn-default">Creer la note</a>
-			      <!-- endif -->
-			    </div>
-			  </div>
-			 </form>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="well custom-well">
+				<!-- if {{isset(note)}} -->
+				<div class="custom-well-header">Edition de la note <strong>"{{note.title}}"</strong></div>
+				<!-- else -->
+				<div class="custom-well-header">Creation d'une note</div>
+				<!-- endif -->
+			</div>
+			<div class="well custom-well">
+
+				<form id="save-note-form" method="post" action="{{baseurl}}savenote" role="form">
+				  <!-- if {{isset(note)}} -->
+	 			  <input type="hidden" name="idNote" id="idNote" value="{{note.note_id}}"/>
+	 			  <!-- endif -->
+				  <div class="form-group">
+				    <label for="noteTitle" class="control-label">Titre :</label>
+				    <div>
+				      <!-- if {{isset(note)}} -->
+				      <input type="text" value="{{note.title}}" class="form-control" name="noteTitle" id="noteTitle" placeholder="Titre de la note">
+				      <!-- else -->
+				      <input type="text" class="form-control" name="noteTitle" id="noteTitle" placeholder="Titre de la note">
+				      <!-- endif -->
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="noteContent" class="control-label">Contenu :</label>
+				    <div>
+				      <!-- if {{isset(note)}} -->
+				      <textarea id="noteContent" name="noteContent" placeholder="Contenu de la note ici..." class="form-control">{{note.full_content}}</textarea>
+				      <!-- else -->
+				      <textarea id="noteContent" name="noteContent" placeholder="Contenu de la note ici..." class="form-control"></textarea>
+				      <!-- endif -->
+				    </div>
+				  </div><br>
+				  <div class="form-group">
+				    <div>
+				      <!-- if {{isset(note)}} -->
+				      <a id="save-note-btn" class="btn btn-success">Editer la note</a>
+				      <!-- else -->
+				      <a id="save-note-btn" class="btn btn-success">Creer la note</a>
+				      <!-- endif -->
+				    </div>
+				  </div>
+				 </form>
+			 </div>
 		</div>
 	</div>
 </body>
