@@ -6,12 +6,30 @@ $( document ).ready(function() {
 	//When the page loads, we hide the notifications bar
 	$('#notifications').hide();
 	
+	//Enable summernote
+	$('#noteContent').summernote({
+		lang: 'fr-FR',
+		height: 200,
+		toolbar: [
+		          ['style', ['bold', 'italic', 'underline', 'clear']],
+		          ['font', ['strikethrough']],
+		          ['fontsize', ['fontsize']],
+		          ['color', ['color']],
+		          ['para', ['ul', 'ol', 'paragraph']],
+		          ['height', ['height']],
+		          ['insert', ['link', 'hr']],
+		          ['misc', ['undo', 'redo']]
+		        ]
+	});
+	
 	//If the user click on submit button
 	$("#save-note-btn").on("click", function(){
-
-		if ($("#noteTitle").val() == "" || $("#noteContent").val() == "")
+	
+		$('#noteContent').val($('#noteContent').code());
+		
+		if ($("#noteTitle").val() == "")
 		{
-			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir les champs suivants : Titre, Contenu de la note');
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir le champ suivant : Titre');
 			return;
 		}
 		

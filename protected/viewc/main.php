@@ -82,9 +82,7 @@
 				  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
 				    <h3 class="panel-title"><?php echo $v1['title']; ?></h3>
 				  </div>
-				  <div class="panel-body">
-				    <?php echo $v1['full_content']; ?>
-				  </div>
+				  <div class="panel-body"><?php echo $v1['full_content']; ?></div>
 				</div>
 				<?php endforeach; ?>
 			</div>

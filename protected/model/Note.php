@@ -91,7 +91,7 @@ class Note extends NoteBase{
 		
 		//End line managment
 		foreach ($notes as &$note) {
-			$note["full_content"] = nl2br(htmlentities($note["full_content"]));
+			$note["full_content"] = html_entity_decode(nl2br(htmlentities($note["full_content"])));
 		}
 		
 		return $notes;
