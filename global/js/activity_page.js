@@ -6,6 +6,21 @@ $( document ).ready(function() {
 	//Get app's base url
 	var baseurl = $('#base-url').val();
 	
+	//Enable summernote for the commentary's field
+	$('#activityCommentary').summernote({
+		lang: 'fr-FR',
+		height: 150,
+		toolbar: [
+		          ['style', ['bold', 'italic', 'underline', 'clear']],
+		          ['font', ['strikethrough']],
+		          ['fontsize', ['fontsize']],
+		          ['color', ['color']],
+		          ['para', ['ul', 'ol', 'paragraph']],
+		          ['height', ['height']],
+		          ['insert', ['link', 'hr']]
+		        ]
+	});
+	
 	//Active datepicker	
 	$('#activityEndDate').datetimepicker({
 		language: 'fr',
@@ -19,6 +34,8 @@ $( document ).ready(function() {
 	
 	//If the user click on submit button
 	$("#save-activity-btn").on("click", function(){
+		
+		$('#activityCommentary').val($('#activityCommentary').code());
 
 		if ($("#activityTitle").val() == "" || $("#activityDescription").val() == "" || $("#activityEndDate").children( "input" ).val() == "" || $('#activityEndHour').children( "input" ).val() == "")
 		{

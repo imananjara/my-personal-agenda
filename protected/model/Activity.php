@@ -125,7 +125,7 @@ class Activity extends ActivityBase{
 				
 		//End line managment and add type
 		foreach ($activities as &$activity) {
-			$activity["commentary"] = nl2br(htmlentities($activity["commentary"]));
+			$activity["commentary"] = html_entity_decode(nl2br(htmlentities($activity["commentary"])));
 			
 			$activityType = new ActivityType();
 			$activityType->activity_type_id = $activity["activity_type_id"];
