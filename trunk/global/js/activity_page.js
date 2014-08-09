@@ -21,6 +21,8 @@ $( document ).ready(function() {
 		        ]
 	});
 	
+	fix_summernote_bug();
+	
 	//Active datepicker	
 	$('#activityEndDate').datetimepicker({
 		language: 'fr',
@@ -34,6 +36,8 @@ $( document ).ready(function() {
 	
 	//If the user click on submit button
 	$("#save-activity-btn").on("click", function(){
+		
+		fix_summernote_bug();
 		
 		$('#activityCommentary').val($('#activityCommentary').code());
 
@@ -59,6 +63,13 @@ $( document ).ready(function() {
 		$("#save-activity-form").submit();
 		
 	});
+	
+	//Fix summernote's bug
+	function fix_summernote_bug() {
+		if ($(".note-editable").html() == "<p><br></p>" || $(".note-editable").html() == "<br>" || $(".note-editable").html() == "<div><br></div>") {
+			$(".note-editable").html("");
+		}
+	}
 		
 	//Notification system
 	function notification(type, message) {
