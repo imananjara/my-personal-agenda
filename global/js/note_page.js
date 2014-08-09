@@ -22,14 +22,18 @@ $( document ).ready(function() {
 		        ]
 	});
 	
+	fix_summernote_bug();
+	
 	//If the user click on submit button
 	$("#save-note-btn").on("click", function(){
+		
+		fix_summernote_bug();
 	
 		$('#noteContent').val($('#noteContent').code());
 		
-		if ($("#noteTitle").val() == "")
+		if ($("#noteTitle").val() == "" || $("#noteContent").val() == "")
 		{
-			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir le champ suivant : Titre');
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir les champs suivants : Titre, Contenu de la note');
 			return;
 		}
 		
@@ -37,6 +41,13 @@ $( document ).ready(function() {
 		$("#save-note-form").submit();
 		
 	});
+	
+	//Fix summernote's bug
+	function fix_summernote_bug() {
+		if ($(".note-editable").html() == "<p><br></p>" || $(".note-editable").html() == "<br>" || $(".note-editable").html() == "<div><br></div>") {
+			$(".note-editable").html("");
+		}
+	}
 		
 	//Notification system
 	function notification(type, message) {
