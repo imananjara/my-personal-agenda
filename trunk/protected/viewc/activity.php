@@ -127,6 +127,50 @@
   		<div class="col-md-5">
 	  		<div class="well custom-well">
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
+	  			<?php if( isset($data['activity']) ): ?>
+	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activite, il est possible de creer une ou plusieurs taches.</div>
+	  			<table class="table">
+	  				<tr>
+	  					<th>Nom</th>
+	  					<th>Pourcentage fait</th>
+	  				</tr>
+	  				<tr>
+	  					<td>Rediger l'introduction</td>
+	  					<td>
+		  					<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+							    <span class="sr-only"></span>
+							  </div>
+							</div>
+	  					</td>
+	  					<td><button class="btn btn-danger">Supprimer</button>
+	  				</tr>
+	  				<tr>
+	  					<td>Rediger la partie 1</td>
+	  					<td>
+		  					<div class="progress">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+							    <span class="sr-only"></span>
+							  </div>
+							</div>
+	  					</td>
+	  					<td><button class="btn btn-danger">Supprimer</button>
+	  				</tr>
+	  				<tr id="add-activity-type-line">
+						<td><input type="text" name="activity_type_name" id="activity_type_name" class="form-control" placeholder="Nom..."></td>
+						<td>
+					      <select class="form-control">
+							  <?php foreach(range(0, 100, 10) as $data['i']): ?>
+							  <option value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
+							  <?php endforeach; ?>
+						  </select>
+						</td>
+						<td><a href="javascript:void(0)" class="btn btn-success">Ajouter</a></td>
+					</tr>
+	  			</table>
+	  			<?php else: ?>
+	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs taches a votre activite, vous devez au prealable creer cette activite !</div>
+	  			<?php endif; ?>
 	  		</div>
   		</div>
   	</div>
