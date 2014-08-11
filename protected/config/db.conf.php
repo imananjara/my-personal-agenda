@@ -8,6 +8,10 @@
 $dbmap['ActivityType']['has_many']['Activity'] = array('foreign_key'=>'activity_type_id');
 $dbmap['Activity']['belongs_to']['ActivityType'] = array('foreign_key'=>'activity_type_id');
 
+//Activity/Task
+$dbmap['Activity']['has_many']['Task'] = array('foreign_key'=>'activity_id');
+$dbmap['Task']['belongs_to']['Activity'] = array('foreign_key'=>'activity_id');
+
 //User/Activity
 $dbmap['User']['has_many']['Activity'] = array('foreign_key'=>'user_id');
 $dbmap['Activity']['belongs_to']['User'] = array('foreign_key'=>'user_id');
