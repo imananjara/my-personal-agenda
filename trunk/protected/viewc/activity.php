@@ -128,36 +128,27 @@
 	  		<div class="well custom-well">
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
 	  			<?php if( isset($data['activity']) ): ?>
-	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activite, il est possible de creer une ou plusieurs taches.</div>
+	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter"</div>
 	  			<table class="table">
 	  				<tr>
-	  					<th>Nom</th>
-	  					<th>Pourcentage fait</th>
+	  					<th>Titre</th>
+	  					<th>Fait à (en %)</th>
 	  				</tr>
+	  				<?php if( isset($data['tasks']) ): ?>
+	  				<?php foreach($data['tasks'] as $k1=>$v1): ?>
 	  				<tr>
-	  					<td>Rediger l'introduction</td>
+	  					<td><?php echo $v1['title']; ?></td>
 	  					<td>
 		  					<div class="progress">
-							  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-							    <span class="sr-only"></span>
-							  </div>
+							  <div class="progress-bar" role="progressbar" style="width: <?php echo $v1['percent_done']; ?>%;"></div>
 							</div>
 	  					</td>
 	  					<td><button class="btn btn-danger">Supprimer</button>
 	  				</tr>
-	  				<tr>
-	  					<td>Rediger la partie 1</td>
-	  					<td>
-		  					<div class="progress">
-							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-							    <span class="sr-only"></span>
-							  </div>
-							</div>
-	  					</td>
-	  					<td><button class="btn btn-danger">Supprimer</button>
-	  				</tr>
-	  				<tr id="add-activity-type-line">
-						<td><input type="text" name="activity_type_name" id="activity_type_name" class="form-control" placeholder="Nom..."></td>
+	  				<?php endforeach; ?>
+	  				<?php endif; ?>
+	  				<tr id="add-task-line">
+						<td><input type="text" name="task_label" id="task_label" class="form-control" placeholder="Titre..."></td>
 						<td>
 					      <select class="form-control">
 							  <?php foreach(range(0, 100, 10) as $data['i']): ?>
@@ -169,7 +160,7 @@
 					</tr>
 	  			</table>
 	  			<?php else: ?>
-	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs taches a votre activite, vous devez au prealable creer cette activite !</div>
+	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs tâches à votre activité, vous devez au préalable créer cette activité !</div>
 	  			<?php endif; ?>
 	  		</div>
   		</div>

@@ -1,6 +1,7 @@
 <?php
 Doo::loadModel("Activity");
 Doo::loadModel('ActivityType');
+Doo::loadModel('Task');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
 
@@ -38,6 +39,8 @@ class ActivityController extends BaseController {
 			$full_date = explode(' ', $this->_data["activity"]["end_date"]);
 			$this->_data["activity"]["end_date"] = Date::_dateSQLToHuman($full_date[0]);
 			$this->_data["activity"]["end_hour"] = Date::_hourSQLToHuman($full_date[1]);
+			
+			$this->_data['tasks'] = Task::_getTasks($this->params["activity_id"]);
 		}
 		
 		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
