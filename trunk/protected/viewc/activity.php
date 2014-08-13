@@ -10,16 +10,20 @@
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/x-editable/bootstrap-editable.css">
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/summernote.min.js"></script>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/x-editable/bootstrap-editable.min.js"></script>
 </head>
 <body>
 	<div id="notifications" class='alert alert-notification'></div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//menu_bar.php"; ?>
+	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
+	
 	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
   			<div class="well custom-well">
@@ -136,27 +140,23 @@
 	  				</tr>
 	  				<?php if( isset($data['tasks']) ): ?>
 	  				<?php foreach($data['tasks'] as $k1=>$v1): ?>
-	  				<tr>
-	  					<td><?php echo $v1['title']; ?></td>
-	  					<td>
-		  					<div class="progress">
-							  <div class="progress-bar" role="progressbar" style="width: <?php echo $v1['percent_done']; ?>%;"></div>
-							</div>
-	  					</td>
-	  					<td><button class="btn btn-danger">Supprimer</button>
+	  				<tr class="task-row" id="task-<?php echo $v1['task_id']; ?>">
+	  					<td><a href="javascript:void(0)" class="task-title"><?php echo $v1['title']; ?></a></td>
+	  					<td><a href="javascript:void(0)" class="task-percent-done" data-value="<?php echo $v1['percent_done']; ?>"><?php echo $v1['percent_done']; ?></a></td>
+	  					<td><button class="btn btn-danger delete-task-btn">Supprimer</button>
 	  				</tr>
 	  				<?php endforeach; ?>
 	  				<?php endif; ?>
 	  				<tr id="add-task-line">
-						<td><input type="text" name="task_label" id="task_label" class="form-control" placeholder="Titre..."></td>
+						<td><input type="text" name="task_title" id="task_title" class="form-control" placeholder="Titre..."></td>
 						<td>
-					      <select class="form-control">
+					      <select class="form-control" name="task_percent_done" id="task_percent_done">
 							  <?php foreach(range(0, 100, 10) as $data['i']): ?>
 							  <option value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
 							  <?php endforeach; ?>
 						  </select>
 						</td>
-						<td><a href="javascript:void(0)" class="btn btn-success">Ajouter</a></td>
+						<td><a href="javascript:void(0)" id="add-task-btn" class="btn btn-success">Ajouter</a></td>
 					</tr>
 	  			</table>
 	  			<?php else: ?>

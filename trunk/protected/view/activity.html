@@ -10,16 +10,20 @@
 	<!-- include 'css_files' -->
 	<link rel="stylesheet" href="{{globalurl}}css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<link href="{{globalurl}}css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{globalurl}}css/bootstrap-extensions/x-editable/bootstrap-editable.css">
 	<!-- include 'js_files' -->
 	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
 	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
 	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
 	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/summernote.min.js"></script>
 	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/x-editable/bootstrap-editable.min.js"></script>
 </head>
 <body>
 	<div id="notifications" class='alert alert-notification'></div>
 	<!-- include 'menu_bar' -->
+	<input type="hidden" id="base-url" value="{{baseurl}}">
+	
 	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
   			<div class="well custom-well">
@@ -136,27 +140,23 @@
 	  				</tr>
 	  				<!-- if {{isset(tasks)}} -->
 	  				<!-- loop tasks -->
-	  				<tr>
-	  					<td>{{tasks' value.title}}</td>
-	  					<td>
-		  					<div class="progress">
-							  <div class="progress-bar" role="progressbar" style="width: {{tasks' value.percent_done}}%;"></div>
-							</div>
-	  					</td>
-	  					<td><button class="btn btn-danger">Supprimer</button>
+	  				<tr class="task-row" id="task-{{tasks' value.task_id}}">
+	  					<td><a href="javascript:void(0)" class="task-title">{{tasks' value.title}}</a></td>
+	  					<td><a href="javascript:void(0)" class="task-percent-done" data-value="{{tasks' value.percent_done}}">{{tasks' value.percent_done}}</a></td>
+	  					<td><button class="btn btn-danger delete-task-btn">Supprimer</button>
 	  				</tr>
 	  				<!-- endloop -->
 	  				<!-- endif -->
 	  				<tr id="add-task-line">
-						<td><input type="text" name="task_label" id="task_label" class="form-control" placeholder="Titre..."></td>
+						<td><input type="text" name="task_title" id="task_title" class="form-control" placeholder="Titre..."></td>
 						<td>
-					      <select class="form-control">
+					      <select class="form-control" name="task_percent_done" id="task_percent_done">
 							  <!-- for i from 0 to 100 step 10 -->
 							  <option value="{{i}}">{{i}}</option>
 							  <!-- endfor -->
 						  </select>
 						</td>
-						<td><a href="javascript:void(0)" class="btn btn-success">Ajouter</a></td>
+						<td><a href="javascript:void(0)" id="add-task-btn" class="btn btn-success">Ajouter</a></td>
 					</tr>
 	  			</table>
 	  			<!-- else -->
