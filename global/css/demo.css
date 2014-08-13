@@ -96,6 +96,17 @@ textarea
 }
 
 /*=============================*/
+/*         Activity            */
+/*=============================*/
+
+.task-title, .task-percent-done
+{
+	border-bottom: none!important;
+	color:black;
+}
+
+
+/*=============================*/
 /*         Parameters          */
 /*=============================*/
 

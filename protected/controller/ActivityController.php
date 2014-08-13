@@ -99,7 +99,7 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
-	 * Save (create or update) an activity type and return it's id
+	 * Save (create or update) an activity type and return its id
 	 */
 	public function saveActivityType() {
 		
@@ -115,6 +115,17 @@ class ActivityController extends BaseController {
 	 */
 	public function deleteActivityType() {
 		ActivityType::_deleteActivityType($this->params['activity_type_id']);
+	}
+	
+	/**
+	 * Save (create or update) a task and return its id
+	 */
+	public function saveTask() {
+		if (isset($_POST['task_id'])) {
+			echo Task::_updateTask($_POST);
+		} else {
+			echo Task::_addTask($_POST);
+		}
 	}
 	
 	/**
