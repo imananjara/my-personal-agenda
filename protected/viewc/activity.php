@@ -133,7 +133,7 @@
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
 	  			<?php if( isset($data['activity']) ): ?>
 	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter"</div>
-	  			<table class="table">
+	  			<table id="task-table" class="table">
 	  				<tr>
 	  					<th>Titre</th>
 	  					<th>Fait à (en %)</th>

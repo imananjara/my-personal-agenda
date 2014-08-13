@@ -22,6 +22,7 @@ $route['get']['/getactivitiesbyactivitytype/:activity_type_id'] = array('Activit
 $route['get']['/deleteactivitytype/:activity_type_id'] = array('ActivityController', 'deleteActivityType');
 
 $route['post']['/savetask'] = array('ActivityController', 'saveTask');
+$route['get']['/deletetask/:task_id'] = array('ActivityController', 'deleteTask'); 
 
 //$route['get']['/calendar'] = array('ActivityController', 'getCalendarOfActivity');
 
