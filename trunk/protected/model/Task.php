@@ -61,4 +61,14 @@ class Task extends TaskBase{
 		
 		return $taskInfos["task_id"];
 	}
+	
+	/**
+	 * Delete a task using its id
+	 */
+	public static function _deleteTask($id) {
+	
+		$task = new Task();
+		$task->task_id = $id;
+		$task->delete();
+	}
 }

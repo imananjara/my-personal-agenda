@@ -104,10 +104,27 @@ $( document ).ready(function() {
 			//Setup editable for the new elements
 			activate_x_editable();
 			
-			notification('alert-success', 'Votre tâche a bien été enregistré');
+			notification('alert-success', 'Votre tâche a bien été enregistrée');
 			
 		});
 		
+	});
+	
+	//If the user clicks on 'delete' button
+	$("#task-table").on("click", ".delete-task-btn", function(){
+		
+		var task_id = $(this).parent().parent().attr("id").split("-")[1];
+		
+		var url = baseurl + 'deletetask/' + task_id;
+		
+		$.ajax({
+            url: url
+	    }).success(function(){
+
+	    		$('#task-' + task_id).remove();
+	            notification('alert-success', 'Votre tâche a été supprimée avec succès');
+	    });
+
 	});
 	
 	//Enable x_editable for task's title and percent_done

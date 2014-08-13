@@ -129,6 +129,13 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
+	 * Delete the task chosen by the user
+	 */
+	public function deleteTask() {
+		Task::_deleteTask($this->params['task_id']);
+	}
+	
+	/**
 	 * Load a calendar and put activities into this
 	 * @return calendar page
 	 */
