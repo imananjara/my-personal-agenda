@@ -165,6 +165,7 @@
 	  		</div>
   		</div>
   	</div>
+  	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/activity_redirection_modal.php"; ?>
 </body>
 <script type="text/javascript" src='<?php echo $data['globalurl']; ?>js/activity_page.js'></script>
 </html>

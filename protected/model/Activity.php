@@ -60,6 +60,8 @@ class Activity extends ActivityBase{
 		
 		$activity->update();
 		
+		return $activity_id;
+		
 	}
 	
 	/**
@@ -97,7 +99,7 @@ class Activity extends ActivityBase{
 		$activity->percent_done = $done;
 		$activity->commentary = $commentary;
 		
-		$activity->insert();
+		return $activity->insert();
 	}
 	
 	/**
