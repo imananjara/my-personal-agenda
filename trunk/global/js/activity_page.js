@@ -61,9 +61,26 @@ $( document ).ready(function() {
 			return;
 		}
 		
-		//Submit the form
-		$("#save-activity-form").submit();
+		var data = $("#save-activity-form").serialize();
+		var url = baseurl + "saveactivity";
 		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data
+		}).success(function(activity_id_returned){
+			
+			if ($("#idActivity").length) {
+				location.href = baseurl;
+			} else {
+				var options = {
+					    "backdrop" : "static",
+					    "keyboard" : false
+				}
+				$("#edit-activity-redirection-link").attr("href", baseurl + "activity/" + activity_id_returned);
+				$('#activity-redirection-modal').modal(options);
+			}
+		});		
 	});
 	
 	//The user clicks on task's add btn
