@@ -7,7 +7,7 @@ Doo::loadController('BaseController');
  * Concerns the authentification's system
  * @author imananjara <ivan.mananjara@gmail.com>
  */
-class AuthentificationController extends BaseController{
+class AuthenticationController extends BaseController{
 	
 	/**
 	 * Constructor for AuthentificationController class
