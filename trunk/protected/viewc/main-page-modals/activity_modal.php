@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="activity-modal" tabindex="-1" role="dialog" aria-labelledby="myActivityModal" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xlg">
     <div class="modal-content">
     	<br>
        	 <div class="row">
