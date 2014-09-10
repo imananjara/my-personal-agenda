@@ -6,7 +6,7 @@
 
 body
 {
-	background-image: url(../img/paper.png);
+	background-image: url(../img/crossword.png);
 }
 
 #administrator-body {
@@ -79,6 +79,11 @@ body
 	top : 49%;
 	width : auto;
 	z-index: 4;
+}
+
+.modal-xlg
+{
+	width:1000px;
 }
 
 /*=============================*/
