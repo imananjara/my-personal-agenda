@@ -19,7 +19,7 @@ $config['SITE_PATH'] = realpath('.').'/';
 $config['BASE_PATH'] = realpath('.').'/dooframework/';
 
 //for production mode use 'prod'
-$config['APP_MODE'] = 'dev';
+$config['APP_MODE'] = $MODE;
 
 //----------------- optional, if not defined, default settings are optimized for production mode ----------------
 //if your root directory is /var/www/ and you place this in a subfolder eg. 'app', define SUBFOLDER = '/app/'
@@ -30,9 +30,14 @@ if(strpos($config['SUBFOLDER'], '/')!==0){
 }
 $config['APP_URL'] = 'http://'.$_SERVER['HTTP_HOST'].$config['SUBFOLDER'];
 $config['AUTOROUTE'] = TRUE;
-$config['DEBUG_ENABLED'] = TRUE;
 
-//$config['TEMPLATE_COMPILE_ALWAYS'] = TRUE;
+if ($config['APP_MODE'] == "prod") {
+  $config['DEBUG_ENABLED'] = false;
+  $config['TEMPLATE_COMPILE_ALWAYS'] = false;
+} else {
+  $config['DEBUG_ENABLED'] = true;
+  $config['TEMPLATE_COMPILE_ALWAYS'] = true;
+}
 
 //register functions to be used with your template files
 //$config['TEMPLATE_GLOBAL_TAGS'] = array('url', 'url2', 'time', 'isset', 'empty');
