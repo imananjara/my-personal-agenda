@@ -41,7 +41,7 @@
 					<hr>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 && $v1['nb_seconds_left'] == 0 ): ?>
-					<p class="bg-success">L'activite est terminée</p><br>
+					<p class="bg-success">L'activité est terminée</p><br>
 					<?php else: ?>
 					<p class="bg-info">Il reste <span class="text-info"><strong><?php echo $v1['nb_days_left']; ?></strong></span> jour(s), <span class="text-info"><strong><?php echo $v1['nb_hours_left']; ?></strong></span> heure(s), <span class="text-info"><strong><?php echo $v1['nb_minutes_left']; ?></strong></span> minute(s) et <span class="text-info"><strong><?php echo $v1['nb_seconds_left']; ?></strong></span> seconde(s)  avant la fin de cet activité.</p><br>
 					<?php endif; ?>
@@ -58,6 +58,7 @@
 					    <?php echo $v1['percent_done']; ?>%
 					  </div>
 					</div>
+					<div class="activityIdentifiant hidden-elements"><?php echo $v1['activity_id']; ?></div>
 					<div class="leftTimeSeconds hidden-elements"><?php echo $v1['tmpLeft']; ?></div>
 					<div class="activityCommentary hidden-elements"><?php echo $v1['commentary']; ?></div>
 					<div class="activityEndDate hidden-elements"><?php echo $v1['end_date']; ?></div> 

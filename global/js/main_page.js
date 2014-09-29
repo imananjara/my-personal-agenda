@@ -93,11 +93,16 @@ $( document ).ready(function() {
 		
 		//Clean the activity modal body
 		$("#activity-modal-content").empty();
-		 
-		$("#activity-modal-content").append($("<p></p>").html("Cette activité prend fin le <strong>" + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong> et est completé à <strong>" + $(this).parent().find(".activityPercentDone").html().split(" : ")[1] + "</strong>"));
-		$("#activity-modal-content").append($("<p></p>").html("Vous avez écrit comme description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
 		
-		//Commentary
+		//Link to the edition page
+		$("#activity-edition-link").attr("href", baseurl + "activity/" + $(this).parent().find(".activityIdentifiant").html());
+		
+		//Main informations
+		$("#activity-modal-content").append($("<p></p>").html("Description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
+		$("#activity-modal-content").append($("<p></p>").html("Date et heure de fin : <strong> Le " + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong>"));
+		$("#activity-modal-content").append($("<p></p>").html("Complété à : <strong>" + $(this).parent().find(".activityPercentDone").html().split(" : ")[1] + "</strong>"));
+		
+		//Comments
 		var activityCommentary = $(this).parent().find(".activityCommentary").html();
 		
 		if (activityCommentary != "") {

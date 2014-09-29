@@ -41,7 +41,7 @@
 					<hr>
 					<p class="activityDescription">{{activities' value.description}}</p><br>
 					<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 && {{activities' value.nb_seconds_left}} == 0 -->
-					<p class="bg-success">L'activite est terminée</p><br>
+					<p class="bg-success">L'activité est terminée</p><br>
 					<!-- else -->
 					<p class="bg-info">Il reste <span class="text-info"><strong>{{activities' value.nb_days_left}}</strong></span> jour(s), <span class="text-info"><strong>{{activities' value.nb_hours_left}}</strong></span> heure(s), <span class="text-info"><strong>{{activities' value.nb_minutes_left}}</strong></span> minute(s) et <span class="text-info"><strong>{{activities' value.nb_seconds_left}}</strong></span> seconde(s)  avant la fin de cet activité.</p><br>
 					<!-- endif -->
@@ -58,6 +58,7 @@
 					    {{activities' value.percent_done}}%
 					  </div>
 					</div>
+					<div class="activityIdentifiant hidden-elements">{{activities' value.activity_id}}</div>
 					<div class="leftTimeSeconds hidden-elements">{{activities' value.tmpLeft}}</div>
 					<div class="activityCommentary hidden-elements">{{activities' value.commentary}}</div>
 					<div class="activityEndDate hidden-elements">{{activities' value.end_date}}</div> 
