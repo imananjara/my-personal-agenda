@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 31 Mai 2014 à 10:47
+-- Généré le :  Sam 04 Octobre 2014 à 13:06
 -- Version du serveur :  5.6.15
 -- Version de PHP :  5.4.24
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   PRIMARY KEY (`activity_id`),
   KEY `activity_type_id` (`activity_type_id`,`user_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=137 ;
 
 -- --------------------------------------------------------
 
@@ -48,13 +48,12 @@ CREATE TABLE IF NOT EXISTS `activity` (
 
 CREATE TABLE IF NOT EXISTS `activity_type` (
   `activity_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT '1',
   `activity_type_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `activity_type_description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`activity_type_id`),
-  KEY `user_id` (`user_id`),
-  KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+  KEY `fk_activity_type_user` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
 
 -- --------------------------------------------------------
 
@@ -69,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`note_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,22 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `end_activity_msg` varchar(250) NOT NULL,
   PRIMARY KEY (`notification_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `task`
+--
+
+CREATE TABLE IF NOT EXISTS `task` (
+  `task_id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `percent_done` int(4) NOT NULL,
+  PRIMARY KEY (`task_id`),
+  KEY `activity_id` (`activity_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 -- --------------------------------------------------------
 
@@ -102,9 +116,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `firstname` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `lastname` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `email` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `is_admin` tinyint(1) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Contraintes pour les tables exportées
@@ -134,6 +148,12 @@ ALTER TABLE `note`
 --
 ALTER TABLE `notification`
   ADD CONSTRAINT `fk_notification_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `task`
+--
+ALTER TABLE `task`
+  ADD CONSTRAINT `fk_task_activity` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`activity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
