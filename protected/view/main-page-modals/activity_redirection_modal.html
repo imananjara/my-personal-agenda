@@ -7,7 +7,7 @@
 		       	 <div class="col-md-10 col-md-offset-1">
 		       	 	<h4 align="center">Accès au mode édition d'activité</h4>
 		       	 	<hr>
-					<p align="center">Félicitations ! Votre activité a bien été crée. Maintenant, vous avez la possibilité, si vous le souhaitez, de l'éditer. Sachez que que, en mode édition, il sera possible d'ajouter une ou plusieurs tâches à cette activité !</p>
+					<p align="center">Félicitations ! Votre activité a bien été crée. Maintenant, vous avez la possibilité, si vous le souhaitez, de l'éditer. Sachez que, en mode édition, il sera possible d'ajouter une ou plusieurs tâches à cette activité !</p>
 					<br>
 					<div class="btn-group btn-group-justified">
 						<div class="btn-group">
