@@ -37,7 +37,7 @@
 					<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
 					<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
 					<a href="javascript:void(0)" id="seeactivity-{{activities' value.activity_id}}" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
-					<div class="activityNameForNotif custom-well-header">[{{activities' value.activity_type.activity_type_name}}] {{activities' value.title}}</div>
+					<div class="activityNameForNotif custom-well-header">{{activities' value.title}} ({{activities' value.activity_type.activity_type_name}})</div>
 					<hr>
 					<p class="activityDescription">{{activities' value.description}}</p><br>
 					<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 && {{activities' value.nb_seconds_left}} == 0 -->

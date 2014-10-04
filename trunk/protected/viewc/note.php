@@ -3,9 +3,9 @@
 <head>
 	<meta charset=UTF-8>
 	<?php if( isset($data['note']) ): ?>
-	<title>Edition de note - My Personal Agenda</title>
+	<title>Édition de note - My Personal Agenda</title>
 	<?php else: ?>
-	<title>Creation de note - My Personal Agenda</title>
+	<title>Création de note - My Personal Agenda</title>
 	<?php endif; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
@@ -21,9 +21,9 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="well custom-well">
 				<?php if( isset($data['note']) ): ?>
-				<div class="custom-well-header">Edition de la note <strong>"<?php echo $data['note']['title']; ?>"</strong></div>
+				<div class="custom-well-header">Édition de la note <strong>"<?php echo $data['note']['title']; ?>"</strong></div>
 				<?php else: ?>
-				<div class="custom-well-header">Creation d'une note</div>
+				<div class="custom-well-header">Création d'une note</div>
 				<?php endif; ?>
 			</div>
 			<div class="well custom-well">
@@ -55,9 +55,9 @@
 				  <div class="form-group">
 				    <div>
 				      <?php if( isset($data['note']) ): ?>
-				      <a id="save-note-btn" class="btn btn-success">Editer la note</a>
+				      <a id="save-note-btn" class="btn btn-success">Éditer la note</a>
 				      <?php else: ?>
-				      <a id="save-note-btn" class="btn btn-success">Creer la note</a>
+				      <a id="save-note-btn" class="btn btn-success">Créer la note</a>
 				      <?php endif; ?>
 				    </div>
 				  </div>

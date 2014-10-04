@@ -3,7 +3,7 @@
 <head>
 	<meta charset=UTF-8>
 	<!-- if {{isset(activity)}} -->
-	<title>Edition d'activité - My Personal Agenda</title>
+	<title>Édition d'activité - My Personal Agenda</title>
 	<!-- else -->
 	<title>Creation d'activité - My Personal Agenda</title>
 	<!-- endif -->
@@ -28,7 +28,7 @@
   		<div class="col-md-10 col-md-offset-1">
   			<div class="well custom-well">
   			<!-- if {{isset(activity)}} -->
- 			<div class="custom-well-header">Edition de l'activité <strong>"{{activity.title}}"</strong></div>
+ 			<div class="custom-well-header">Édition de l'activité <strong>"{{activity.title}}"</strong></div>
  			<!-- else -->
  			<div class="custom-well-header">Création d'une activité</div>
  			<!-- endif -->
@@ -46,9 +46,9 @@
 				  <div class="form-group">
 				    <label for="activityTitle" class="control-label">Titre :</label>
 				    <!-- if {{isset(activity)}} -->
-				    <input type="text" class="form-control" value="{{activity.title}}" name="activityTitle" id="activityTitle" placeholder="Titre de l'activite"/>
+				    <input type="text" class="form-control" value="{{activity.title}}" name="activityTitle" id="activityTitle" placeholder="Titre de l'activité"/>
 				    <!-- else -->
-				    <input type="text" class="form-control" name="activityTitle" id="activityTitle" placeholder="Titre de l'activite"/>
+				    <input type="text" class="form-control" name="activityTitle" id="activityTitle" placeholder="Titre de l'activité"/>
 				    <!-- endif -->
 				  </div>
 				  <!-- if {{isset(activitytypes)}} -->
@@ -68,20 +68,20 @@
 				  <div class="form-group">
 				    <label for="activityDescription" class="control-label">Description :</label>
 				    <!-- if {{isset(activity)}} -->
-				    <input type="text" class="form-control" value="{{activity.description}}" name="activityDescription" id="activityDescription" placeholder="Description de l'activite"/>
+				    <input type="text" class="form-control" value="{{activity.description}}" name="activityDescription" id="activityDescription" placeholder="Description de l'activité"/>
 				    <!-- else -->
-				    <input type="text" class="form-control" name="activityDescription" id="activityDescription" placeholder="Description de l'activite"/>
+				    <input type="text" class="form-control" name="activityDescription" id="activityDescription" placeholder="Description de l'activité"/>
 				    <!-- endif -->
 				  </div>
 				  <div class="form-group">
-				    <label for="activityEndDate" class="control-label">Echéance :</label>
+				    <label for="activityEndDate" class="control-label">Échéance :</label>
 				    <div class="row">
 					    <div class="col-sm-6">
 					      <div class='input-group date' id="activityEndDate">
 					      <!-- if {{isset(activity)}} -->
-					      <input type="text" class="form-control" value="{{activity.end_date}}" placeholder="Date de fin de l'activite" name="activityEndDate">
+					      <input type="text" class="form-control" value="{{activity.end_date}}" placeholder="Date de fin de l'activité" name="activityEndDate">
 					      <!-- else -->
-					      <input type="text" class="form-control" placeholder="Date de fin de l'activite" name="activityEndDate">
+					      <input type="text" class="form-control" placeholder="Date de fin de l'activité" name="activityEndDate">
 					      <!-- endif -->
 					      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 					      </div>
@@ -89,9 +89,9 @@
 					    <div class="col-sm-6">
 					    	<div class='input-group date' id="activityEndHour">
 					    	<!-- if {{isset(activity)}} -->
-					    	<input type="text" class="form-control" value="{{activity.end_hour}}" placeholder="Heure de fin de l'activite" name="activityEndHour"/>
+					    	<input type="text" class="form-control" value="{{activity.end_hour}}" placeholder="Heure de fin de l'activité" name="activityEndHour"/>
 					    	<!-- else -->
-					    	<input type="text" class="form-control" placeholder="Heure de fin de l'activite" name="activityEndHour"/>
+					    	<input type="text" class="form-control" placeholder="Heure de fin de l'activité" name="activityEndHour"/>
 					    	<!-- endif -->
 					    	<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
 					    	</div>
@@ -120,7 +120,7 @@
 				  </div>
 				  <div class="form-group">
 				      <!-- if {{isset(activity)}} -->
-				      <a id="save-activity-btn" class="btn btn-success">Editer l'activité</a>
+				      <a id="save-activity-btn" class="btn btn-success">Éditer l'activité</a>
 				      <!-- else -->
 				      <a id="save-activity-btn" class="btn btn-success">Créer l'activité</a>
 				      <!-- endif -->
@@ -132,7 +132,7 @@
 	  		<div class="well custom-well">
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
 	  			<!-- if {{isset(activity)}} -->
-	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter"</div>
+	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter".</div>
 	  			<table id="task-table" class="table">
 	  				<tr>
 	  					<th>Titre</th>
@@ -160,7 +160,7 @@
 					</tr>
 	  			</table>
 	  			<!-- else -->
-	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs tâches à votre activité, vous devez au préalable créer cette activité !</div>
+	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs tâches à une activité, vous devez au préalable créer cette activité !</div>
 	  			<!-- endif -->
 	  		</div>
   		</div>

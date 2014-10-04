@@ -33,7 +33,7 @@ $( document ).ready(function() {
 		
 		if ($("#noteTitle").val() == "" || $("#noteContent").val() == "")
 		{
-			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir les champs suivants : Titre, Contenu de la note');
+			notification('alert-danger', '<strong>Erreur lors de l\'ajout de note</strong> : Vous devez remplir les champs suivants : Titre, Contenu.');
 			return;
 		}
 		

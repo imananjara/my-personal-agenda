@@ -3,9 +3,9 @@
 <head>
 	<meta charset=UTF-8>
 	<!-- if {{isset(note)}} -->
-	<title>Edition de note - My Personal Agenda</title>
+	<title>Édition de note - My Personal Agenda</title>
 	<!-- else -->
-	<title>Creation de note - My Personal Agenda</title>
+	<title>Création de note - My Personal Agenda</title>
 	<!-- endif -->
 	<!-- include 'css_files' -->
 	<link href="{{globalurl}}css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
@@ -21,9 +21,9 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="well custom-well">
 				<!-- if {{isset(note)}} -->
-				<div class="custom-well-header">Edition de la note <strong>"{{note.title}}"</strong></div>
+				<div class="custom-well-header">Édition de la note <strong>"{{note.title}}"</strong></div>
 				<!-- else -->
-				<div class="custom-well-header">Creation d'une note</div>
+				<div class="custom-well-header">Création d'une note</div>
 				<!-- endif -->
 			</div>
 			<div class="well custom-well">
@@ -55,9 +55,9 @@
 				  <div class="form-group">
 				    <div>
 				      <!-- if {{isset(note)}} -->
-				      <a id="save-note-btn" class="btn btn-success">Editer la note</a>
+				      <a id="save-note-btn" class="btn btn-success">Éditer la note</a>
 				      <!-- else -->
-				      <a id="save-note-btn" class="btn btn-success">Creer la note</a>
+				      <a id="save-note-btn" class="btn btn-success">Créer la note</a>
 				      <!-- endif -->
 				    </div>
 				  </div>
