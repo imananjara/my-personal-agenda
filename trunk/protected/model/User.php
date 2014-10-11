@@ -28,15 +28,36 @@ class User extends UserBase{
 				return "false-admin_page_forbidden_access";
 			}
 			
-			$_SESSION["mpa_user_id"] = $user["user_id"];
-			$_SESSION["mpa_user_login"] = $user["login"];
-			$_SESSION["mpa_user_is_admin"] = $user["is_admin"];
+			$_SESSION['connected'] = "connected";
+			$_SESSION['user'] = array('user_id'=>$user["user_id"], 'login'=>$user["login"], 'is_admin'=>$user["is_admin"]);
 			
 			return "true-authorized";
 		}
 		
 		return "false-incorrect_credentials";
 	
+	}
+	
+	/**
+	 * Check if the user is connected or not
+	 * @return boolean true if connected otherwise false.
+	 */
+	public static function _isConnected() {
+		return !empty($_SESSION['connected']);
+	}
+	
+	/**
+	 * Check if the current user is an admin
+	 * @return boolean true if admin
+	 */
+	public static function _isAdmin()
+	{
+		if (empty($_SESSION['connected'])) return false;
+		if ($_SESSION['user']['is_admin']) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**
@@ -96,7 +117,7 @@ class User extends UserBase{
 		);
 		
 		$user = new User();
-		$user->user_id = $_SESSION["mpa_user_id"];
+		$user->user_id = $_SESSION['user']['user_id'];
 		
 		$user = $user->find($options);
 		
@@ -117,7 +138,7 @@ class User extends UserBase{
 		$options['limit'] = 1;
 		
 		$user = new User();
-		$user->user_id = $_SESSION["mpa_user_id"];
+		$user->user_id = $_SESSION['user']['user_id'];
 		$user = $user->find($options);
 		
 		$user->firstname = $firstName;

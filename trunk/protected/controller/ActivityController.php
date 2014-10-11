@@ -2,6 +2,7 @@
 Doo::loadModel("Activity");
 Doo::loadModel('ActivityType');
 Doo::loadModel('Task');
+Doo::loadModel('User');
 Doo::loadController('BaseController');
 Doo::loadController('UserController');
 
@@ -25,10 +26,12 @@ class ActivityController extends BaseController {
 	 */
 	public function getActivityEditionPage() {
 		
-		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		if (!User::_isConnected())
 		{
 			return $this->_data['baseurl'] .'login';
 		}
+		
+		$this->_data['session'] = $_SESSION;
 		
 		if (isset($this->params["activity_id"]))
 		{
@@ -43,14 +46,7 @@ class ActivityController extends BaseController {
 			$this->_data['tasks'] = Task::_getTasks($this->params["activity_id"]);
 		}
 		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
-		
 		$this->_data["activitytypes"] = ActivityType::_getActivityTypes();
-		
-		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
-			$this->_data["display_access_admin_page_btn"] = 1;
-		}
 		
 		$this->renderView('activity');
 	}
@@ -139,6 +135,14 @@ class ActivityController extends BaseController {
 	 * @return calendar page
 	 */
 	public function getCalendarOfActivity() {
+		
+		if (!User::_isConnected())
+		{
+			return $this->_data['baseurl'] .'login';
+		}
+		
+		$this->_data['session'] = $_SESSION;
+		
 		//Load all activities and format arrayList to JSON
 		$this->_data["activities"] = Activity::_getActivities();
 		
@@ -159,9 +163,6 @@ class ActivityController extends BaseController {
 		
 		//Write JSON into events.json.txt
 		file_put_contents("global/utils/events.json.txt", json_encode(array('success' => 1, 'result' => $activitiesArray)));
-		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
 		
 		$this->renderView('calendar');
 	}

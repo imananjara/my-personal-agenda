@@ -14,7 +14,7 @@ class ActivityType extends ActivityTypeBase{
 		);
 		
 		$types = new ActivityType();
-		$types->user_id = $_SESSION["mpa_user_id"];
+		$types->user_id = $_SESSION['user']['user_id'];
 		$types = $types->find($option);
 		
 		if(empty($types)) return null;
@@ -31,7 +31,7 @@ class ActivityType extends ActivityTypeBase{
 		$type = new ActivityType();
 		$type->activity_type_name = $name;
 		$type->activity_type_description = $description;
-		$type->user_id = $_SESSION["mpa_user_id"];
+		$type->user_id = $_SESSION['user']['user_id'];
 		
 		return $type->insert();
 	}

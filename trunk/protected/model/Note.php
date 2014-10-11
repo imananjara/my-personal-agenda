@@ -36,7 +36,7 @@ class Note extends NoteBase{
 		$note = new Note();
 		$note->title = $title;
 		$note->full_content = $content;
-		$note->user_id = $_SESSION["mpa_user_id"];
+		$note->user_id = $_SESSION['user']['user_id'];
 		
 		$note->insert();
 	}
@@ -81,7 +81,7 @@ class Note extends NoteBase{
 		
 		$option = array(
 				'asArray' 	=> true,
-				'where' => 'user_id=' .$_SESSION["mpa_user_id"]
+				'where' => 'user_id=' .$_SESSION['user']['user_id']
 		);
 		
 		$notes = new Note();

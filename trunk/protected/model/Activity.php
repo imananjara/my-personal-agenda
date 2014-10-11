@@ -93,7 +93,7 @@ class Activity extends ActivityBase{
 		$activity = new Activity();
 		$activity->title = $title;
 		$activity->activity_type_id = $activityType;
-		$activity->user_id = $_SESSION["mpa_user_id"];
+		$activity->user_id = $_SESSION['user']['user_id'];
 		$activity->description = $description;
 		$activity->end_date = $endDate ." ". $endHour;
 		$activity->percent_done = $done;
@@ -110,7 +110,7 @@ class Activity extends ActivityBase{
 		
 		$option = array(
 				'asArray' 	=> true,
-				'where' => 'user_id=' .$_SESSION["mpa_user_id"]
+				'where' => 'user_id=' .$_SESSION['user']['user_id']
 		);
 		
 		$activityTypeOption = array(

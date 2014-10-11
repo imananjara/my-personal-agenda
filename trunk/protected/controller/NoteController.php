@@ -1,5 +1,6 @@
 <?php
 Doo::loadModel('Note');
+Doo::loadModel('User');
 Doo::loadController('BaseController');
 
 /**
@@ -21,21 +22,15 @@ class NoteController extends BaseController{
 	 */
 	public function getNoteEditionPage() {
 		
-		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		if (!User::_isConnected())
 		{
 			return $this->_data['baseurl'] .'login';
 		}
+		$this->_data['session'] = $_SESSION;
 		
 		if (isset($this->params["note_id"]))
 		{
 			$this->_data["note"] = Note::_getNote($this->params["note_id"]);
-		}
-		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
-		
-		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
-			$this->_data["display_access_admin_page_btn"] = 1;
 		}
 		
 		$this->renderView('note');

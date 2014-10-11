@@ -12,7 +12,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session_login']; ?> <b class="caret"></b></a>
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session']['user']['login']; ?> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo $data['baseurl']; ?>">Aller sur l'interface utilisateur</a>
             <li class="divider"></li>
