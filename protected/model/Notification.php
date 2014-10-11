@@ -14,7 +14,7 @@ class Notification extends NotificationBase{
 		);
 				
 		$notif = new Notification();
-		$notif->user_id = $_SESSION["mpa_user_id"];
+		$notif->user_id = $_SESSION['user']['user_id'];
 		$notif = $notif->find($options);
 		
 		if(empty($notif)) return null;

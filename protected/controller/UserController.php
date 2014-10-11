@@ -23,17 +23,16 @@ class UserController extends BaseController{
 	 */
 	public function getAdministratorUsersPage(){
 		
-		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		if (!User::_isConnected())
 		{
 			return $this->_data['baseurl'] .'login';
 		}
 		
-		if (!$_SESSION["mpa_user_is_admin"]) {
+		if (!User::_isAdmin()) {
 			return $this->_data['baseurl'];
 		}
 		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
+		$this->_data['session'] = $_SESSION;
 		
 		$this->_data["admin_users_table"] = User::_getApplicationUsers();
 		
@@ -46,13 +45,12 @@ class UserController extends BaseController{
 	 */
 	public function getUserProfile(){
 		
-		if (!isset($_SESSION["mpa_user_id"]) || !isset($_SESSION["mpa_user_login"]))
+		if (!User::_isConnected())
 		{
 			return $this->_data['baseurl'] .'login';
 		}
 		
-		$this->_data["session_id"] = $_SESSION["mpa_user_id"];
-		$this->_data["session_login"] = $_SESSION["mpa_user_login"];
+		$this->_data['session'] = $_SESSION;
 		
 		$this->_data["user"] = User::_getUserProfile();
 		
@@ -61,11 +59,7 @@ class UserController extends BaseController{
 		
 		//get activity types
 		$this->_data['activity_types'] = ActivityType::_getActivityTypes();
-		
-		if (isset($_SESSION["mpa_user_is_admin"]) && $_SESSION["mpa_user_is_admin"]) {
-			$this->_data["display_access_admin_page_btn"] = 1;
-		}
-		
+
 		$this->renderView('profile');
 	}
 	

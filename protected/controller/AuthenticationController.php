@@ -22,7 +22,7 @@ class AuthenticationController extends BaseController{
 	 */
 	public function getLoginPage() {
 		
-		if (isset($_SESSION["mpa_user_id"]) && isset($_SESSION["mpa_user_login"]))
+		if (User::_isConnected())
 		{
 			return $this->_data['baseurl'];
 		}
