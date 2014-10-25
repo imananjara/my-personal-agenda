@@ -26,13 +26,6 @@ class ActivityController extends BaseController {
 	 */
 	public function getActivityEditionPage() {
 		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
-		$this->_data['session'] = $_SESSION;
-		
 		if (isset($this->params["activity_id"]))
 		{
 			$this->_data["activity"] = Activity::_getActivity($this->params["activity_id"]);
@@ -136,13 +129,6 @@ class ActivityController extends BaseController {
 	 */
 	public function getCalendarOfActivity() {
 		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
-		$this->_data['session'] = $_SESSION;
-		
 		//Load all activities and format arrayList to JSON
 		$this->_data["activities"] = Activity::_getActivities();
 		
@@ -166,12 +152,5 @@ class ActivityController extends BaseController {
 		
 		$this->renderView('calendar');
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }

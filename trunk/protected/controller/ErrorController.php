@@ -19,13 +19,6 @@ class ErrorController extends BaseController{
 
     public function index(){
     	
-    	if (!User::_isConnected())
-    	{
-    		return $this->_data['baseurl'] .'login';
-    	}
-    	
-    	$this->_data['session'] = $_SESSION;
-    	
     	$this->renderView('error');
     }
 	
