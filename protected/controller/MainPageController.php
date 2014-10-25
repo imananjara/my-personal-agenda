@@ -26,13 +26,6 @@ class MainPageController extends BaseController{
 	 */
 	public function getMainPage() {
 		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
-		$this->_data['session'] = $_SESSION;
-		
 		//get activities (for the user)
 		$this->_data["activities"] = Activity::_getActivities();
 		
@@ -55,20 +48,12 @@ class MainPageController extends BaseController{
 	 * @return the administrator main page
 	 */
 	public function getAdministratorMainPage() {
-
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
 		
 		if (!User::_isAdmin()) {
 			return $this->_data['baseurl'];
 		}
 		
-		$this->_data['session'] = $_SESSION;
-		
 		$this->renderView('administrator/administrator_main');
 	}
 	
 }
-

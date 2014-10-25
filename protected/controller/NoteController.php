@@ -21,13 +21,7 @@ class NoteController extends BaseController{
 	 * Get note edition page (to create or update note)
 	 */
 	public function getNoteEditionPage() {
-		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		$this->_data['session'] = $_SESSION;
-		
+				
 		if (isset($this->params["note_id"]))
 		{
 			$this->_data["note"] = Note::_getNote($this->params["note_id"]);

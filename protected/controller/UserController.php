@@ -23,16 +23,9 @@ class UserController extends BaseController{
 	 */
 	public function getAdministratorUsersPage(){
 		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
 		if (!User::_isAdmin()) {
 			return $this->_data['baseurl'];
 		}
-		
-		$this->_data['session'] = $_SESSION;
 		
 		$this->_data["admin_users_table"] = User::_getApplicationUsers();
 		
@@ -44,13 +37,6 @@ class UserController extends BaseController{
 	 * Get the current user profile
 	 */
 	public function getUserProfile(){
-		
-		if (!User::_isConnected())
-		{
-			return $this->_data['baseurl'] .'login';
-		}
-		
-		$this->_data['session'] = $_SESSION;
 		
 		$this->_data["user"] = User::_getUserProfile();
 		

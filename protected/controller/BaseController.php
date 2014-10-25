@@ -16,6 +16,26 @@ class BaseController extends DooController{
 	}
 	
 	/**
+	 * Check if the user is authentified
+	 * @see DooController::beforeRun()
+	 */
+	public function beforeRun($resource, $action){
+	
+		//if not login, group = anonymous
+		$role = (User::_isConnected()) ? 'auth' : 'anonymous';
+
+		if(!$this->acl()->isAllowed($role, $resource, $action)){
+			if ($this->isAjax()) {
+				header("HTTP/1.1 401 Unauthorized");
+				exit;
+			}
+			return $this->_data['baseurl'] ."login";
+		}
+		
+		if ($role == "auth") $this->_data['session'] = $_SESSION;
+	}
+	
+	/**
 	 * Call one of html page
 	 * @param unknown $page
 	 */

@@ -4,6 +4,7 @@ include './protected/config/local.conf.php';
 include './protected/config/common.conf.php';
 include './protected/config/routes.conf.php';
 include './protected/config/db.conf.php';
+include './protected/config/acl.conf.php';
 
 #Just include this for production mode
 //include $config['BASE_PATH'].'deployment/deploy.php';
@@ -17,6 +18,9 @@ Doo::conf()->set($config);
 
 # remove this if you wish to see the normal PHP error view.
 include $config['BASE_PATH'].'diagnostic/debug.php';
+
+# Apply access rules defined on acl.conf's file
+Doo::acl()->rules = $acl;
 
 # database usage
 //Doo::useDbReplicate();	#for db replication master-slave usage
