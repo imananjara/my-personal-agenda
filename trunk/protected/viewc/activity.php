@@ -100,7 +100,11 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="activityDone" class="control-label">Fait à (en %)</label>
+				      <?php if( isset($data['activity']) && $data['activity']['auto_percent_done'] ): ?>
+				      <select class="form-control" name="activityDone" id="activityDone" disabled="disabled">
+				      <?php else: ?>
 				      <select class="form-control" name="activityDone" id="activityDone">
+				      <?php endif; ?>
 						  <?php foreach(range(0, 100, 10) as $data['i']): ?>
 						  <?php if( isset($data['activity']) && $data['i'] == $data['activity']['percent_done'] ): ?>
 						  <option selected="selected" value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
@@ -133,6 +137,11 @@
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
 	  			<?php if( isset($data['activity']) ): ?>
 	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter".</div>
+	  			<?php if( $data['activity']['auto_percent_done'] ): ?>
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" checked="checked" type="checkbox"></div>
+	  			<?php else: ?>
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" type="checkbox"></div>
+	  			<?php endif; ?>
 	  			<table id="task-table" class="table">
 	  				<tr>
 	  					<th>Titre</th>

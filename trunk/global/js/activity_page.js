@@ -121,6 +121,8 @@ $( document ).ready(function() {
 			//Setup editable for the new elements
 			activate_x_editable();
 			
+			if ($("#auto_percent_done").is(":checked")) update_percent_done();
+			
 			notification('alert-success', 'Votre tâche a bien été enregistrée');
 			
 		});
@@ -139,9 +141,31 @@ $( document ).ready(function() {
 	    }).success(function(){
 
 	    		$('#task-' + task_id).remove();
+	    		if ($("#auto_percent_done").is(":checked")) update_percent_done();
 	            notification('alert-success', 'Votre tâche a été supprimée avec succès');
 	    });
 
+	});
+	
+	$("#auto_percent_done").change(function(){
+		if ($(this).is(":checked")) {
+			var url = baseurl + "activity/" + $("#idActivity").val() + "/auto-percent/1";
+			
+			$.get(url, function() {
+				//Disable percent_done field
+				$('#activityDone').prop('disabled', 'disabled');
+				update_percent_done();
+				
+				notification('alert-success', 'Votre avancement est maintenant calculé');
+			});
+			
+		} else {
+			var url = baseurl + "activity/" + $("#idActivity").val() + "/auto-percent/0";
+			
+			$.get(url, function() {
+				$('#activityDone').prop('disabled', false);
+			});
+		}
 	});
 	
 	//Enable x_editable for task's title and percent_done
@@ -202,6 +226,7 @@ $( document ).ready(function() {
 					url: url,
 					data: data
 				}).success(function(){
+					if ($("#auto_percent_done").is(":checked")) update_percent_done();
 					notification('alert-success', 'Votre tâche a bien été modifiée');
 				});
 			}
@@ -213,6 +238,25 @@ $( document ).ready(function() {
 		if ($(".note-editable").html() == "<p><br></p>" || $(".note-editable").html() == "<br>" || $(".note-editable").html() == "<div><br></div>") {
 			$(".note-editable").html("");
 		}
+	}
+	
+	//Update activity's percent_done and save it into database. Need optimizations
+	function update_percent_done() {
+		var counter = 0;
+		var nbElements = 0;
+		
+		$(".task-percent-done").each(function(){
+			counter = counter + parseInt($(this).html());
+			nbElements++;
+		});
+		
+		var percent_done_result = (nbElements > 0) ? Math.floor((counter/nbElements)/10)*10 : 0;
+		
+		var url = baseurl + "activity/" + $("#idActivity").val() + "/percent/" + percent_done_result;
+		$.get(url, function() {
+			$('#activityDone').val(percent_done_result);
+		});
+		
 	}
 		
 	//Notification system
