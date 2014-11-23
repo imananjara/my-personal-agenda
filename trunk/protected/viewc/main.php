@@ -5,8 +5,6 @@
 	<title>Page principale - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 </head>
 <body>
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
@@ -95,6 +93,9 @@
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_activity_modal.php"; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/delete_note_modal.php"; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/activity_modal.php"; ?>
-	</body>
+	
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/main_page.js"></script>
+	</body>
 </html>

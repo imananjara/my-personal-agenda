@@ -4,7 +4,6 @@
 		<meta charset=UTF-8>
 		<title>Administrateur - Page principale - My Personal Agenda</title>
 		<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc/administrator/../css_files.php"; ?>
-		<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc/administrator/../js_files.php"; ?>
 	</head>
 	<body id="administrator-body">
 		<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc/administrator/administrator_menu_bar.php"; ?>
@@ -18,5 +17,6 @@
 		  </div>
 		</div>
 	
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc/administrator/../js_files.php"; ?>
 	</body>
 </html>
