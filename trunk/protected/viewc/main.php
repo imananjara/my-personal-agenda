@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
+	<meta name="viewport" content="width=device-width">
 	<title>Page principale - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
@@ -32,11 +33,12 @@
 			<div id="activity-section-panel">
 				<?php foreach($data['activities'] as $k1=>$v1): ?>
 				<div class="well custom-well">
-					<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
-					<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
-					<a href="javascript:void(0)" id="seeactivity-<?php echo $v1['activity_id']; ?>" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
 					<div class="activityNameForNotif custom-well-header"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</div>
 					<hr>
+					<div class="btn-group btn-group-sm btn-group-justified">
+					  	<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-primary-wb" style="border-right: 1px solid #000000;">Editer</a>
+					  	<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger-wb del-activity" style="border-left: none">Supprimer</a>
+					</div><br>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 && $v1['nb_seconds_left'] == 0 ): ?>
 					<p class="bg-success">L'activité est terminée</p><br>
@@ -56,9 +58,15 @@
 					    <?php echo $v1['percent_done']; ?>%
 					  </div>
 					</div>
+					<?php if( $v1['commentary'] != "" ): ?>
+					<div class="more-details-trigger" align="center">Plus de détails <span class="glyphicon glyphicon-chevron-down"></span></div>
+					<div class="more-details-zone hidden-elements">
+						<hr>
+						<div class="activityCommentary"><?php echo $v1['commentary']; ?></div>
+					</div>
+					<?php endif; ?>
 					<div class="activityIdentifiant hidden-elements"><?php echo $v1['activity_id']; ?></div>
 					<div class="leftTimeSeconds hidden-elements"><?php echo $v1['tmpLeft']; ?></div>
-					<div class="activityCommentary hidden-elements"><?php echo $v1['commentary']; ?></div>
 					<div class="activityEndDate hidden-elements"><?php echo $v1['end_date']; ?></div> 
 				</div>
 				<?php endforeach; ?>

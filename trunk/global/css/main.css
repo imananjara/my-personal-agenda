@@ -1,5 +1,7 @@
 /* My personal agenda css page */
 
+@import url(components/buttons.css);
+
 /*=============================*/
 /*            Global           */
 /*=============================*/
@@ -98,6 +100,11 @@ textarea
 .activity-btn
 {
 	margin-left : 5px;
+}
+
+.more-details-trigger:hover
+{
+	cursor:pointer; 
 }
 
 /*=============================*/

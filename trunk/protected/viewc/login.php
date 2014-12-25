@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
+	<meta name="viewport" content="width=device-width">
 	<title>Authentification - My Personal Agenda</title>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
