@@ -2,21 +2,70 @@
 <html>
 	<head>
 		<meta charset=UTF-8>
+		<meta name="viewport" content="width=device-width">
 		<title>Administrateur - Page principale - My Personal Agenda</title>
 		<!-- include '../css_files' -->
 	</head>
-	<body id="administrator-body">
+	<body class="administrator-body container-fluid">
 		<!-- include 'administrator_menu_bar' -->
-		<div class="row">
-		  <div class="col-md-10 col-md-offset-1 well">
-		  	<div align="center"><img src="{{baseurl}}global/img/mpa_logo.gif"/></div><br>
-		  	<h4 align="center">Bienvenue sur l'interface administrateur de My Personal Agenda</h4>
-		  	<h4 align="center">Il sera possible de gérer les utilisateurs de l'application ainsi que la liste des types d'activités</h4>
-		  	<h4 align="center">Cette page sera amenée à changer. Restez connecté !</h4><br>
-		  	<div align="center"><a href="{{baseurl}}" class="btn btn-default">Aller sur l'interface utilisateur</a></div>
-		  </div>
-		</div>
-	
-	<!-- include '../js_files' -->
+		<h1 class="page-header">Dashboard</h1>
+			<h2 class="sub-header">Statistiques (exemple de mise en page)</h2><hr>
+			<div class="row placeholders">
+	            <div class="col-xs-6 col-sm-3 placeholder">
+	              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjxnPjx0ZXh0IHg9Ijc0LjY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0ZGRkZGRjtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+	              <h4>Label</h4>
+	              <span class="text-muted">Something else</span>
+	            </div>
+	            <div class="col-xs-6 col-sm-3 placeholder">
+	              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9Ijc0LjY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+	              <h4>Label</h4>
+	              <span class="text-muted">Something else</span>
+	            </div>
+	            <div class="col-xs-6 col-sm-3 placeholder">
+	              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjxnPjx0ZXh0IHg9Ijc0LjY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0ZGRkZGRjtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+	              <h4>Label</h4>
+	              <span class="text-muted">Something else</span>
+	            </div>
+	            <div class="col-xs-6 col-sm-3 placeholder">
+	              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9Ijc0LjY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+	              <h4>Label</h4>
+	              <span class="text-muted">Something else</span>
+	            </div>
+          	</div>
+			<h2 class="sub-header">Liste des utilisateurs</h2><hr>
+			<!-- if {{isset(admin_users_table)}} -->
+			<div class="table-responsive">
+			  	<table class="table table-striped">
+			  		<thead>
+				  		<tr>
+					  		<th>Pseudonyme</th>
+					  		<th>Nom</th>
+					  		<th>Prénom</th>
+					  		<th>Email</th>
+					  		<th>Administrateur</th>
+					  	</tr>
+				  	</thead>
+				  	<tbody>
+				  		<!-- loop admin_users_table -->
+					  	<tr>
+					  		<td>{{admin_users_table' value.login}}</td>
+					  		<td>{{admin_users_table' value.lastname}}</td>
+					  		<td>{{admin_users_table' value.firstname}}</td>
+					  		<td>{{admin_users_table' value.email}}</td>
+					  		<!-- if {{admin_users_table' value.is_admin}} -->
+					  			<td>Oui</td>
+					  		<!-- else -->
+					  			<td>Non</td>
+					  		<!-- endif -->
+						</tr>
+						<!-- endloop -->
+					</tbody>
+				</table>
+			</div>
+		  	<!-- else -->
+		  	<div class="alert alert-default">Aucun utilisateur n'a ete enregistré dans l'application</div>
+		  	<!-- endif -->
+		
+		<!-- include '../js_files' -->
 	</body>
 </html>

@@ -11,8 +11,8 @@ body
 	background-image: url(../img/crossword.png);
 }
 
-#administrator-body {
-	background-image: url(../img/bo_play_pattern.png);
+.administrator-body {
+	background-image: none;
 }
 
 .custom-well

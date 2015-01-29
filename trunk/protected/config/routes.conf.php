@@ -40,7 +40,6 @@ $route['post']['/editnotification'] = array('UserController', 'editUserNotificat
 $route['get']['/exportactivities'] = array('ExportController', 'exportActivitiesPdf');
 
 $route['get']['/administrator'] = array('MainPageController', 'getAdministratorMainPage');
-$route['get']['/administrator/users'] = array('UserController', 'getAdministratorUsersPage');
 //-------------------------------------------------------------------
 
  

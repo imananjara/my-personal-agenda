@@ -53,6 +53,8 @@ class MainPageController extends BaseController{
 			return $this->_data['baseurl'];
 		}
 		
+		$this->_data["admin_users_table"] = User::_getApplicationUsers();
+		
 		$this->renderView('administrator/administrator_main');
 	}
 	

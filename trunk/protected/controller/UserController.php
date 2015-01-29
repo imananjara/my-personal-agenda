@@ -17,21 +17,6 @@ class UserController extends BaseController{
 	public function __construct() {
 		parent::__construct();
 	}
-		
-	/**
-	 * Get administration's users management page
-	 */
-	public function getAdministratorUsersPage(){
-		
-		if (!User::_isAdmin()) {
-			return $this->_data['baseurl'];
-		}
-		
-		$this->_data["admin_users_table"] = User::_getApplicationUsers();
-		
-		$this->renderView('administrator/administrator_users');
-		
-	}
 	
 	/**
 	 * Get the current user profile
