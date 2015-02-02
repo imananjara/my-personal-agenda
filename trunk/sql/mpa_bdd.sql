@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 04 Octobre 2014 à 13:06
+-- Généré le :  Lun 02 Février 2015 à 10:56
 -- Version du serveur :  5.6.15
--- Version de PHP :  5.4.24
+-- Version de PHP :  5.5.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -35,10 +35,11 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `end_date` datetime NOT NULL,
   `percent_done` int(4) NOT NULL,
   `commentary` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `auto_percent_done` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`activity_id`),
   KEY `activity_type_id` (`activity_type_id`,`user_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=137 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=148 ;
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `activity_type` (
   `activity_type_description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`activity_type_id`),
   KEY `fk_activity_type_user` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=70 ;
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`note_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `end_activity_msg` varchar(250) NOT NULL,
   PRIMARY KEY (`notification_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   `percent_done` int(4) NOT NULL,
   PRIMARY KEY (`task_id`),
   KEY `activity_id` (`activity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Contraintes pour les tables exportées
