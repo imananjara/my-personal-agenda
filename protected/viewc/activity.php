@@ -11,13 +11,6 @@
 	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/x-editable/bootstrap-editable.css">
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/summernote.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/x-editable/bootstrap-editable.min.js"></script>
 </head>
 <body>
 	<div id="notifications" class='alert alert-notification'></div>
@@ -100,7 +93,11 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="activityDone" class="control-label">Fait à (en %)</label>
+				      <?php if( isset($data['activity']) && $data['activity']['auto_percent_done'] ): ?>
+				      <select class="form-control" name="activityDone" id="activityDone" disabled="disabled">
+				      <?php else: ?>
 				      <select class="form-control" name="activityDone" id="activityDone">
+				      <?php endif; ?>
 						  <?php foreach(range(0, 100, 10) as $data['i']): ?>
 						  <?php if( isset($data['activity']) && $data['i'] == $data['activity']['percent_done'] ): ?>
 						  <option selected="selected" value="<?php echo $data['i']; ?>"><?php echo $data['i']; ?></option>
@@ -133,6 +130,11 @@
 	  			<div class="custom-well-header">Liste des tâches</div><hr>
 	  			<?php if( isset($data['activity']) ): ?>
 	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter".</div>
+	  			<?php if( $data['activity']['auto_percent_done'] ): ?>
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" checked="checked" type="checkbox"></div>
+	  			<?php else: ?>
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" type="checkbox"></div>
+	  			<?php endif; ?>
 	  			<table id="task-table" class="table">
 	  				<tr>
 	  					<th>Titre</th>
@@ -166,6 +168,14 @@
   		</div>
   	</div>
   	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//main-page-modals/activity_redirection_modal.php"; ?>
+  	
+  	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/x-editable/bootstrap-editable.min.js"></script>
+	<script type="text/javascript" src='<?php echo $data['globalurl']; ?>js/activity_page.js'></script>
 </body>
-<script type="text/javascript" src='<?php echo $data['globalurl']; ?>js/activity_page.js'></script>
 </html>

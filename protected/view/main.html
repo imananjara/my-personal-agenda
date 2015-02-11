@@ -2,11 +2,10 @@
 <html>
 <head>
 	<meta charset=UTF-8>
+	<meta name="viewport" content="width=device-width">
 	<title>Page principale - My Personal Agenda</title>
 	<!-- include 'css_files' -->
 	<link href="{{globalurl}}css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
-	<!-- include 'js_files' -->
-	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 </head>
 <body>
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
@@ -34,11 +33,12 @@
 			<div id="activity-section-panel">
 				<!-- loop activities -->
 				<div class="well custom-well">
-					<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-activity"><span class="glyphicon glyphicon-trash"></span></a>
-					<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-info btn-xs activity-btn pull-right edit-activity"><span class="glyphicon glyphicon-pencil"></span></a>
-					<a href="javascript:void(0)" id="seeactivity-{{activities' value.activity_id}}" class="btn btn-warning btn-xs activity-btn pull-right see-activity"><span class="glyphicon glyphicon-eye-open"></span></a>
 					<div class="activityNameForNotif custom-well-header">{{activities' value.title}} ({{activities' value.activity_type.activity_type_name}})</div>
 					<hr>
+					<div class="btn-group btn-group-sm btn-group-justified">
+					  	<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-primary-wb" style="border-right: 1px solid #000000;">Editer</a>
+					  	<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger-wb del-activity" style="border-left: none">Supprimer</a>
+					</div><br>
 					<p class="activityDescription">{{activities' value.description}}</p><br>
 					<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 && {{activities' value.nb_seconds_left}} == 0 -->
 					<p class="bg-success">L'activité est terminée</p><br>
@@ -58,9 +58,15 @@
 					    {{activities' value.percent_done}}%
 					  </div>
 					</div>
+					<!-- if {{activities' value.commentary}} != "" -->
+					<div class="more-details-trigger" align="center">Plus de détails <span class="glyphicon glyphicon-chevron-down"></span></div>
+					<div class="more-details-zone hidden-elements">
+						<hr>
+						<div class="activityCommentary">{{activities' value.commentary}}</div>
+					</div>
+					<!-- endif -->
 					<div class="activityIdentifiant hidden-elements">{{activities' value.activity_id}}</div>
 					<div class="leftTimeSeconds hidden-elements">{{activities' value.tmpLeft}}</div>
-					<div class="activityCommentary hidden-elements">{{activities' value.commentary}}</div>
 					<div class="activityEndDate hidden-elements">{{activities' value.end_date}}</div> 
 				</div>
 				<!-- endloop -->
@@ -95,6 +101,9 @@
 	<!-- include 'main-page-modals/delete_activity_modal' -->
 	<!-- include 'main-page-modals/delete_note_modal' -->
 	<!-- include 'main-page-modals/activity_modal' -->
-	</body>
+	
+	<!-- include 'js_files' -->
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-notify/bootstrap-notify.js"></script>
 	<script type="text/javascript" src="{{globalurl}}js/main_page.js"></script>
+	</body>
 </html>

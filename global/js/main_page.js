@@ -27,24 +27,12 @@ $( document ).ready(function() {
 	var baseurl = $('#base-url').val();
 	
 	//Add tooltips to see/del/edit button
-	$(".del-activity").tooltip({
-		title: 'Supprimer cette activité'
-	});
-	
-	$(".edit-activity").tooltip({
-		title: 'Editer cette activité'
-	});
-	
 	$(".edit-note").tooltip({
 		title: 'Editer cette note'
 	});
 	
 	$(".del-note").tooltip({
 		title: 'Supprimer cette note'
-	});
-	
-	$('.see-activity').tooltip({
-		title: 'Voir cette activité'
 	});
 	
 	//Add tooltip to the progress bar
@@ -86,34 +74,18 @@ $( document ).ready(function() {
 			} 
 	});
 	
-	//If the user click on "see activity" button, create an activity view
-	$(".see-activity").on('click', function(){
-		
-		$("#activity-modal-title").html("Fiche de l\'activité : " + $(this).parent().find(".activityNameForNotif").html());
-		
-		//Clean the activity modal body
-		$("#activity-modal-content").empty();
-		
-		//Link to the edition page
-		$("#activity-edition-link").attr("href", baseurl + "activity/" + $(this).parent().find(".activityIdentifiant").html());
-		
-		//Main informations
-		$("#activity-modal-content").append($("<p></p>").html("Description : <strong>" + $(this).parent().find(".activityDescription").html() + "</strong>"));
-		$("#activity-modal-content").append($("<p></p>").html("Date et heure de fin : <strong> Le " + getFullDate($(this).parent().find(".activityEndDate").html()) + "</strong>"));
-		$("#activity-modal-content").append($("<p></p>").html("Complété à : <strong>" + $(this).parent().find(".activityPercentDone").html().split(" : ")[1] + "</strong>"));
-		
-		//Comments
-		var activityCommentary = $(this).parent().find(".activityCommentary").html();
-		
-		if (activityCommentary != "") {
-			
-			$("#activity-modal-content").append($("<p></p>").html("Vous avez écrit un commentaire sur cette activité :"));
-			$("#activity-modal-content").append($("<div></div>").addClass("well").html(activityCommentary));
+	//Whenever the user clicks on the 'more details' btn, display details zone.
+	$(".more-details-trigger").on("click", function(){
+		if (!$(this).hasClass("zone-displayed")) {
+			$(this).next(".more-details-zone").velocity("slideDown", "fast");
+			$(this).addClass("zone-displayed");
+			$(this).empty().append("Moins de détails ").append($("<span></span>").addClass("glyphicon glyphicon-chevron-up"));
+		} else {
+			$(this).removeClass("zone-displayed");
+			$(this).next(".more-details-zone").velocity("slideUp", "fast");
+			$(this).empty().append("Plus de détails ").append($("<span></span>").addClass("glyphicon glyphicon-chevron-down"));
 		}
-		
-		$('#activity-modal').modal('show');
 	});
-	
 	
 	//If the user click on "delete button"
 	$(".del-activity").on('click', function(){
