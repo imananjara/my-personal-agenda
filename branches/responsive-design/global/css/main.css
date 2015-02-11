@@ -1,5 +1,7 @@
 /* My personal agenda css page */
 
+@import url(components/buttons.css);
+
 /*=============================*/
 /*            Global           */
 /*=============================*/
@@ -9,8 +11,8 @@ body
 	background-image: url(../img/crossword.png);
 }
 
-#administrator-body {
-	background-image: url(../img/bo_play_pattern.png);
+.administrator-body {
+	background-image: none;
 }
 
 .custom-well
@@ -98,6 +100,11 @@ textarea
 .activity-btn
 {
 	margin-left : 5px;
+}
+
+.more-details-trigger:hover
+{
+	cursor:pointer; 
 }
 
 /*=============================*/

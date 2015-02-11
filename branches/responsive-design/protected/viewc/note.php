@@ -9,9 +9,6 @@
 	<?php endif; ?>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
-	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/summernote.min.js"></script>
-	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
 </head>
 <body>
 <div id="notifications" class='alert alert-notification'></div>
@@ -65,6 +62,10 @@
 			 </div>
 		</div>
 	</div>
+	
+	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//js_files.php"; ?>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
+	<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/note_page.js"></script>
 </body>
-<script type="text/javascript" src="<?php echo $data['globalurl']; ?>js/note_page.js"></script>
 </html>

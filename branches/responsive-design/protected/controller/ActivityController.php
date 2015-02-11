@@ -124,6 +124,42 @@ class ActivityController extends BaseController {
 	}
 	
 	/**
+	 * Set option which determines whether the percent done is automatically calculated
+	 * or not. If auto-percent == 1, we calculate automatically activity's percent_done
+	 */
+	public function setAutoPercentDone() {
+		
+		$options = array(
+				'limit' => 1
+		);
+		
+		Doo::loadClass('Activity');
+		$activity = new Activity();
+		$activity->activity_id = $this->params['activity_id'];
+		$activity = $activity->find($options);
+		
+		$activity->auto_percent_done = $this->params['auto'];
+		$activity->update();
+	}
+	
+	/**
+	 * Update only activity percent done.
+	 */
+	public function updatePercentDoneAuto() {
+		$options = array(
+				'limit' => 1
+		);
+		
+		Doo::loadClass('Activity');
+		$activity = new Activity();
+		$activity->activity_id = $this->params['activity_id'];
+		$activity = $activity->find($options);
+		
+		$activity->percent_done = $this->params['percent'];
+		$activity->update();
+	}
+	
+	/**
 	 * Load a calendar and put activities into this
 	 * @return calendar page
 	 */

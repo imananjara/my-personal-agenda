@@ -13,6 +13,8 @@ $route['post']['/adduser'] = array('AuthenticationController', 'adduser');
 
 $route['get']['/activity'] = array('ActivityController', 'getActivityEditionPage');
 $route['get']['/activity/:activity_id'] = array('ActivityController', 'getActivityEditionPage');
+$route['get']['/activity/:activity_id/auto-percent/:auto'] = array('ActivityController', 'setAutoPercentDone');
+$route['get']['/activity/:activity_id/percent/:percent'] = array('ActivityController', 'updatePercentDoneAuto');
 $route['get']['/deleteactivity/:activity_id'] = array('ActivityController', 'deleteActivity');
 $route['post']['/saveactivity'] = array('ActivityController', 'saveActivity');
 $route['post']['/reassignactivities'] = array('ActivityController', 'reassignActivities');
@@ -38,7 +40,6 @@ $route['post']['/editnotification'] = array('UserController', 'editUserNotificat
 $route['get']['/exportactivities'] = array('ExportController', 'exportActivitiesPdf');
 
 $route['get']['/administrator'] = array('MainPageController', 'getAdministratorMainPage');
-$route['get']['/administrator/users'] = array('UserController', 'getAdministratorUsersPage');
 //-------------------------------------------------------------------
 
  

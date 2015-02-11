@@ -43,9 +43,14 @@ class ActivityBase extends DooModel{
      */
     public $commentary;
 
+    /**
+     * @var tinyint Max length is 1.
+     */
+    public $auto_percent_done;
+
     public $_table = 'activity';
     public $_primarykey = 'activity_id';
-    public $_fields = array('activity_id','activity_type_id','user_id','title','description','end_date','percent_done','commentary');
+    public $_fields = array('activity_id','activity_type_id','user_id','title','description','end_date','percent_done','commentary','auto_percent_done');
 
     public function getVRules() {
         return array(
@@ -89,6 +94,12 @@ class ActivityBase extends DooModel{
                 ),
 
                 'commentary' => array(
+                        array( 'notnull' ),
+                ),
+
+                'auto_percent_done' => array(
+                        array( 'integer' ),
+                        array( 'maxlength', 1 ),
                         array( 'notnull' ),
                 )
             );

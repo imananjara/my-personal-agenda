@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -7,9 +7,6 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="mpa-nav-bar">
-      <ul class="nav navbar-nav">
-      	<li><a href="<?php echo $data['baseurl']; ?>administrator/users">Utilisateurs</a></li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Page de <?php echo $data['session']['user']['login']; ?> <b class="caret"></b></a>
@@ -22,4 +19,4 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav><br><br>
