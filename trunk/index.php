@@ -6,6 +6,9 @@ include './protected/config/routes.conf.php';
 include './protected/config/db.conf.php';
 include './protected/config/acl.conf.php';
 
+//Load autoload (composer)
+require_once './vendor/autoload.php';
+
 #Just include this for production mode
 //include $config['BASE_PATH'].'deployment/deploy.php';
 include $config['BASE_PATH'].'Doo.php';
