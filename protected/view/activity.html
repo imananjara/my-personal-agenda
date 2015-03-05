@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=UTF-8>
+	<!-- if {{isset(activity)}} -->
+	<title>Édition d'activité - My Personal Agenda</title>
+	<!-- else -->
+	<title>Creation d'activité - My Personal Agenda</title>
+	<!-- endif -->
+	<!-- include 'css_files' -->
+	<link rel="stylesheet" href="{{globalurl}}css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+	<link href="{{globalurl}}css/bootstrap-extensions/summernote/summernote.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{globalurl}}css/bootstrap-extensions/x-editable/bootstrap-editable.css">
+</head>
+<body>
+	<div id="notifications" class='alert alert-notification'></div>
+	<!-- include 'menu_bar' -->
+	<input type="hidden" id="base-url" value="{{baseurl}}">
+	
+	<div class="row">
+  		<div class="col-md-10 col-md-offset-1">
+  			<div class="well custom-well">
+  			<!-- if {{isset(activity)}} -->
+ 			<div class="custom-well-header">Édition de l'activité <strong>"{{activity.title}}"</strong></div>
+ 			<!-- else -->
+ 			<div class="custom-well-header">Création d'une activité</div>
+ 			<!-- endif -->
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="row">
+ 		<div class="col-md-5 col-md-offset-1">
+	 		<div class="well custom-well">
+	 			<div class="custom-well-header">Informations principales</div><hr>
+	 			<form id="save-activity-form" method="post" action="{{baseurl}}saveactivity">
+	 			  <!-- if {{isset(activity)}} -->
+	 			  <input type="hidden" name="idActivity" id="idActivity" value="{{activity.activity_id}}"/>
+	 			  <!-- endif -->
+				  <div class="form-group">
+				    <label for="activityTitle" class="control-label">Titre :</label>
+				    <!-- if {{isset(activity)}} -->
+				    <input type="text" class="form-control" value="{{activity.title}}" name="activityTitle" id="activityTitle" placeholder="Titre de l'activité"/>
+				    <!-- else -->
+				    <input type="text" class="form-control" name="activityTitle" id="activityTitle" placeholder="Titre de l'activité"/>
+				    <!-- endif -->
+				  </div>
+				  <!-- if {{isset(activitytypes)}} -->
+				  <div class="form-group">
+				    <label for="activityTypes" class="control-label">Type :</label>
+				      <select id="activityTypes" name="activityTypes" class="form-control">
+				      	  <!-- loop activitytypes -->
+				      	  <!-- if {{isset(activity)}} && {{activitytypes' value.activity_type_id}} == {{activity.activity_type_id}} -->
+				      	  <option selected="selected" value="{{activitytypes' value.activity_type_id}}">{{activitytypes' value.activity_type_name}}</option>
+				      	  <!-- else -->
+				      	  <option value="{{activitytypes' value.activity_type_id}}">{{activitytypes' value.activity_type_name}}</option>
+				      	  <!-- endif -->
+				      	  <!-- endloop -->
+					  </select>
+				  </div>
+				  <!-- endif -->
+				  <div class="form-group">
+				    <label for="activityDescription" class="control-label">Description :</label>
+				    <!-- if {{isset(activity)}} -->
+				    <input type="text" class="form-control" value="{{activity.description}}" name="activityDescription" id="activityDescription" placeholder="Description de l'activité"/>
+				    <!-- else -->
+				    <input type="text" class="form-control" name="activityDescription" id="activityDescription" placeholder="Description de l'activité"/>
+				    <!-- endif -->
+				  </div>
+				  <div class="form-group">
+				    <label for="activityEndDate" class="control-label">Échéance :</label>
+				    <div class="row">
+					    <div class="col-sm-6">
+					      <div class='input-group date' id="activityEndDate">
+					      <!-- if {{isset(activity)}} -->
+					      <input type="text" class="form-control" value="{{activity.end_date}}" placeholder="Date de fin de l'activité" name="activityEndDate">
+					      <!-- else -->
+					      <input type="text" class="form-control" placeholder="Date de fin de l'activité" name="activityEndDate">
+					      <!-- endif -->
+					      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					      </div>
+					    </div>
+					    <div class="col-sm-6">
+					    	<div class='input-group date' id="activityEndHour">
+					    	<!-- if {{isset(activity)}} -->
+					    	<input type="text" class="form-control" value="{{activity.end_hour}}" placeholder="Heure de fin de l'activité" name="activityEndHour"/>
+					    	<!-- else -->
+					    	<input type="text" class="form-control" placeholder="Heure de fin de l'activité" name="activityEndHour"/>
+					    	<!-- endif -->
+					    	<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+					    	</div>
+					    </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="activityDone" class="control-label">Fait à (en %)</label>
+				      <!-- if {{isset(activity)}} && {{activity.auto_percent_done}} -->
+				      <select class="form-control" name="activityDone" id="activityDone" disabled="disabled">
+				      <!-- else -->
+				      <select class="form-control" name="activityDone" id="activityDone">
+				      <!-- endif -->
+						  <!-- for i from 0 to 100 step 10 -->
+						  <!-- if {{isset(activity)}} && {{i}} == {{activity.percent_done}} -->
+						  <option selected="selected" value="{{i}}">{{i}}</option>
+						  <!-- else -->
+						  <option value="{{i}}">{{i}}</option>
+						  <!-- endif -->
+						  <!-- endfor -->
+					  </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="activityCommentary" class="control-label">Commentaire :</label><br>
+				      <!-- if {{isset(activity)}} -->
+				      <textarea id="activityCommentary" name="activityCommentary" placeholder="Commentaires a saisir ici..." class="form-control" rows="5">{{activity.commentary}}</textarea>
+				      <!-- else -->
+				      <textarea id="activityCommentary" name="activityCommentary" placeholder="Commentaires a saisir ici..." class="form-control" rows="5"></textarea>
+				      <!-- endif -->
+				  </div>
+				  <div class="form-group">
+				      <!-- if {{isset(activity)}} -->
+				      <a id="save-activity-btn" class="btn btn-success">Éditer l'activité</a>
+				      <!-- else -->
+				      <a id="save-activity-btn" class="btn btn-success">Créer l'activité</a>
+				      <!-- endif -->
+				  </div>
+				</form>
+  			</div>
+  		</div>
+  		<div class="col-md-5">
+	  		<div class="well custom-well">
+	  			<div class="custom-well-header">Liste des tâches</div><hr>
+	  			<!-- if {{isset(activity)}} -->
+	  			<div class="alert alert-info custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Information</strong> : Pour chaque activité, il est possible de créer une ou plusieurs tâches. Pour cela, il suffit de renseigner un titre et un pourcentage puis de cliquer sur "Ajouter".</div>
+	  			<!-- if {{activity.auto_percent_done}} -->
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" checked="checked" type="checkbox"></div>
+	  			<!-- else -->
+	  			<div class="well">Calculer automatiquement mon avancement <input class="pull-right" id="auto_percent_done" type="checkbox"></div>
+	  			<!-- endif -->
+	  			<table id="task-table" class="table">
+	  				<tr>
+	  					<th>Titre</th>
+	  					<th>Fait à (en %)</th>
+	  				</tr>
+	  				<!-- if {{isset(tasks)}} -->
+	  				<!-- loop tasks -->
+	  				<tr class="task-row" id="task-{{tasks' value.task_id}}">
+	  					<td><a href="javascript:void(0)" class="task-title">{{tasks' value.title}}</a></td>
+	  					<td><a href="javascript:void(0)" class="task-percent-done" data-value="{{tasks' value.percent_done}}">{{tasks' value.percent_done}}</a></td>
+	  					<td><button class="btn btn-danger delete-task-btn">Supprimer</button>
+	  				</tr>
+	  				<!-- endloop -->
+	  				<!-- endif -->
+	  				<tr id="add-task-line">
+						<td><input type="text" name="task_title" id="task_title" class="form-control" placeholder="Titre..."></td>
+						<td>
+					      <select class="form-control" name="task_percent_done" id="task_percent_done">
+							  <!-- for i from 0 to 100 step 10 -->
+							  <option value="{{i}}">{{i}}</option>
+							  <!-- endfor -->
+						  </select>
+						</td>
+						<td><a href="javascript:void(0)" id="add-task-btn" class="btn btn-success">Ajouter</a></td>
+					</tr>
+	  			</table>
+	  			<!-- else -->
+	  			<div class="alert alert-warning custom-alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Attention</strong> : Pour pouvoir ajouter une ou plusieurs tâches à une activité, vous devez au préalable créer cette activité !</div>
+	  			<!-- endif -->
+	  		</div>
+  		</div>
+  	</div>
+  	<!-- include 'main-page-modals/activity_redirection_modal' -->
+  	
+  	<!-- include 'js_files' -->
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/moment.min.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/summernote/lang/summernote-fr-FR.js"></script>
+	<script type="text/javascript" src="{{globalurl}}js/bootstrap-extensions/x-editable/bootstrap-editable.min.js"></script>
+	<script type="text/javascript" src='{{globalurl}}js/activity_page.js'></script>
+</body>
+</html>
