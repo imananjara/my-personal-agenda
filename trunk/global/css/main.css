@@ -1,0 +1,155 @@
+/* My personal agenda css page */
+
+@import url(components/buttons.css);
+
+/*=============================*/
+/*            Global           */
+/*=============================*/
+
+body
+{
+	background-image: url(../img/crossword.png);
+}
+
+.administrator-body {
+	background-image: none;
+}
+
+.custom-well
+{
+	background-color:white;
+	border:1px none;
+	box-shadow:none;
+}
+
+.custom-well-grey
+{
+	border:1px none;
+	box-shadow:none;
+}
+
+.custom-alert
+{
+	border-color: none;
+	border: none;
+}
+
+
+.custom-well-header
+{
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.custom-panel 
+{
+	border: 1px none;
+	box-shadow:none;
+}
+
+.custom-navbar
+{
+	background-color:white;
+	border: 1px none;
+	box-shadow:none;
+	z-index:20;
+}
+
+.hidden-elements
+{
+	display:none;
+}
+
+#notifications
+{
+	position: fixed;
+	z-index:30;
+	width: 100%;
+}
+
+.form-control
+{
+	box-shadow: none!important;
+}
+
+#ajax-loader
+{
+	position: fixed;
+    left : 49%;
+	right : 49%;
+	bottom : 49%;
+	top : 49%;
+	width : auto;
+	z-index: 4;
+}
+
+.modal-xlg
+{
+	width:1000px;
+}
+
+/*=============================*/
+/*            Main             */
+/*=============================*/
+
+textarea
+{
+   resize: none;
+}
+
+.activity-btn
+{
+	margin-left : 5px;
+}
+
+.more-details-trigger:hover
+{
+	cursor:pointer; 
+}
+
+/*=============================*/
+/*         Activity            */
+/*=============================*/
+
+.task-title, .task-percent-done
+{
+	border-bottom: none!important;
+	color:black;
+}
+
+
+/*=============================*/
+/*         Parameters          */
+/*=============================*/
+
+.alert-tl-label
+{
+	padding-top:5px;
+}
+
+.activity-type-name, .activity-type-description
+{
+	border-bottom: none!important;
+	color:black;
+}
+
+.notification-panel
+{
+	box-shadow:none;
+}
+
+.reduce:hover
+{
+	cursor:pointer; 
+}
+
+.reassignment-modal-activity-name
+{
+	width:50%; 
+	vertical-align:middle!important;
+}
+
+.reassignment-modal-activity-type-list
+{
+	width:50%; 
+}
