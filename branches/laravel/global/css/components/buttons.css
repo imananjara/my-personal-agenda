@@ -1,0 +1,101 @@
+/* mpa's button css page */
+
+/*=============================*/
+/*  Danger without background  */
+/*=============================*/
+
+.btn-danger-wb { 
+  color: #D2322D; 
+  background-color: #FFFFFF; 
+  border-color: #D2322D; 
+} 
+ 
+.btn-danger-wb:hover, 
+.btn-danger-wb:focus, 
+.btn-danger-wb:active, 
+.btn-danger-wb.active, 
+.open .dropdown-toggle.btn-danger-wb { 
+  color: #FFFFFF; 
+  background-color: #D2322D; 
+  border-color: #D2322D; 
+} 
+ 
+.btn-danger-wb:active, 
+.btn-danger-wb.active, 
+.open .dropdown-toggle.btn-danger-wb { 
+  background-image: none; 
+} 
+ 
+.btn-danger-wb.disabled, 
+.btn-danger-wb[disabled], 
+fieldset[disabled] .btn-danger-wb, 
+.btn-danger-wb.disabled:hover, 
+.btn-danger-wb[disabled]:hover, 
+fieldset[disabled] .btn-danger-wb:hover, 
+.btn-danger-wb.disabled:focus, 
+.btn-danger-wb[disabled]:focus, 
+fieldset[disabled] .btn-danger-wb:focus, 
+.btn-danger-wb.disabled:active, 
+.btn-danger-wb[disabled]:active, 
+fieldset[disabled] .btn-danger-wb:active, 
+.btn-danger-wb.disabled.active, 
+.btn-danger-wb[disabled].active, 
+fieldset[disabled] .btn-danger-wb.active { 
+  background-color: #FFFFFF; 
+  border-color: #D2322D; 
+} 
+ 
+.btn-danger-wb .badge { 
+  color: #FFFFFF; 
+  background-color: #D2322D; 
+}
+
+/*=============================*/
+/* Primary without background  */
+/*=============================*/
+
+.btn-primary-wb { 
+  color: #3276B1; 
+  background-color: #FFFFFF; 
+  border-color: #3276B1; 
+} 
+ 
+.btn-primary-wb:hover, 
+.btn-primary-wb:focus, 
+.btn-primary-wb:active, 
+.btn-primary-wb.active, 
+.open .dropdown-toggle.btn-primary-wb { 
+  color: #FFFFFF; 
+  background-color: #3276B1; 
+  border-color: #3276B1; 
+} 
+ 
+.btn-primary-wb:active, 
+.btn-primary-wb.active, 
+.open .dropdown-toggle.btn-primary-wb { 
+  background-image: none; 
+} 
+ 
+.btn-primary-wb.disabled, 
+.btn-primary-wb[disabled], 
+fieldset[disabled] .btn-primary-wb, 
+.btn-primary-wb.disabled:hover, 
+.btn-primary-wb[disabled]:hover, 
+fieldset[disabled] .btn-primary-wb:hover, 
+.btn-primary-wb.disabled:focus, 
+.btn-primary-wb[disabled]:focus, 
+fieldset[disabled] .btn-primary-wb:focus, 
+.btn-primary-wb.disabled:active, 
+.btn-primary-wb[disabled]:active, 
+fieldset[disabled] .btn-primary-wb:active, 
+.btn-primary-wb.disabled.active, 
+.btn-primary-wb[disabled].active, 
+fieldset[disabled] .btn-primary-wb.active { 
+  background-color: #FFFFFF; 
+  border-color: #3276B1; 
+} 
+ 
+.btn-primary-wb .badge { 
+  color: #FFFFFF; 
+  background-color: #3276B1; 
+}
