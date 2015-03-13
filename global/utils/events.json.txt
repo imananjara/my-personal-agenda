@@ -1,1 +1,0 @@
-{"success":1,"result":[{"id":10,"title":"1ere version de test de M-P-A ","url":"http:\/\/localhost\/my-personal-agenda\/activity\/10","class":"event-info","start":1393700400000,"end":1393700400000},{"id":11,"title":"Trouver un sujet d'EIP","url":"http:\/\/localhost\/my-personal-agenda\/activity\/11","class":"event-info","start":1393578000000,"end":1393578000000}]}
