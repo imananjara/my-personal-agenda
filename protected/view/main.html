@@ -7,7 +7,7 @@
 	<!-- include 'css_files' -->
 	<link href="{{globalurl}}css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
 </head>
-<body>
+<body class="container-fluid">
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
 	<!-- include 'menu_bar' -->
 	<input type="hidden" id="base-url" value="{{baseurl}}">
@@ -22,23 +22,12 @@
 
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1">
-			<div class="pull-right">
-				<!-- if {{isset(display_export_btn)}} -->
-				<a href="{{baseurl}}exportactivities" class="btn btn-success">Exporter</a>
-				<!-- endif -->
-				<a href="{{baseurl}}activity" class="btn btn-info">Ajouter une activité</a>
-			</div>
-			<br><br><br>
 			<!-- if {{isset(activities)}} -->
 			<div id="activity-section-panel">
 				<!-- loop activities -->
 				<div class="well custom-well">
 					<div class="activityNameForNotif custom-well-header">{{activities' value.title}} ({{activities' value.activity_type.activity_type_name}})</div>
 					<hr>
-					<div class="btn-group btn-group-sm btn-group-justified">
-					  	<a href="{{baseurl}}activity/{{activities' value.activity_id}}" class="btn btn-primary-wb" style="border-right: 1px solid #000000;">Editer</a>
-					  	<a href="javascript:void(0)" id="activity-{{activities' value.activity_id}}" class="btn btn-danger-wb del-activity" style="border-left: none">Supprimer</a>
-					</div><br>
 					<p class="activityDescription">{{activities' value.description}}</p><br>
 					<!-- if {{activities' value.nb_days_left}} == 0 && {{activities' value.nb_hours_left}} == 0 && {{activities' value.nb_minutes_left}} == 0 && {{activities' value.nb_seconds_left}} == 0 -->
 					<p class="bg-success">L'activité est terminée</p><br>
@@ -76,17 +65,11 @@
 			<!-- endif -->
 		</div>
 		<div class="col-md-5">
-			<div class="pull-right">
-				<a href="{{baseurl}}note" class="btn btn-info">Ajouter une note</a>
-			</div>
-			<br><br><br>
 			<!-- if {{isset(notes)}} -->
 			<div id="note-section-panel">
 				<!-- loop notes -->
 				<div class="panel panel-info custom-panel ">
 				  <div class="panel-heading">
-				  	<a href="javascript:void(0)" id="note-{{notes' value.note_id}}" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
-				  	<a href="{{baseurl}}note/{{notes' value.note_id}}" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
 				    <h3 class="panel-title">{{notes' value.title}}</h3>
 				  </div>
 				  <div class="panel-body">{{notes' value.full_content}}</div>

@@ -7,7 +7,7 @@
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link rel="stylesheet" href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
 </head>
-<body>
+<body class="container-fluid">
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>"><br><br>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">

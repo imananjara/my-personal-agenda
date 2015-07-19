@@ -7,7 +7,7 @@
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//css_files.php"; ?>
 	<link href="<?php echo $data['globalurl']; ?>css/bootstrap-extensions/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
 </head>
-<body>
+<body class="container-fluid">
 	<div style="z-index: 10;" class='notifications bottom-right'></div>
 	<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//menu_bar.php"; ?>
 	<input type="hidden" id="base-url" value="<?php echo $data['baseurl']; ?>">
@@ -22,23 +22,12 @@
 
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1">
-			<div class="pull-right">
-				<?php if( isset($data['display_export_btn']) ): ?>
-				<a href="<?php echo $data['baseurl']; ?>exportactivities" class="btn btn-success">Exporter</a>
-				<?php endif; ?>
-				<a href="<?php echo $data['baseurl']; ?>activity" class="btn btn-info">Ajouter une activité</a>
-			</div>
-			<br><br><br>
 			<?php if( isset($data['activities']) ): ?>
 			<div id="activity-section-panel">
 				<?php foreach($data['activities'] as $k1=>$v1): ?>
 				<div class="well custom-well">
 					<div class="activityNameForNotif custom-well-header"><?php echo $v1['title']; ?> (<?php echo $v1['activity_type']['activity_type_name']; ?>)</div>
 					<hr>
-					<div class="btn-group btn-group-sm btn-group-justified">
-					  	<a href="<?php echo $data['baseurl']; ?>activity/<?php echo $v1['activity_id']; ?>" class="btn btn-primary-wb" style="border-right: 1px solid #000000;">Editer</a>
-					  	<a href="javascript:void(0)" id="activity-<?php echo $v1['activity_id']; ?>" class="btn btn-danger-wb del-activity" style="border-left: none">Supprimer</a>
-					</div><br>
 					<p class="activityDescription"><?php echo $v1['description']; ?></p><br>
 					<?php if( $v1['nb_days_left'] == 0 && $v1['nb_hours_left'] == 0 && $v1['nb_minutes_left'] == 0 && $v1['nb_seconds_left'] == 0 ): ?>
 					<p class="bg-success">L'activité est terminée</p><br>
@@ -76,17 +65,11 @@
 			<?php endif; ?>
 		</div>
 		<div class="col-md-5">
-			<div class="pull-right">
-				<a href="<?php echo $data['baseurl']; ?>note" class="btn btn-info">Ajouter une note</a>
-			</div>
-			<br><br><br>
 			<?php if( isset($data['notes']) ): ?>
 			<div id="note-section-panel">
 				<?php foreach($data['notes'] as $k1=>$v1): ?>
 				<div class="panel panel-info custom-panel ">
 				  <div class="panel-heading">
-				  	<a href="javascript:void(0)" id="note-<?php echo $v1['note_id']; ?>" class="btn btn-danger btn-xs activity-btn pull-right del-note"><span class="glyphicon glyphicon-trash"></span></a>
-				  	<a href="<?php echo $data['baseurl']; ?>note/<?php echo $v1['note_id']; ?>" class="btn btn-info btn-xs activity-btn pull-right edit-note"><span class="glyphicon glyphicon-pencil"></span></a>
 				    <h3 class="panel-title"><?php echo $v1['title']; ?></h3>
 				  </div>
 				  <div class="panel-body"><?php echo $v1['full_content']; ?></div>
