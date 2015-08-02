@@ -1,0 +1,1 @@
+Each user can create or update an activity. Activities are sorted by their remaining time, priority (soon) and percent done value. Futhermore, we can edit (create or update) a note. Customization elements such as notifications are available for the users.
